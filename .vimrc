@@ -159,3 +159,6 @@ filetype plugin indent on
 " dark color scheme
 set background=dark
 colorscheme gruvbox
+
+" Set file type explicitely for yang files
+autocmd BufNewFile,BufRead *.yang set syntax=yang
