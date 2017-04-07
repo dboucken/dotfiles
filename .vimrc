@@ -147,6 +147,9 @@ Plugin 'airblade/vim-gitgutter'
 " cscope
 Plugin 'hari-rangarajan/cctree'
 
+" yang syntax highlighting
+Plugin 'nathanalderson/yang.vim'
+
 " vundle plugins end, all plugins should be added before this line
 call vundle#end()
 
