@@ -1,4 +1,5 @@
-" install with 'git clone https://github.com/xmas-evet10/vimrc.git/.vimrc'
+" install with 'git clone https://github.com/xmas-evet10/vimrc.git/.vimrc' and
+" symlink to the .vimrc
 
 " be IMproved
 set nocompatible
@@ -124,9 +125,6 @@ call vundle#begin()
 " setup vundle before running PluginInstall:
 " " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
-
-" sensible defaults
-" Plugin 'tpope/vim-sensible'
 
 " color schemes
 Plugin 'morhetz/gruvbox'
