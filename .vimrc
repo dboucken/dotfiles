@@ -1,4 +1,4 @@
-" install with 'git clone https://github.com/xmas-evet10/vimrc.git'
+" install with 'git clone https://github.com/xmas-evet10/vimrc.git/.vimrc'
 
 " be IMproved
 set nocompatible
