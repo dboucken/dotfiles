@@ -123,7 +123,7 @@ call vundle#begin()
 
 " plugins should be added after this line, it is required that vundle manages vundle
 " setup vundle before running PluginInstall:
-" " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 
 " color schemes
