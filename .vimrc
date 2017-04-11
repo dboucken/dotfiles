@@ -128,6 +128,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " color schemes
 Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
 
 " enhanced status bar
 Plugin 'vim-airline/vim-airline'
@@ -135,20 +136,20 @@ Plugin 'vim-airline/vim-airline'
 " git wrapper
 Plugin 'tpope/vim-fugitive'
 
-" syntax checking
-Plugin 'scrooloose/syntastic'
-
 " fuzzy file finder
 Plugin 'kien/ctrlp.vim'
 
 " show git diff in gutter
 Plugin 'airblade/vim-gitgutter'
 
-" cscope
-Plugin 'hari-rangarajan/cctree'
-
 " yang syntax highlighting
 Plugin 'nathanalderson/yang.vim'
+
+" Syntax highlighting for tags
+Plugin 'TagHighlight'
+
+" syntax checking
+Plugin 'scrooloose/syntastic'
 
 " vundle plugins end, all plugins should be added before this line
 call vundle#end()
@@ -158,7 +159,18 @@ filetype plugin indent on
 
 " dark color scheme
 set background=dark
+let g:solarized_termcolors=256
 colorscheme gruvbox
 
 " Set file type explicitely for yang files
 autocmd BufNewFile,BufRead *.yang set syntax=yang
+
+" cscope keymaps
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
