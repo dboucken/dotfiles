@@ -1,6 +1,3 @@
-" install with 'git clone https://github.com/xmas-evet10/vimrc.git/.vimrc' and
-" symlink to the .vimrc
-
 " be IMproved
 set nocompatible
 
