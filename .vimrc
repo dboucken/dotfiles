@@ -16,8 +16,9 @@ set shiftround
 " auto indent on a new line
 set autoindent
 
-" show line numbers
+" line numbers
 set number
+set relativenumber
 
 " show last command in bottom bar
 set showcmd
