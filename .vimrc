@@ -149,6 +149,9 @@ Plugin 'TagHighlight'
 " syntax checking
 Plugin 'scrooloose/syntastic'
 
+" all about surroundings
+Plugin 'tpope/vim-surround'
+
 " vundle plugins end, all plugins should be added before this line
 call vundle#end()
 
