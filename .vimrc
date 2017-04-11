@@ -152,6 +152,9 @@ Plugin 'scrooloose/syntastic'
 " all about surroundings
 Plugin 'tpope/vim-surround'
 
+" javascript
+Plugin 'pangloss/vim-javascript'
+
 " vundle plugins end, all plugins should be added before this line
 call vundle#end()
 
