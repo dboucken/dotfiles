@@ -183,3 +183,7 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " ctrlp config
 let g:ctrlp_by_filename=1
 let g:ctrlp_working_path_mode='ra'
+
+" key mappings to quickly open and source vimrc
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
