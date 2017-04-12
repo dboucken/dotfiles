@@ -182,3 +182,13 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " ctrlp config
 let g:ctrlp_by_filename=1
 let g:ctrlp_working_path_mode='ra'
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = {"regex": "No such file or directory"}
