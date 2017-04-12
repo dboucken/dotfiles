@@ -127,6 +127,8 @@ Plugin 'VundleVim/Vundle.vim'
 " color schemes
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
 
 " enhanced status bar
 Plugin 'vim-airline/vim-airline'
@@ -146,9 +148,6 @@ Plugin 'nathanalderson/yang.vim'
 " Syntax highlighting for tags
 Plugin 'TagHighlight'
 
-" syntax checking
-Plugin 'scrooloose/syntastic'
-
 " all about surroundings
 Plugin 'tpope/vim-surround'
 
@@ -161,9 +160,10 @@ call vundle#end()
 " attempt to determine file type
 filetype plugin indent on
 
-" dark color scheme
+" color scheme
 set background=dark
 let g:solarized_termcolors=256
+let g:rehash256 = 1
 colorscheme gruvbox
 
 " Set file type explicitely for yang files
@@ -182,13 +182,3 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " ctrlp config
 let g:ctrlp_by_filename=1
 let g:ctrlp_working_path_mode='ra'
-
-" syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_quiet_messages = {"regex": "No such file or directory"}
