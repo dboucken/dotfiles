@@ -116,6 +116,15 @@ set laststatus=2
 " enable the use of the mouse in all modes
 set mouse=a
 
+" enable cscope quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+" automatically open quickfix window
+augroup qf
+    autocmd!
+    autocmd QuickFixCmdPost * cwindow
+augroup END
+
 " vundle plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -146,14 +155,11 @@ Plugin 'airblade/vim-gitgutter'
 " yang syntax highlighting
 Plugin 'nathanalderson/yang.vim'
 
-" Syntax highlighting for tags
-Plugin 'TagHighlight'
-
 " all about surroundings
 Plugin 'tpope/vim-surround'
 
-" javascript
-Plugin 'pangloss/vim-javascript'
+" commenting
+Plugin 'tpope/vim-commentary'
 
 " vundle plugins end, all plugins should be added before this line
 call vundle#end()
