@@ -108,15 +108,6 @@ set nowrap
 " always show the status line
 set laststatus=2
 
-" enable cscope quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-
-" automatically open quickfix window
-augroup qf
-    autocmd!
-    autocmd QuickFixCmdPost * cwindow
-augroup END
-
 " vundle plugin manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
