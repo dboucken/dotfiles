@@ -74,11 +74,6 @@ endif
 set incsearch
 set hlsearch
 
-" use <C-L> to clear the highlighting of :set hlsearch
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
-
 " ignore cases when searching lower case, don't otherwise
 set ignorecase
 set smartcase
@@ -112,9 +107,6 @@ set nowrap
 
 " always show the status line
 set laststatus=2
-
-" enable the use of the mouse in all modes
-set mouse=a
 
 " enable cscope quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -176,20 +168,39 @@ colorscheme gruvbox
 " Set file type explicitely for yang files
 autocmd BufNewFile,BufRead *.yang set syntax=yang
 
-" cscope keymaps
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
 " ctrlp config
 let g:ctrlp_by_filename=1
 let g:ctrlp_working_path_mode='ra'
 
+" use <C-L> to clear the highlighting of :set hlsearch
+if maparg('<C-L>', 'n') ==# ''
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
 " key mappings to quickly open and source vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" remap jj to esc
+:inoremap jj <Esc>
+:inoremap <Esc> <NOP>
+
+" disable arrow keys
+:inoremap <Left> <NOP>
+:inoremap <Up> <NOP>
+:inoremap <Right> <NOP>
+:inoremap <Down> <NOP>
+:nnoremap <Left> <NOP>
+:nnoremap <Up> <NOP>
+:nnoremap <Right> <NOP>
+:nnoremap <Down> <NOP>
+
+" cscope keymaps
+nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
