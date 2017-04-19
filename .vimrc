@@ -4,6 +4,48 @@ set nocompatible
 " disable filetype detection, required for vundle
 filetype off
 
+" vundle plugin manager
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" plugins should be added after this line, it is required that vundle manages vundle
+" setup vundle before running PluginInstall:
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+Plugin 'VundleVim/Vundle.vim'
+
+" color schemes
+Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
+
+" enhanced status bar
+Plugin 'vim-airline/vim-airline'
+
+" git wrapper
+Plugin 'tpope/vim-fugitive'
+
+" fuzzy file finder
+Plugin 'kien/ctrlp.vim'
+
+" show git diff in gutter
+Plugin 'airblade/vim-gitgutter'
+
+" yang syntax highlighting
+Plugin 'nathanalderson/yang.vim'
+
+" all about surroundings
+Plugin 'tpope/vim-surround'
+
+" commenting
+Plugin 'tpope/vim-commentary'
+
+" vundle plugins end, all plugins should be added before this line
+call vundle#end()
+
+" attempt to determine file type
+filetype plugin indent on
+
 " enable syntax highlighting
 syntax on
 
@@ -107,48 +149,6 @@ set nowrap
 
 " always show the status line
 set laststatus=2
-
-" vundle plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" plugins should be added after this line, it is required that vundle manages vundle
-" setup vundle before running PluginInstall:
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-Plugin 'VundleVim/Vundle.vim'
-
-" color schemes
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-
-" enhanced status bar
-Plugin 'vim-airline/vim-airline'
-
-" git wrapper
-Plugin 'tpope/vim-fugitive'
-
-" fuzzy file finder
-Plugin 'kien/ctrlp.vim'
-
-" show git diff in gutter
-Plugin 'airblade/vim-gitgutter'
-
-" yang syntax highlighting
-Plugin 'nathanalderson/yang.vim'
-
-" all about surroundings
-Plugin 'tpope/vim-surround'
-
-" commenting
-Plugin 'tpope/vim-commentary'
-
-" vundle plugins end, all plugins should be added before this line
-call vundle#end()
-
-" attempt to determine file type
-filetype plugin indent on
 
 " color scheme
 set background=dark
