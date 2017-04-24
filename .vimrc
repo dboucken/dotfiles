@@ -100,7 +100,7 @@ colorscheme gruvbox             " default colour scheme
 let g:ctrlp_by_filename=1   " search by filename as default
 
 " -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
+" AUTOCMDS
 " -------------------------------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.yang set syntax=yang   " Set file type explicitely for yang files
 
