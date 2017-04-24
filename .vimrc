@@ -124,10 +124,12 @@ function! EnhanceCSyntax()
     syntax match cOperator "/$"
     syntax match cOperator "&&\|||"
     syntax match cOperator "[][]"
+    syntax match cDelimeter "[();\\]"
     highlight def link cFunction Function
     highlight def link customType cType
     highlight def link cBoolean Boolean
     highlight def link cOperator Operator
+    highlight def link cDelimeter Delimiter
 endfunction
 augroup syntax_enhancements
     autocmd!
