@@ -26,6 +26,8 @@ Plugin 'airblade/vim-gitgutter'             " show git diff in gutter
 Plugin 'nathanalderson/yang.vim'            " yang syntax highlighting
 Plugin 'tpope/vim-surround'                 " all about surroundings
 Plugin 'tpope/vim-commentary'               " commenting
+Plugin 'pangloss/vim-javascript'            " better javascript support
+Plugin 'w0rp/ale'                           " aync linting plugin
 
 call vundle#end()   " vundle plugins end, all plugins should be added before this line
 
