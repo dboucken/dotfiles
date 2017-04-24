@@ -105,14 +105,8 @@ let g:ctrlp_by_filename=1   " search by filename as default
 " -------------------------------------------------------------------------------------------------
 " AUTOCMDS
 " -------------------------------------------------------------------------------------------------
-" set file type explicitely for some files
-augroup ft
-    autocmd!
-    autocmd BufNewFile,BufRead *.yang set syntax=yang
-augroup END
-
 " automatically open quickfix window
-augroup qf
+augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost * cwindow
 augroup END
