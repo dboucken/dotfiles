@@ -105,6 +105,12 @@ colorscheme gruvbox             " default colour scheme
 " ctrlp config
 let g:ctrlp_by_filename=1   " search by filename as default
 
+" ale disable c/cpp linting
+let g:ale_linters = {
+\   'c': [],
+\   'cpp': [],
+\}
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
