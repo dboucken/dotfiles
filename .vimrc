@@ -87,6 +87,9 @@ set smartcase   " don't ignore case when inserting uppercase characters
 set nobackup    " disable backups
 set noswapfile  " disable swapfiles
 
+" cscope
+set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
+
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
@@ -103,6 +106,12 @@ let g:ctrlp_by_filename=1   " search by filename as default
 " AUTOCMDS
 " -------------------------------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.yang set syntax=yang   " Set file type explicitely for yang files
+
+" automatically open quickfix window
+augroup qf
+    autocmd!
+    autocmd QuickFixCmdPost * cwindow
+augroup END
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
