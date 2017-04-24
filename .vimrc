@@ -55,6 +55,7 @@ set scrolloff=7                 " set 7 lines to the cursor when moving vertical
 set cmdheight=2                 " increase the height of the command bar
 set nowrap                      " dont't wrap
 set laststatus=2                " always show the status line
+set completeopt=longest,menuone " better autocompletion
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
