@@ -1,11 +1,9 @@
-" be IMproved
-set nocompatible
+" -------------------------------------------------------------------------------------------------
+" PLUGIN MANAGER
+" -------------------------------------------------------------------------------------------------
+filetype off    " disable filetype detection, required for vundle
 
-" disable filetype detection, required for vundle
-filetype off
-
-" vundle plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim   " vundle plugin manager
 call vundle#begin()
 
 " plugins should be added after this line, it is required that vundle manages vundle
@@ -18,155 +16,100 @@ Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'sjl/badwolf'
 
-" enhanced status bar
-Plugin 'vim-airline/vim-airline'
+" plugins
+Plugin 'vim-airline/vim-airline'            " enhanced status bar
+Plugin 'tpope/vim-fugitive'                 " git wrapper
+Plugin 'kien/ctrlp.vim'                     " fuzzy file finder
+Plugin 'airblade/vim-gitgutter'             " show git diff in gutter
+Plugin 'nathanalderson/yang.vim'            " yang syntax highlighting
+Plugin 'tpope/vim-surround'                 " all about surroundings
+Plugin 'tpope/vim-commentary'               " commenting
 
-" git wrapper
-Plugin 'tpope/vim-fugitive'
+call vundle#end()   " vundle plugins end, all plugins should be added before this line
 
-" fuzzy file finder
-Plugin 'kien/ctrlp.vim'
+" -------------------------------------------------------------------------------------------------
+" GENERAL SETTINGS
+" -------------------------------------------------------------------------------------------------
+filetype plugin indent on       " attempt to determine file type
+syntax on                       " enable syntax highlighting
+set synmaxcol=250               " only syntax highlight the first 250 columns
+set cursorline                  " highlight current line
+set colorcolumn=100             " set vertical line at 100 characters
+set wildmenu                    " visual autocomplete for command menu
+set report=0                    " always report changed lines
+set lazyredraw                  " only redraw when necessary
+set ttyfast                     " always assume a fast terminal
+set autoread                    " reload file when changed outside vim
+set showmatch                   " show matching brackets
+set display+=lastline           " show as much as possible of the last line
+set splitbelow                  " open new horizontal split below the current one
+set splitright                  " open new vertical split right of the current one
+set history=1000                " increase history
+set undolevels=1000             " increase undo levels
+set visualbell                  " use visual bell instead of beeping
+set backspace=indent,eol,start  " allow backspacing over autoindent, line breaks and insert action
+set hidden                      " buffer becomes hidden when it is abandoned
+set scrolloff=7                 " set 7 lines to the cursor when moving vertically
+set cmdheight=2                 " increase the height of the command bar
+set nowrap                      " dont't wrap
+set laststatus=2                " always show the status line
 
-" show git diff in gutter
-Plugin 'airblade/vim-gitgutter'
-
-" yang syntax highlighting
-Plugin 'nathanalderson/yang.vim'
-
-" all about surroundings
-Plugin 'tpope/vim-surround'
-
-" commenting
-Plugin 'tpope/vim-commentary'
-
-" vundle plugins end, all plugins should be added before this line
-call vundle#end()
-
-" attempt to determine file type
-filetype plugin indent on
-
-" enable syntax highlighting
-syntax on
-
-" set tabs to 4 spaces
-set tabstop=4
-set softtabstop=4
-set expandtab
-set shiftround
-set shiftwidth=4
-
-" auto indent on a new line
-set autoindent
+" tabs and indentation
+set tabstop=4       " number of visual spaces per tab
+set softtabstop=4   " number of spaces per tab when editing
+set expandtab       " tabs are spaces
+set shiftround      " round to multiple of shiftwidth when adjusting indentation
+set shiftwidth=4    " number of spaces for each step of autoindent
+set autoindent      " auto indent on a new line
 
 " line numbers
-set number
-set relativenumber
+set number          " enable line numbers
+set relativenumber  " handy relative line numbers
 
-" show last command in bottom bar
-set showcmd
+" key timeouts
+set notimeout       " quickly time out on keycodes, but never time out on mappings
+set ttimeout        " quickly time out on keycodes, but never time out on mappings
+set ttimeoutlen=200 " quickly time out on keycodes, but never time out on mappings
 
-" highlight current line
-set cursorline
+" non printable characters
+set list                                                    " show non-printable characters
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+   " customize shown characters
 
-" set vertical line at 100 characters
-set colorcolumn=100
+" search
+set incsearch   " search as characters are entered
+set hlsearch    " highlight matches
+set ignorecase  " ignore case when searching lowercase
+set smartcase   " don't ignore case when inserting uppercase characters
 
-" show current position in bottom bar
-set ruler
+" backups
+set nobackup    " disable backups
+set noswapfile  " disable swapfiles
 
-" visual autocomplete for command menu
-set wildmenu
-
-" always report changed lines
-set report=0
-
-" only syntax highlight the first 250 columns
-set synmaxcol=250
-
-" only redraw when necessary
-set lazyredraw
-set ttyfast
-
-" quickly time out on keycodes, but never time out on mappings
-set notimeout
-set ttimeout
-set ttimeoutlen=200
-
-" reload file when changed outside vim
-set autoread
-
-" show matching brackets
-set showmatch
-
-" show as much as possible of the last line
-set display+=lastline
-
-" open new windows below and to the right
-set splitbelow
-set splitright
-
-" non-printable characters
-set list
-if &listchars ==# 'eol:$'
-    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-
-" search incrementally and highlight search results
-set incsearch
-set hlsearch
-
-" ignore cases when searching lower case, don't otherwise
-set ignorecase
-set smartcase
-
-" increase history and undo levels
-set history=1000
-set undolevels=1000
-
-" disable sounds
-set visualbell
-set noerrorbells
-
-" allow backspacing over autoindent, line breaks and insert action
-set backspace=indent,eol,start
-
-" disable backups
-set nobackup
-set noswapfile
-
-" buffer becomes hidden when it is abandoned
-set hidden
-
-" set 7 lines to the cursor when moving vertically
-set scrolloff=7
-
-" increase the height of the command bar
-set cmdheight=2
-
-" dont't wrap
-set nowrap
-
-" always show the status line
-set laststatus=2
-
-" color scheme
-set background=dark
-let g:solarized_termcolors=256
-let g:rehash256 = 1
-colorscheme gruvbox
-
-" Set file type explicitely for yang files
-autocmd BufNewFile,BufRead *.yang set syntax=yang
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+" color scheme settings
+set background=dark             " use a dark background colour
+let g:solarized_termcolors=256  " enhance solarized terminal colours
+let g:rehash256=1               " enhance molokai terminal colours
+colorscheme gruvbox             " default colour scheme
 
 " ctrlp config
-let g:ctrlp_by_filename=1
-let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_by_filename=1   " search by filename as default
+
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.yang set syntax=yang   " Set file type explicitely for yang files
+
+" -------------------------------------------------------------------------------------------------
+" CUSTOM KEY MAPPINGS
+" -------------------------------------------------------------------------------------------------
 
 " use <C-L> to clear the highlighting of :set hlsearch
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+nnoremap <C-L> :nohlsearch<CR>
 
 " key mappings to quickly open and source vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
