@@ -112,6 +112,16 @@ augroup quickfix
     autocmd QuickFixCmdPost * cwindow
 augroup END
 
+" add syntax highlighting for c functions
+function! EnhanceCSyntax()
+    syntax match c_function /\w\+\s*(/me=e-1,he=e-1
+    highlight def link c_function Function
+endfunction
+augroup syntax_enhancements
+    autocmd!
+    autocmd Syntax c call EnhanceCSyntax
+augroup END
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
