@@ -104,7 +104,7 @@ colorscheme gruvbox             " default colour scheme
 let g:ctrlp_by_filename=1   " search by filename as default
 
 " -------------------------------------------------------------------------------------------------
-" AUTOCMDS
+" CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
 " automatically open quickfix window
 augroup quickfix
@@ -116,6 +116,7 @@ augroup END
 function! EnhanceCSyntax()
     syntax match c_function /\w\+\s*(/me=e-1,he=e-1
     highlight def link c_function Function
+    syntax keyword cType tUint32 tUint8 tUint16 tBoolean tInt32 tInt16 tInt8
 endfunction
 augroup syntax_enhancements
     autocmd!
