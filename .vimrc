@@ -125,19 +125,9 @@ function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
     syntax keyword cBoolean true false TRUE FALSE
-    syntax match cOperator "\(<<\|>>\|[-+*/%&^|<>!=]\)="
-    syntax match cOperator "<<\|>>\|&&\|||\|++\|--\|->"
-    syntax match cOperator "[.!~*&%<>^|=,+-]"
-    syntax match cOperator "/[^/*=]"me=e-1
-    syntax match cOperator "/$"
-    syntax match cOperator "&&\|||"
-    syntax match cOperator "[][]"
-    syntax match cDelimeter "[();\\]"
     highlight def link cFunction Function
     highlight def link customType cType
     highlight def link cBoolean Boolean
-    highlight def link cOperator Operator
-    highlight def link cDelimeter Delimiter
 endfunction
 augroup syntax_enhancements
     autocmd!
