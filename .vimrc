@@ -119,7 +119,7 @@ function! EnhanceCSyntax()
 endfunction
 augroup syntax_enhancements
     autocmd!
-    autocmd Syntax c call EnhanceCSyntax
+    autocmd Syntax c call EnhanceCSyntax()
 augroup END
 
 " -------------------------------------------------------------------------------------------------
