@@ -116,12 +116,13 @@ augroup END
 function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     highlight def link cFunction Function
-    syntax match customType /tUint32/
+    syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
     highlight def link customType Type
 endfunction
 augroup syntax_enhancements
     autocmd!
     autocmd Syntax c call EnhanceCSyntax()
+    autocmd Syntax cpp call EnhanceCSyntax()
 augroup END
 
 " -------------------------------------------------------------------------------------------------
