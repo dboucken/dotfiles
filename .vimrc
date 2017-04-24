@@ -117,7 +117,7 @@ function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     highlight def link cFunction Function
     syntax keyword customType tUint32 tUint8 tUint16 tBoolean tInt32 tInt16 tInt8
-    highlight def link customType cType
+    highlight def link customType Type
 endfunction
 augroup syntax_enhancements
     autocmd!
