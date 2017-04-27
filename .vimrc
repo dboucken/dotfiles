@@ -38,7 +38,7 @@ filetype plugin indent on       " attempt to determine file type
 syntax on                       " enable syntax highlighting
 set synmaxcol=250               " only syntax highlight the first 250 columns
 set cursorline                  " highlight current line
-set colorcolumn=100             " set vertical line at 100 characters
+set colorcolumn=101             " set vertical line at 101 characters
 set wildmenu                    " visual autocomplete for command menu
 set report=0                    " always report changed lines
 set lazyredraw                  " only redraw when necessary
