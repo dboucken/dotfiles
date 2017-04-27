@@ -157,19 +157,8 @@ nnoremap <C-L> :nohlsearch<CR>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" remap jj to esc
+" map jj to esc
 :inoremap jj <Esc>
-:inoremap <Esc> <NOP>
-
-" disable arrow keys
-:inoremap <Left> <NOP>
-:inoremap <Up> <NOP>
-:inoremap <Right> <NOP>
-:inoremap <Down> <NOP>
-:nnoremap <Left> <NOP>
-:nnoremap <Up> <NOP>
-:nnoremap <Right> <NOP>
-:nnoremap <Down> <NOP>
 
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
