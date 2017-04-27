@@ -100,7 +100,7 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
 set background=dark             " use a dark background colour
 let g:solarized_termcolors=256  " enhance solarized terminal colours
 let g:rehash256=1               " enhance molokai terminal colours
-colorscheme gruvbox             " default colour scheme
+colorscheme jellybeans          " default colour scheme
 
 " ctrlp config
 let g:ctrlp_by_filename=1   " search by filename as default
