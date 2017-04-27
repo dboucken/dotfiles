@@ -58,6 +58,7 @@ set cmdheight=2                 " increase the height of the command bar
 set nowrap                      " dont't wrap
 set laststatus=2                " always show the status line
 set completeopt=longest,menuone " better autocompletion
+set mouse=a                     " enable mouse support
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
