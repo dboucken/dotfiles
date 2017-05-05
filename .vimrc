@@ -160,6 +160,9 @@ nnoremap <C-L> :nohlsearch<CR>
 " map jj to esc
 :inoremap jj <Esc>
 
+" delete trailing whitespace on a line
+:nnoremap <leader>dd :s/\s\+$//e<cr>
+
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
