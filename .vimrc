@@ -147,6 +147,20 @@ augroup syntax_enhancements
     autocmd Syntax cpp call EnhanceCSyntax()
 augroup END
 
+" autoload cscope database
+function! LoadCscope()
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        set nocscopeverbose
+        exe "cs add " . db . " " . path
+        set cscopeverbose
+    endif
+endfunction
+augroup cscope
+    autocmd!
+    autocmd BufEnter /* call LoadCscope()
+augroup END
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
