@@ -1,35 +1,36 @@
 " -------------------------------------------------------------------------------------------------
 " PLUGIN MANAGER
 " -------------------------------------------------------------------------------------------------
-filetype off    " disable filetype detection, required for vundle
+" install vim-plug if it is not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd vimEnter * PluginInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim   " vundle plugin manager
-call vundle#begin()
-
-" plugins should be added after this line, it is required that vundle manages vundle
-" setup vundle before running PluginInstall:
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-Plugin 'VundleVim/Vundle.vim'
+" plugins should be added after this line
+call plug#begin()
 
 " color schemes
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sjl/badwolf'
 
 " plugins
-Plugin 'vim-airline/vim-airline'            " enhanced status bar
-Plugin 'tpope/vim-fugitive'                 " git wrapper
-Plugin 'kien/ctrlp.vim'                     " fuzzy file finder
-Plugin 'airblade/vim-gitgutter'             " show git diff in gutter
-Plugin 'nathanalderson/yang.vim'            " yang syntax highlighting
-Plugin 'tpope/vim-surround'                 " all about surroundings
-Plugin 'tpope/vim-commentary'               " commenting
-Plugin 'pangloss/vim-javascript'            " better javascript support
-Plugin 'w0rp/ale'                           " aync linting plugin
+Plug 'vim-airline/vim-airline'                                      " enhanced status bar
+Plug 'tpope/vim-fugitive'                                           " git wrapper
+Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
+Plug 'airblade/vim-gitgutter'                                       " show git diff in gutter
+Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }               " yang syntax highlighting
+Plug 'tpope/vim-surround'                                           " all about surroundings
+Plug 'tpope/vim-commentary'                                         " commenting
+Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
+Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
 
-call vundle#end()   " vundle plugins end, all plugins should be added before this line
+" all plugins should be added before this line
+call plug#end()
 
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
