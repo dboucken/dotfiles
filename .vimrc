@@ -60,6 +60,7 @@ set nowrap                      " dont't wrap
 set laststatus=2                " always show the status line
 set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
+set autowriteall                " autosave files
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
