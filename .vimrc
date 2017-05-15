@@ -121,6 +121,7 @@ colorscheme jellybeans          " default colour scheme
 
 " ctrlp config
 let g:ctrlp_by_filename=1   " search by filename as default
+let g:ctrlp_max_files=0     " don't limit the number of files
 
 " airline config
 let g:airline_theme='jellybeans'
