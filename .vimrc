@@ -65,6 +65,7 @@ set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 set path+=**                    " add this to the path to enable recursive file lookup
+set wildignore+=*cscope*,tags   " ignore these files for eg. vimgrep
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -182,6 +183,9 @@ nnoremap <C-L> :nohlsearch<CR>
 
 " edit read only files
 :cnoremap sudow w !sudo tee % >/dev/null
+
+" grep for current word in same directory of current file
+:nnoremap gr :vimgrep <cword> %:p:h/*<cr>
 
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
