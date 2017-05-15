@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'                                           " all about 
 Plug 'tpope/vim-commentary'                                         " commenting
 Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
+Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
 
 " all plugins should be added before this line
 call plug#end()
