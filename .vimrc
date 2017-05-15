@@ -19,6 +19,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 
 " plugins
+Plug 'vim-airline/vim-airline'                                      " enhanced status line
+Plug 'vim-airline/vim-airline-themes'                               " status line color themes
 Plug 'tpope/vim-fugitive'                                           " git wrapper
 Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
 Plug 'airblade/vim-gitgutter'                                       " show git diff in gutter
@@ -27,7 +29,6 @@ Plug 'tpope/vim-surround'                                           " all about 
 Plug 'tpope/vim-commentary'                                         " commenting
 Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
-Plug 'itchyny/lightline.vim'                                        " lightweight status line
 
 " all plugins should be added before this line
 call plug#end()
@@ -120,10 +121,8 @@ colorscheme jellybeans          " default colour scheme
 " ctrlp config
 let g:ctrlp_by_filename=1   " search by filename as default
 
-" lightline config
-let g:lightline = { 
-            \ 'colorscheme': 'jellybeans',
-            \ }
+" airline config
+let g:airline_theme='jellybeans'
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
