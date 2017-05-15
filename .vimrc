@@ -30,6 +30,7 @@ Plug 'tpope/vim-commentary'                                         " commenting
 Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
 Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
+Plug 'sedan07/vim-mib'                                              " mib syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
@@ -120,8 +121,9 @@ let g:rehash256=1               " enhance molokai terminal colours
 colorscheme jellybeans          " default colour scheme
 
 " ctrlp config
-let g:ctrlp_by_filename=1   " search by filename as default
-let g:ctrlp_max_files=0     " don't limit the number of files
+let g:ctrlp_by_filename=1           " search by filename as default
+let g:ctrlp_max_files=0             " don't limit the number of files
+let g:ctrlp_clear_cache_on_exit=0   " don't clear cache on exit
 
 " airline config
 let g:airline_theme='jellybeans'
