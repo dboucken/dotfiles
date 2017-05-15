@@ -19,7 +19,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 
 " plugins
-Plug 'vim-airline/vim-airline'                                      " enhanced status bar
 Plug 'tpope/vim-fugitive'                                           " git wrapper
 Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
 Plug 'airblade/vim-gitgutter'                                       " show git diff in gutter
@@ -28,6 +27,7 @@ Plug 'tpope/vim-surround'                                           " all about 
 Plug 'tpope/vim-commentary'                                         " commenting
 Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
+Plug 'itchyny/lightline.vim'                                        " lightweight status line
 
 " all plugins should be added before this line
 call plug#end()
@@ -61,6 +61,7 @@ set laststatus=2                " always show the status line
 set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
+set noshowmode                  " don't show mode as we use a status line plugin
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -119,11 +120,10 @@ colorscheme jellybeans          " default colour scheme
 " ctrlp config
 let g:ctrlp_by_filename=1   " search by filename as default
 
-" ale disable c/cpp linting
-let g:ale_linters = {
-\   'c': [],
-\   'cpp': [],
-\}
+" lightline config
+let g:lightline = { 
+            \ 'colorscheme': 'jellybeans',
+            \ }
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
