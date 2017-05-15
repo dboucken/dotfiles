@@ -176,9 +176,8 @@ nnoremap <C-L> :nohlsearch<CR>
 " map jj to esc
 :inoremap jj <Esc>
 
-" change : and ; mappings
+" map ; to :
 :nnoremap ; :
-:nnoremap : ;
 
 " delete trailing whitespace on a line
 :nnoremap <leader>dd :s/\s\+$//e<cr>
