@@ -181,6 +181,9 @@ nnoremap <C-L> :nohlsearch<CR>
 " delete trailing whitespace on a line
 :nnoremap <leader>dd :s/\s\+$//e<cr>
 
+" edit read only files
+:cnoremap sudow w !sudo tee % >/dev/null
+
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
