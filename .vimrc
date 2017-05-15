@@ -22,7 +22,6 @@ Plug 'sjl/badwolf'
 Plug 'vim-airline/vim-airline'                                      " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                               " status line color themes
 Plug 'tpope/vim-fugitive'                                           " git wrapper
-Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
 Plug 'airblade/vim-gitgutter'                                       " show git diff in gutter
 Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }               " yang syntax highlighting
 Plug 'tpope/vim-surround'                                           " all about surroundings
@@ -30,7 +29,7 @@ Plug 'tpope/vim-commentary'                                         " commenting
 Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
 Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
-Plug 'sedan07/vim-mib'                                              " mib syntax highlighting
+Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
@@ -65,6 +64,7 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
+set path+=**                    " add this to the path to enable recursive file lookup
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -119,11 +119,6 @@ set background=dark             " use a dark background colour
 let g:solarized_termcolors=256  " enhance solarized terminal colours
 let g:rehash256=1               " enhance molokai terminal colours
 colorscheme jellybeans          " default colour scheme
-
-" ctrlp config
-let g:ctrlp_by_filename=1           " search by filename as default
-let g:ctrlp_max_files=0             " don't limit the number of files
-let g:ctrlp_clear_cache_on_exit=0   " don't clear cache on exit
 
 " airline config
 let g:airline_theme='jellybeans'
