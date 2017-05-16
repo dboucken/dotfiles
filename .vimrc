@@ -31,6 +31,7 @@ Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linti
 Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
 Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax highlighting
 Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
+Plug 'tpope/vim-dispatch'                                           " async make
 
 " all plugins should be added before this line
 call plug#end()
