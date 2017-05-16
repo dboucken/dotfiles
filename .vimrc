@@ -30,6 +30,7 @@ Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better jav
 Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
 Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
 Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax highlighting
+Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
 
 " all plugins should be added before this line
 call plug#end()
@@ -124,6 +125,8 @@ colorscheme jellybeans          " default colour scheme
 " airline config
 let g:airline_theme='jellybeans'
 
+" easy grep open search and replace matches not in a new tab
+let g:EasyGrepReplaceWindowMode=2
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
@@ -183,9 +186,6 @@ nnoremap <C-L> :nohlsearch<CR>
 
 " edit read only files
 :cnoremap sudow w !sudo tee % >/dev/null
-
-" grep for current word in same directory of current file
-:nnoremap gr :vimgrep <cword> %:p:h/*<cr>
 
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
