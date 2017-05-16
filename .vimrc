@@ -66,7 +66,6 @@ set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 set path+=**                    " add this to the path to enable recursive file lookup
-set wildignore+=*cscope*,tags   " ignore these files for eg. vimgrep
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -127,6 +126,7 @@ let g:airline_theme='jellybeans'
 
 " easy grep open search and replace matches not in a new tab
 let g:EasyGrepReplaceWindowMode=2
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
@@ -165,24 +165,18 @@ augroup cscope
     autocmd!
     autocmd BufEnter /* call LoadCscope()
 augroup END
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
 " use <C-L> to clear the highlighting of :set hlsearch
 nnoremap <C-L> :nohlsearch<CR>
 
-" key mappings to quickly open and source vimrc
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
-
 " map jj to esc
 :inoremap jj <Esc>
 
 " map ; to :
 :nnoremap ; :
-
-" delete trailing whitespace on a line
-:nnoremap <leader>dd :s/\s\+$//e<cr>
 
 " edit read only files
 :cnoremap sudow w !sudo tee % >/dev/null
@@ -196,3 +190,10 @@ nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" key mappings to quickly open and source vimrc
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" delete trailing whitespace on a line
+:nnoremap <leader>dd :s/\s\+$//e<cr>
