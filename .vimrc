@@ -68,7 +68,6 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
-let mapleader=" "               " use space as leader
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -187,9 +186,6 @@ augroup END
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
-" use <C-L> to clear the highlighting of :set hlsearch
-nnoremap <C-L> :nohlsearch<CR>
-
 " map jj to esc
 :inoremap jj <Esc>
 
@@ -208,6 +204,15 @@ nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" -------------------------------------------------------------------------------------------------
+" LEADER KEY MAPPINGS
+" -------------------------------------------------------------------------------------------------
+" use space as leader
+let mapleader=" "
+
+" clear the highlighting of :set hlsearch
+nnoremap <leader>l :nohlsearch<CR>
 
 " key mappings to quickly open and source vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
