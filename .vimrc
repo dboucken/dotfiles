@@ -212,7 +212,7 @@ nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 let mapleader=" "
 
 " clear the highlighting of :set hlsearch
-nnoremap <leader>l :nohlsearch<CR>
+nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " key mappings to quickly open and source vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
