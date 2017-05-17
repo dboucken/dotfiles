@@ -68,7 +68,6 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
-set wildignore=*cscope*,tags    " ignore cscope and tags files
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -114,6 +113,10 @@ set errorformat+=%.%./%f:%l:\ %trror:\ %m
 set errorformat+=%.%./%f:%l:\ %tarning:\ %m
 set errorformat+=%f:%l:\ %trror:\ %m
 set errorformat+=%f:%l:\ %tarning:\ %m
+
+" wildignore
+set wildignore+=*cscope*
+set wildignore+=tags
 
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
