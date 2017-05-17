@@ -33,6 +33,7 @@ Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax
 Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
 Plug 'tpope/vim-dispatch'                                           " async make
 Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
+Plug 'FelikZ/ctrlp-py-matcher'
 
 " all plugins should be added before this line
 call plug#end()
@@ -133,7 +134,15 @@ let g:ctrlp_use_caching=0
 let g:ctrlp_by_filename=1
 let g:ctrlp_use_caching=0
 let g:ctrlp_max_files=0
-le g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
+let g:ctrlp_lazy_update=125
+let g:ctrlp_match_window='bottom,order:btt,min:1,max:10,results:50'
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files'],
+        \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
+let g:ctrlp_match_func={ 'match': 'pymatcher#PyMatch' }
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
