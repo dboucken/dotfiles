@@ -32,6 +32,7 @@ Plug 'tpope/vim-unimpaired'                                         " some usefu
 Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax highlighting
 Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
 Plug 'tpope/vim-dispatch'                                           " async make
+Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
 
 " all plugins should be added before this line
 call plug#end()
@@ -66,7 +67,6 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
-set path+=**                    " add this to the path to enable recursive file lookup
 
 " tabs and indentation
 set tabstop=4       " number of visual spaces per tab
@@ -127,6 +127,13 @@ let g:airline_theme='jellybeans'
 
 " easy grep open search and replace matches not in a new tab
 let g:EasyGrepReplaceWindowMode=2
+
+" ctrlp settings
+let g:ctrlp_use_caching=0
+let g:ctrlp_by_filename=1
+let g:ctrlp_use_caching=0
+let g:ctrlp_max_files=0
+le g:ctrlp_user_command=['.git', 'cd %s && git ls-files']
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
