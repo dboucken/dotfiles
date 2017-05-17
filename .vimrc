@@ -33,7 +33,7 @@ Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax
 Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
 Plug 'tpope/vim-dispatch'                                           " async make
 Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'FelikZ/ctrlp-py-matcher'                                      " faster matcher for ctrlp
 
 " all plugins should be added before this line
 call plug#end()
