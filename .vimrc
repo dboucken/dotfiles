@@ -217,3 +217,6 @@ nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " search and replace word under cursor in a file
 :nnoremap <leader>sr :%s/\<<C-r><C-w>\>//g<left><left>
+
+" remap ctrl-w
+:nnoremap <leader>w <C-w>
