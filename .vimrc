@@ -103,17 +103,6 @@ set noswapfile  " disable swapfiles
 " cscope
 set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
 
-" make (need to review and cleanup errorformat)
-set makeprg=mk\ cpm\ i386
-set errorformat=%.%./%f:%l:%c:\ %trror:\ %m
-set errorformat+=%.%./%f:%l:%c:\ %tarning:\ %m
-set errorformat+=%f:%l:%c:\ %trror:\ %m
-set errorformat+=%f:%l:%c:\ %tarning:\ %m
-set errorformat+=%.%./%f:%l:\ %trror:\ %m
-set errorformat+=%.%./%f:%l:\ %tarning:\ %m
-set errorformat+=%f:%l:\ %trror:\ %m
-set errorformat+=%f:%l:\ %tarning:\ %m
-
 " wildignore
 set wildignore+=*cscope*
 set wildignore+=tags
@@ -186,6 +175,14 @@ augroup cscope
     autocmd!
     autocmd BufEnter /* call LoadCscope()
 augroup END
+
+augroup make
+    autocmd!
+    autocmd Filetype c,cpp set makeprg=mk\ cpm\ i386
+    autocmd Filetype c,cpp :compiler gcc
+compiler gcc
+
+augroup end
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
