@@ -184,6 +184,12 @@ augroup make
     autocmd Filetype c,cpp :compiler gcc
 augroup end
 
+" automatically cleanup fugitive buffers
+augroup fugitive
+    autocmd!
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup end
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
