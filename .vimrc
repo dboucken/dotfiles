@@ -18,22 +18,23 @@ Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 
-" plugins
-Plug 'vim-airline/vim-airline'                                      " enhanced status line
-Plug 'vim-airline/vim-airline-themes'                               " status line color themes
-Plug 'tpope/vim-fugitive'                                           " git wrapper
-Plug 'airblade/vim-gitgutter'                                       " show git diff in gutter
-Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }               " yang syntax highlighting
-Plug 'tpope/vim-surround'                                           " all about surroundings
-Plug 'tpope/vim-commentary'                                         " commenting
-Plug 'pangloss/vim-javascript',     { 'for': 'javascript' }         " better javascript support
-Plug 'w0rp/ale',                    { 'for': 'javascript' }         " aync linting plugin
-Plug 'tpope/vim-unimpaired'                                         " some useful key mappings
-Plug 'sedan07/vim-mib',             { 'for': 'mib' }                " mib syntax highlighting
-Plug 'dkprice/vim-easygrep'                                         " project wide search/replace
-Plug 'tpope/vim-dispatch'                                           " async make
-Plug 'kien/ctrlp.vim'                                               " fuzzy file finder
-Plug 'FelikZ/ctrlp-py-matcher'                                      " faster matcher for ctrlp
+                                                            " plugins
+Plug 'vim-airline/vim-airline'                              " enhanced status line
+Plug 'vim-airline/vim-airline-themes'                       " status line color themes
+Plug 'tpope/vim-fugitive'                                   " git wrapper
+Plug 'airblade/vim-gitgutter'                               " show git diff in gutter
+Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }       " yang syntax highlighting
+Plug 'tpope/vim-surround'                                   " all about surroundings
+Plug 'tpope/vim-commentary'                                 " commenting
+Plug 'pangloss/vim-javascript',     { 'for': 'javascript' } " better javascript support
+Plug 'w0rp/ale',                    { 'for': 'javascript' } " aync linting plugin
+Plug 'tpope/vim-unimpaired'                                 " some useful key mappings
+Plug 'sedan07/vim-mib',             { 'for': 'mib' }        " mib syntax highlighting
+Plug 'dkprice/vim-easygrep'                                 " project wide search/replace
+Plug 'tpope/vim-dispatch'                                   " async make
+Plug 'kien/ctrlp.vim'                                       " fuzzy file finder
+Plug 'FelikZ/ctrlp-py-matcher'                              " faster matcher for ctrlp
+Plug 'godlygeek/tabular'                                    " align text
 
 " all plugins should be added before this line
 call plug#end()
@@ -70,16 +71,16 @@ set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 
 " tabs and indentation
-set tabstop=4       " number of visual spaces per tab
-set softtabstop=4   " number of spaces per tab when editing
-set expandtab       " tabs are spaces
-set shiftround      " round to multiple of shiftwidth when adjusting indentation
-set shiftwidth=4    " number of spaces for each step of autoindent
-set autoindent      " auto indent on a new line
+set tabstop=4     " number of visual spaces per tab
+set softtabstop=4 " number of spaces per tab when editing
+set expandtab     " tabs are spaces
+set shiftround    " round to multiple of shiftwidth when adjusting indentation
+set shiftwidth=4  " number of spaces for each step of autoindent
+set autoindent    " auto indent on a new line
 
 " line numbers
-set number          " enable line numbers
-set relativenumber  " handy relative line numbers
+set number         " enable line numbers
+set relativenumber " handy relative line numbers
 
 " key timeouts
 set notimeout       " quickly time out on keycodes, but never time out on mappings
@@ -87,21 +88,21 @@ set ttimeout        " quickly time out on keycodes, but never time out on mappin
 set ttimeoutlen=200 " quickly time out on keycodes, but never time out on mappings
 
 " non printable characters
-set list                                                    " show non-printable characters
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+   " customize shown characters
+set list                                                  " show non-printable characters
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+ " customize shown characters
 
 " search
-set incsearch   " search as characters are entered
-set hlsearch    " highlight matches
-set ignorecase  " ignore case when searching lowercase
-set smartcase   " don't ignore case when inserting uppercase characters
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
+set ignorecase " ignore case when searching lowercase
+set smartcase  " don't ignore case when inserting uppercase characters
 
 " backups
-set nobackup    " disable backups
-set noswapfile  " disable swapfiles
+set nobackup   " disable backups
+set noswapfile " disable swapfiles
 
 " cscope
-set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e- " enable cscope quickfix
 
 " wildignore
 set wildignore+=*cscope*
@@ -111,10 +112,10 @@ set wildignore+=tags
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 " color scheme settings
-set background=dark             " use a dark background colour
-let g:solarized_termcolors=256  " enhance solarized terminal colours
-let g:rehash256=1               " enhance molokai terminal colours
-colorscheme jellybeans          " default colour scheme
+set background=dark            " use a dark background colour
+let g:solarized_termcolors=256 " enhance solarized terminal colours
+let g:rehash256=1              " enhance molokai terminal colours
+colorscheme jellybeans         " default colour scheme
 
 " airline config
 let g:airline_theme='jellybeans'
