@@ -18,7 +18,7 @@ Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 
-                                                            " plugins
+" plugins
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
