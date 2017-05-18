@@ -142,7 +142,7 @@ let g:ctrlp_lazy_update=125
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:10,results:50'
 let g:ctrlp_user_command = {
     \ 'types': {
-        \ 1: ['.git', 'cd %s && git ls-files'],
+        \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
         \ },
     \ 'fallback': 'find %s -type f'
     \ }
