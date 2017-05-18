@@ -176,12 +176,11 @@ augroup cscope
     autocmd BufEnter /* call LoadCscope()
 augroup END
 
+" set correct make program and compiler for c projects
 augroup make
     autocmd!
     autocmd Filetype c,cpp set makeprg=mk\ cpm\ i386
     autocmd Filetype c,cpp :compiler gcc
-compiler gcc
-
 augroup end
 
 " -------------------------------------------------------------------------------------------------
