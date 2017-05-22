@@ -184,6 +184,18 @@ augroup make
     autocmd Filetype c,cpp,yang :compiler gcc
 augroup end
 
+" automatically cleanup fugitive buffers
+augroup fugitive
+    autocmd!
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup end
+
+" source vimrc on save
+augroup vimrc
+    autocmd!
+    autocmd BufWritePost .vimrc source $MYVIMRC
+augroup end
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
@@ -215,9 +227,8 @@ let mapleader=" "
 " clear the highlighting of :set hlsearch
 nnoremap <silent> <leader>l :nohlsearch<cr>
 
-" key mappings to quickly open and source vimrc
+" quickly open vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " delete trailing whitespace on a line
 :nnoremap <leader>dd :s/\s\+$//e<cr>
