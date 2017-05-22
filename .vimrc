@@ -180,8 +180,8 @@ augroup END
 " set correct make program and compiler for c projects
 augroup make
     autocmd!
-    autocmd Filetype c,cpp set makeprg=mk\ cpm\ i386
-    autocmd Filetype c,cpp :compiler gcc
+    autocmd Filetype c,cpp,yang set makeprg=mk\ cpm\ i386
+    autocmd Filetype c,cpp,yang :compiler gcc
 augroup end
 
 " -------------------------------------------------------------------------------------------------
