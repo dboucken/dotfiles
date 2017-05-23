@@ -1,3 +1,13 @@
+" TODO:
+" can ctrlp be replace by simple edit with wildcard? or find? -> map easy file find
+" map regex tj?
+" easygrep also in gitignore but exclude some other dirs/files?
+" simplest ways to do:
+" - find file in project with wildcards
+" - find tags in project with wildcards
+" - grep with regex or word under cursor in project, exclude and include some dirs files
+" - grep and replace in project
+
 " -------------------------------------------------------------------------------------------------
 " PLUGIN MANAGER
 " -------------------------------------------------------------------------------------------------
