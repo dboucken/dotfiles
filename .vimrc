@@ -239,5 +239,5 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 " remap ctrl-w
 :nnoremap <leader>w <C-w>
 
-" make
-:nnoremap <leader>m :Make
+" async make
+:nnoremap <leader>m :Make<cr>
