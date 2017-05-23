@@ -246,3 +246,6 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " async make
 :nnoremap <leader>m :Make<cr>
+
+" close quickfix window
+:nnoremap <silent> <leader>q :cclose<cr>
