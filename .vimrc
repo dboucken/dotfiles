@@ -120,9 +120,6 @@ colorscheme jellybeans         " default colour scheme
 " airline config
 let g:airline_theme='jellybeans'
 
-" easy grep open search and replace matches not in a new tab
-let g:EasyGrepReplaceWindowMode=2
-
 " ctrlp settings
 let g:ctrlp_use_caching=0
 let g:ctrlp_by_filename=1
@@ -137,6 +134,14 @@ let g:ctrlp_user_command = {
     \ 'fallback': 'find %s -type f'
     \ }
 let g:ctrlp_match_func={ 'match': 'pymatcher#PyMatch' }
+
+" easy grep settings
+if (executable('ag'))
+    let g:EasyGrepCommand='ag'
+    let g:EasyGrepRecursive=1
+endif
+let g:EasyGrepReplaceWindowMode=2
+let g:EasyGrepJumpToMatch=0
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
