@@ -73,10 +73,10 @@ set autoindent    " auto indent on a new line
 set number         " enable line numbers
 set relativenumber " handy relative line numbers
 
-" key timeouts
-set notimeout       " quickly time out on keycodes, but never time out on mappings
-set ttimeout        " quickly time out on keycodes, but never time out on mappings
-set ttimeoutlen=200 " quickly time out on keycodes, but never time out on mappings
+" key timeouts, quickly time out on keycodes, but never time out on mappings
+set notimeout
+set ttimeout
+set ttimeoutlen=200
 
 " non printable characters
 set list                                                  " show non-printable characters
@@ -92,8 +92,8 @@ set smartcase  " don't ignore case when inserting uppercase characters
 set nobackup   " disable backups
 set noswapfile " disable swapfiles
 
-" cscope
-set cscopequickfix=s-,c-,d-,i-,t-,e- " enable cscope quickfix
+" enable cscope quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e- "
 
 " wildignore
 set wildignore+=*cscope*
@@ -103,8 +103,8 @@ set wildignore+=tags
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 " color scheme settings
-set background=dark            " use a dark background colour
-colorscheme jellybeans         " default colour scheme
+set background=dark    " use a dark background colour
+colorscheme jellybeans " default colour scheme
 
 " airline settings
 let g:airline_theme='jellybeans'
