@@ -12,6 +12,7 @@ endif
 call plug#begin()
 
 Plug 'nanotech/jellybeans.vim'                              " color scheme
+Plug 'altercation/vim-colors-solarized'                     " color scheme
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
@@ -103,8 +104,9 @@ set wildignore+=tags
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 " color scheme settings
-set background=dark    " use a dark background colour
-colorscheme jellybeans " default colour scheme
+set background=dark            " use a dark background colour
+let g:solarized_termcolors=256 " use 256 terminal colors for solarized color scheme
+colorscheme jellybeans         " default colour scheme
 
 " airline settings
 let g:airline_theme='jellybeans'
