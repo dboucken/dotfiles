@@ -228,3 +228,6 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " search files in the working directory
 :nnoremap <leader>oo :e **/
+
+" regex tags search
+:nnoremap <leader>tt :tj /
