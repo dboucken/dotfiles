@@ -225,3 +225,6 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " close quickfix window
 :nnoremap <silent> <leader>q :cclose<cr>
+
+" search files in the working directory
+:nnoremap <leader>oo :e **/
