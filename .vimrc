@@ -1,15 +1,5 @@
-" TODO:
-" can ctrlp be replace by simple edit with wildcard? or find? -> map easy file find
-" map regex tj?
-" easygrep also in gitignore but exclude some other dirs/files?
-" simplest ways to do:
-" - find file in project with wildcards
-" - find tags in project with wildcards
-" - grep with regex or word under cursor in project, exclude and include some dirs files
-" - grep and replace in project
-
 " -------------------------------------------------------------------------------------------------
-" PLUGIN MANAGER
+" PLUGINS
 " -------------------------------------------------------------------------------------------------
 " install vim-plug if it is not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -21,30 +11,21 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-" color schemes
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-Plug 'nanotech/jellybeans.vim'
-Plug 'sjl/badwolf'
-
-" plugins
+Plug 'nanotech/jellybeans.vim'                              " color scheme
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
 Plug 'airblade/vim-gitgutter'                               " show git diff in gutter
-Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }       " yang syntax highlighting
 Plug 'tpope/vim-surround'                                   " all about surroundings
 Plug 'tpope/vim-commentary'                                 " commenting
-Plug 'pangloss/vim-javascript',     { 'for': 'javascript' } " better javascript support
-Plug 'w0rp/ale',                    { 'for': 'javascript' } " aync linting plugin
 Plug 'tpope/vim-unimpaired'                                 " some useful key mappings
-Plug 'sedan07/vim-mib',             { 'for': 'mib' }        " mib syntax highlighting
 Plug 'dkprice/vim-easygrep'                                 " project wide search/replace
 Plug 'tpope/vim-dispatch'                                   " async make
-Plug 'kien/ctrlp.vim'                                       " fuzzy file finder
-Plug 'FelikZ/ctrlp-py-matcher'                              " faster matcher for ctrlp
 Plug 'godlygeek/tabular'                                    " align text
+Plug 'w0rp/ale',                    { 'for': 'javascript' } " aync linting plugin
+Plug 'pangloss/vim-javascript',     { 'for': 'javascript' } " better javascript support
+Plug 'sedan07/vim-mib',             { 'for': 'mib' }        " mib syntax highlighting
+Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }       " yang syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
@@ -123,22 +104,10 @@ set wildignore+=tags
 " -------------------------------------------------------------------------------------------------
 " color scheme settings
 set background=dark            " use a dark background colour
-let g:solarized_termcolors=256 " enhance solarized terminal colours
-let g:rehash256=1              " enhance molokai terminal colours
 colorscheme jellybeans         " default colour scheme
 
-" airline config
+" airline settings
 let g:airline_theme='jellybeans'
-
-" ctrlp settings
-let g:ctrlp_use_caching=0
-let g:ctrlp_by_filename=1
-let g:ctrlp_use_caching=0
-let g:ctrlp_max_files=0
-let g:ctrlp_lazy_update=125
-let g:ctrlp_match_window='bottom,order:btt,min:1,max:10,results:50'
-let g:ctrlp_user_command = 'find %s -type f'
-let g:ctrlp_match_func={ 'match': 'pymatcher#PyMatch' }
 
 " easy grep settings
 if (executable('ag'))
