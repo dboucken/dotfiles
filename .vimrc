@@ -187,7 +187,7 @@ augroup end
 :nnoremap ; :
 
 " edit read only files
-:cnoremap sudow w !sudo tee % >/dev/null
+:cnoremap sudow :w !sudo tee % >/dev/null
 
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
