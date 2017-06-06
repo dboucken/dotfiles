@@ -20,7 +20,7 @@ Plug 'airblade/vim-gitgutter'                               " show git diff in g
 Plug 'tpope/vim-surround'                                   " all about surroundings
 Plug 'tpope/vim-commentary'                                 " commenting
 Plug 'tpope/vim-unimpaired'                                 " some useful key mappings
-Plug 'dkprice/vim-easygrep'                                 " project wide search/replace
+Plug 'wincent/ferret'                                       " async grep and replace
 Plug 'tpope/vim-dispatch'                                   " async make
 Plug 'godlygeek/tabular'                                    " align text
 Plug 'w0rp/ale',                    { 'for': 'javascript' } " aync linting plugin
@@ -110,14 +110,6 @@ colorscheme jellybeans         " default colour scheme
 
 " airline settings
 let g:airline_theme='jellybeans'
-
-" easy grep settings
-if (executable('ag'))
-    let g:EasyGrepCommand='ag'
-    let g:EasyGrepRecursive=1
-endif
-let g:EasyGrepReplaceWindowMode=2
-let g:EasyGrepJumpToMatch=0
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
