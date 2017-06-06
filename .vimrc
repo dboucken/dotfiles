@@ -206,9 +206,6 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 " delete trailing whitespace on a line
 :nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" search and replace word under cursor in a file
-:nnoremap <leader>sr :%s/\<<C-r><C-w>\>//g<left><left>
-
 " remap ctrl-w
 :nnoremap <leader>w <C-w>
 
