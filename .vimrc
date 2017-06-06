@@ -112,12 +112,6 @@ let g:airline_theme='jellybeans'
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
-" automatically open quickfix window
-augroup quickfix
-    autocmd!
-    autocmd QuickFixCmdPost * cwindow
-augroup END
-
 " add syntax highlighting for c functions
 function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
@@ -196,7 +190,7 @@ nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 let mapleader=" "
 
 " clear the highlighting of :set hlsearch
-nnoremap <silent> <leader>l :nohlsearch<cr>
+nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " quickly open vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -210,8 +204,9 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 " async make
 :nnoremap <leader>m :Make<cr>
 
-" close quickfix window
-:nnoremap <silent> <leader>q :cclose<cr>
+" toggle quickfix window
+:nnoremap <silent> <leader>qo :copen<cr>
+:nnoremap <silent> <leader>qc :cclose<cr>
 
 " search files in the working directory
 :nnoremap <leader>oo :e **/
