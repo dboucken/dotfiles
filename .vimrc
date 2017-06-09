@@ -112,7 +112,7 @@ let g:airline_theme='jellybeans'
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
-" add syntax highlighting for c functions
+" add extra syntax highlighting for c functions
 function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
@@ -171,7 +171,7 @@ augroup end
 :nnoremap ; :
 
 " edit read only files
-:cnoremap sudow :w !sudo tee % >/dev/null
+:cnoremap w!! w !sudo tee % >/dev/null
 
 " cscope keymaps
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
