@@ -161,6 +161,13 @@ augroup vimrc
     autocmd BufWritePost .vimrc source $MYVIMRC
 augroup end
 
+" automatically save when a file is changed
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged, InsertLeave, FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup end
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
