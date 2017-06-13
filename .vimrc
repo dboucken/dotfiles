@@ -12,6 +12,7 @@ endif
 call plug#begin()
 
 Plug 'nanotech/jellybeans.vim'                              " color scheme
+Plug 'romainl/apprentice'                                   " color scheme
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
@@ -60,6 +61,7 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
+set background=dark             " use a dark background colour
 
 " tabs and indentation
 set tabstop=4     " number of visual spaces per tab
@@ -102,12 +104,11 @@ set wildignore+=tags
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-" color scheme settings
-set background=dark            " use a dark background colour
-colorscheme jellybeans         " default colour scheme
-
-" airline settings
-let g:airline_theme='jellybeans'
+try
+    colorscheme jellybeans           " default colour scheme
+    let g:airline_theme='jellybeans' " airline settings
+catch
+endtry
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
