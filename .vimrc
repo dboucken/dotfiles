@@ -12,7 +12,6 @@ endif
 call plug#begin()
 
 Plug 'nanotech/jellybeans.vim'                              " color scheme
-Plug 'romainl/apprentice'                                   " color scheme
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
