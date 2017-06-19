@@ -61,6 +61,7 @@ set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 set background=dark             " use a dark background colour
+runtime! ftplugin/man.vim       " read man pages inside vim
 
 " tabs and indentation
 set tabstop=4     " number of visual spaces per tab
