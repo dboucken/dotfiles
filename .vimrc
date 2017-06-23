@@ -221,3 +221,6 @@ nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " regex tags search
 :nnoremap <leader>tt :tj /
+
+" grep what is under the cursor, don't return to allow to pass options
+:nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
