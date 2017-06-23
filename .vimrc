@@ -113,7 +113,7 @@ endtry
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
-" add extra syntax highlighting for c functions
+" add extra syntax highlighting for c functions and extra keywords
 function! EnhanceCSyntax()
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
