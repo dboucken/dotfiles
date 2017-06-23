@@ -52,7 +52,6 @@ set undolevels=1000             " increase undo levels
 set visualbell                  " use visual bell instead of beeping
 set backspace=indent,eol,start  " allow backspacing over autoindent, line breaks and insert action
 set hidden                      " buffer becomes hidden when it is abandoned
-set scrolloff=7                 " set 7 lines to the cursor when moving vertically
 set cmdheight=2                 " increase the height of the command bar
 set nowrap                      " dont't wrap
 set laststatus=2                " always show the status line
