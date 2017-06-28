@@ -224,3 +224,6 @@ nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " grep what is under the cursor, don't return to allow to pass options
 :nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
+
+" omnicompletion
+:inoremap <leader><leader> <C-x><C-o>
