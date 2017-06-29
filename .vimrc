@@ -191,6 +191,10 @@ nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+" omnicompletion, when c-space is pressed a nul is send by the terminal which is represented by c-@
+:inoremap <C-Space> <C-x><C-o>
+:inoremap <C-@> <C-Space>
+
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
@@ -224,6 +228,3 @@ nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " grep what is under the cursor, don't return to allow to pass options
 :nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
-
-" omnicompletion
-:inoremap <leader><leader> <C-x><C-o>
