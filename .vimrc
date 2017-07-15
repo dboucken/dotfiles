@@ -22,10 +22,12 @@ Plug 'tpope/vim-unimpaired'                                 " some useful key ma
 Plug 'wincent/ferret'                                       " async grep and replace
 Plug 'tpope/vim-dispatch'                                   " async make
 Plug 'godlygeek/tabular'                                    " align text
-Plug 'w0rp/ale',                    { 'for': 'javascript' } " aync linting plugin
-Plug 'pangloss/vim-javascript',     { 'for': 'javascript' } " better javascript support
-Plug 'sedan07/vim-mib',             { 'for': 'mib' }        " mib syntax highlighting
-Plug 'nathanalderson/yang.vim',     { 'for': 'yang' }       " yang syntax highlighting
+
+Plug 'w0rp/ale',                { 'for': ['javascript', 'python'] } " aync linting plugin
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }             " better javascript support
+Plug 'sedan07/vim-mib',         { 'for': 'mib' }                    " mib syntax highlighting
+Plug 'nathanalderson/yang.vim', { 'for': 'yang' }                   " yang syntax highlighting
+Plug 'davidhalter/jedi-vim',    { 'for': 'python' }                 " python autocompletion
 
 " all plugins should be added before this line
 call plug#end()
