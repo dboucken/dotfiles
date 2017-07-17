@@ -11,7 +11,6 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'nanotech/jellybeans.vim'                              " color scheme
 Plug 'vim-airline/vim-airline'                              " enhanced status line
 Plug 'vim-airline/vim-airline-themes'                       " status line color themes
 Plug 'tpope/vim-fugitive'                                   " git wrapper
@@ -28,6 +27,12 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }             " better jav
 Plug 'sedan07/vim-mib',         { 'for': 'mib' }                    " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', { 'for': 'yang' }                   " yang syntax highlighting
 Plug 'davidhalter/jedi-vim',    { 'for': 'python' }                 " python autocompletion
+
+" color schemes
+Plug 'nanotech/jellybeans.vim'
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 " all plugins should be added before this line
 call plug#end()
@@ -107,6 +112,7 @@ set wildignore+=tags
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 try
+    let g:solarized_termcolors=256
     colorscheme jellybeans           " default colour scheme
     let g:airline_theme='jellybeans' " airline settings
 catch
