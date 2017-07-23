@@ -34,6 +34,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
+Plug 'ajh17/Spacegray.vim'
 
 " all plugins should be added before this line
 call plug#end()
