@@ -22,11 +22,12 @@ Plug 'wincent/ferret'                                       " async grep and rep
 Plug 'tpope/vim-dispatch'                                   " async make
 Plug 'godlygeek/tabular'                                    " align text
 
-Plug 'w0rp/ale',                { 'for': ['javascript', 'python'] } " aync linting plugin
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }             " better javascript support
-Plug 'sedan07/vim-mib',         { 'for': 'mib' }                    " mib syntax highlighting
-Plug 'nathanalderson/yang.vim', { 'for': 'yang' }                   " yang syntax highlighting
-Plug 'davidhalter/jedi-vim',    { 'for': 'python' }                 " python autocompletion
+Plug 'w0rp/ale',                     { 'for': ['javascript', 'python'] } " aync linting plugin
+Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }             " better javascript support
+Plug 'sedan07/vim-mib',              { 'for': 'mib' }                    " mib syntax highlighting
+Plug 'nathanalderson/yang.vim',      { 'for': 'yang' }                   " yang syntax highlighting
+Plug 'davidhalter/jedi-vim',         { 'for': 'python' }                 " python autocompletion
+Plug 'ludovicchabant/vim-gutentags', { 'for': 'python' }                 " tag management
 
 " color schemes
 Plug 'nanotech/jellybeans.vim'
