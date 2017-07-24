@@ -238,3 +238,6 @@ nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " grep what is under the cursor, don't return to allow to pass options
 :nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
+
+" tag jump taking cscope (and ctags) into account
+:nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
