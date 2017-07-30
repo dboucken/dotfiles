@@ -69,7 +69,6 @@ set completeopt=longest,menuone " better autocompletion
 set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
-set background=dark             " use a dark background colour
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 runtime! ftplugin/man.vim       " read man pages inside vim
 
@@ -184,26 +183,26 @@ augroup end
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
 " map jj to esc
-:inoremap jj <Esc>
+inoremap jj <Esc>
 
 " map ; to :
-:nnoremap ; :
+nnoremap ; :
 
 " edit read only files
-:cnoremap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 " cscope keymaps
-:nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-:nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-:nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-:nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-:nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-:nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-:nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-:nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " omnicompletion
-:inoremap <C-o> <C-x><C-o>
+inoremap <C-o> <C-x><C-o>
 
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
@@ -215,29 +214,29 @@ let mapleader=" "
 nnoremap <silent> <leader>h :nohlsearch<cr>
 
 " quickly open vimrc
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " delete trailing whitespace on a line
-:nnoremap <leader>dd :s/\s\+$//e<cr>
+nnoremap <leader>dd :s/\s\+$//e<cr>
 
 " remap ctrl-w
-:nnoremap <leader>w <C-w>
+nnoremap <leader>w <C-w>
 
 " async make
-:nnoremap <leader>m :Make<cr>
+nnoremap <leader>m :Make<cr>
 
 " toggle quickfix window
-:nnoremap <silent> <leader>qo :copen<cr>
-:nnoremap <silent> <leader>qc :cclose<cr>
+nnoremap <silent> <leader>qo :copen<cr>
+nnoremap <silent> <leader>qc :cclose<cr>
 
 " search files in the working directory
-:nnoremap <leader>oo :e **/
+nnoremap <leader>oo :e **/
 
 " regex tags search
-:nnoremap <leader>tt :tj /
+nnoremap <leader>tt :tj /
 
 " grep what is under the cursor, don't return to allow to pass options
-:nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
+nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
 
 " tag jump taking cscope (and ctags) into account
-:nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
