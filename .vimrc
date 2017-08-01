@@ -27,7 +27,6 @@ Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }             " bette
 Plug 'sedan07/vim-mib',              { 'for': 'mib' }                    " mib syntax highlighting
 Plug 'nathanalderson/yang.vim',      { 'for': 'yang' }                   " yang syntax highlighting
 Plug 'davidhalter/jedi-vim',         { 'for': 'python' }                 " python autocompletion
-Plug 'ludovicchabant/vim-gutentags', { 'for': 'python' }                 " tag management
 
 " color schemes
 Plug 'nanotech/jellybeans.vim'
