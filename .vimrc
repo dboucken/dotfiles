@@ -239,3 +239,7 @@ nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
 
 " tag jump taking cscope (and ctags) into account
 nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
+
+" paste last yanked text
+nnoremap <leader>p "0p
+vnoremap <leader>p "0p
