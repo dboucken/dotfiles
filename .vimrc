@@ -11,16 +11,14 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'                              " enhanced status line
-Plug 'vim-airline/vim-airline-themes'                       " status line color themes
-Plug 'tpope/vim-fugitive'                                   " git wrapper
-Plug 'airblade/vim-gitgutter'                               " show git diff in gutter
-Plug 'tpope/vim-surround'                                   " all about surroundings
-Plug 'tpope/vim-commentary'                                 " commenting
-Plug 'tpope/vim-unimpaired'                                 " some useful key mappings
-Plug 'wincent/ferret'                                       " async grep and replace
-Plug 'tpope/vim-dispatch'                                   " async make
-Plug 'godlygeek/tabular'                                    " align text
+Plug 'tpope/vim-fugitive'     " git wrapper
+Plug 'airblade/vim-gitgutter' " show git diff in gutter
+Plug 'tpope/vim-surround'     " all about surroundings
+Plug 'tpope/vim-commentary'   " commenting
+Plug 'tpope/vim-unimpaired'   " some useful key mappings
+Plug 'wincent/ferret'         " async grep and replace
+Plug 'tpope/vim-dispatch'     " async make
+Plug 'godlygeek/tabular'      " align text
 
 Plug 'w0rp/ale',                     { 'for': ['javascript', 'python'] } " aync linting plugin
 Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }             " better javascript support
@@ -30,10 +28,7 @@ Plug 'davidhalter/jedi-vim',         { 'for': 'python' }                 " pytho
 
 " color schemes
 Plug 'nanotech/jellybeans.vim'
-Plug 'sjl/badwolf'
-Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim'
 Plug 'ajh17/Spacegray.vim'
 
 " all plugins should be added before this line
@@ -69,6 +64,7 @@ set mouse=a                     " enable mouse support
 set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
+set number                      " enable line numbers
 runtime! ftplugin/man.vim       " read man pages inside vim
 
 " tabs and indentation
@@ -78,10 +74,6 @@ set expandtab     " tabs are spaces
 set shiftround    " round to multiple of shiftwidth when adjusting indentation
 set shiftwidth=4  " number of spaces for each step of autoindent
 set autoindent    " auto indent on a new line
-
-" line numbers
-set number         " enable line numbers
-set relativenumber " handy relative line numbers
 
 " key timeouts, quickly time out on keycodes, but never time out on mappings
 set notimeout
@@ -108,6 +100,18 @@ set cscopequickfix=s-,c-,d-,i-,t-,e- "
 " wildignore
 set wildignore+=*cscope*
 set wildignore+=tags
+
+" statusline
+set statusline=%#Comment#            " color
+set statusline+=[%{toupper(mode())}] " mode
+set statusline+=\ %F                 " full path to the file
+set statusline+=%m%r                 " modified and read only flag
+set statusline+=%=                   " switch to the right side
+set statusline+=%y\ -                " file type
+set statusline+=\ buffer:\ %n\ -     " buffer number
+set statusline+=\ column:\ %c\ -     " column number
+set statusline+=\ current:\ %l\ -    " line number
+set statusline+=\ total:\ %L         " total lines
 
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
