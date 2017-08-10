@@ -11,24 +11,18 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'     " git wrapper
-Plug 'airblade/vim-gitgutter' " show git diff in gutter
-Plug 'tpope/vim-surround'     " all about surroundings
-Plug 'tpope/vim-commentary'   " commenting
-Plug 'tpope/vim-unimpaired'   " some useful key mappings
-Plug 'wincent/ferret'         " async grep and replace
-Plug 'tpope/vim-dispatch'     " async make
-Plug 'godlygeek/tabular'      " align text
-
-Plug 'w0rp/ale',                     { 'for': ['javascript', 'python'] } " aync linting plugin
-Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }             " better javascript support
-Plug 'sedan07/vim-mib',              { 'for': 'mib' }                    " mib syntax highlighting
-Plug 'nathanalderson/yang.vim',      { 'for': 'yang' }                   " yang syntax highlighting
-Plug 'davidhalter/jedi-vim',         { 'for': 'python' }                 " python autocompletion
-
-" color schemes
-Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'                       " git wrapper
+Plug 'tpope/vim-surround'                       " all about surroundings
+Plug 'tpope/vim-commentary'                     " commenting
+Plug 'tpope/vim-unimpaired'                     " some useful key mappings
+Plug 'tpope/vim-dispatch'                       " async make
+Plug 'airblade/vim-gitgutter'                   " show git diff in gutter
+Plug 'wincent/ferret'                           " async grep and replace
+Plug 'godlygeek/tabular'                        " align text
+Plug 'nanotech/jellybeans.vim'                  " color scheme
+Plug 'morhetz/gruvbox'                          " color scheme
+Plug 'sedan07/vim-mib',         {'for': 'mib'}  " mib syntax highlighting
+Plug 'nathanalderson/yang.vim', {'for': 'yang'} " yang syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
