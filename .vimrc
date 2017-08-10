@@ -101,16 +101,16 @@ set wildignore+=*cscope*
 set wildignore+=tags
 
 " statusline
-set statusline=%#Comment#            " color
-set statusline+=[%{toupper(mode())}] " mode
-set statusline+=\ %F                 " full path to the file
-set statusline+=%m%w%r               " modified, preview and read only flag
-set statusline+=%=                   " switch to the right side
-set statusline+=%y\ -                " file type
-set statusline+=\ buffer:\ %n\ -     " buffer number
-set statusline+=\ column:\ %c\ -     " column number
-set statusline+=\ current:\ %l\ -    " line number
-set statusline+=\ total:\ %L         " total lines
+set statusline=%#Comment#              " color
+set statusline+=\ [%{toupper(mode())}] " mode
+set statusline+=\ %F                   " full path to the file
+set statusline+=%m%w%r                 " modified, preview and read only flag
+set statusline+=%=                     " switch to the right side
+set statusline+=%y\ -                  " file type
+set statusline+=\ buffer:\ %n\ -       " buffer number
+set statusline+=\ column:\ %c\ -       " column number
+set statusline+=\ current:\ %l\ -      " line number
+set statusline+=\ total:\ %L\          " total lines
 
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
