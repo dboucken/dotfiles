@@ -29,7 +29,6 @@ Plug 'davidhalter/jedi-vim',         { 'for': 'python' }                 " pytho
 " color schemes
 Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
-Plug 'ajh17/Spacegray.vim'
 
 " all plugins should be added before this line
 call plug#end()
