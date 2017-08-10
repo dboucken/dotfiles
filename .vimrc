@@ -108,10 +108,9 @@ set statusline+=\ [line]\ %l/%L      " line numbers
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
+" default colour scheme
 try
-    let g:solarized_termcolors=256
-    colorscheme jellybeans           " default colour scheme
-    let g:airline_theme='jellybeans' " airline settings
+    colorscheme jellybeans
 catch
 endtry
 
