@@ -176,12 +176,19 @@ augroup end
 " run eslint when saving javascript files
 augroup javascriptLint
     autocmd!
-    autocmd Filetype javascript setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
+    autocmd Filetype javascript setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m
     autocmd Filetype javascript setlocal makeprg=eslint\ --format\ compact
     autocmd BufWritePost *.js silent make! <afile> | silent redraw!
     autocmd QuickFixCmdPost [^l]* cwindow
 augroup end
 
+" run pylint when saving python files
+augroup pythonLint
+    autocmd!
+    autocmd Filetype python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+    autocmd BufWritePost *.py silent make! <afile> | silent redraw!
+    autocmd QuickFixCmdPost [^l]* cwindow
+augroup end
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
