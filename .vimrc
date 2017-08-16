@@ -257,3 +257,6 @@ vnoremap <leader>pp "0p
 
 " replace word with last yanked text
 nnoremap <leader>pr viw"0p
+
+" run macro in register q
+nnoremap <leader><leader> @q
