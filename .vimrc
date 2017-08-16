@@ -236,5 +236,8 @@ nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
 nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
 
 " paste last yanked text
-nnoremap <leader>p "0p
-vnoremap <leader>p "0p
+nnoremap <leader>pp "0p
+vnoremap <leader>pp "0p
+
+" replace word with last yanked text
+nnoremap <leader>pr viw"0p
