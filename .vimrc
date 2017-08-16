@@ -148,7 +148,7 @@ augroup cscope
 augroup END
 
 " set correct make program and compiler for c projects
-augroup make
+augroup cMake
     autocmd!
     autocmd Filetype c,cpp,yang set makeprg=mk\ cpm\ i386
     autocmd Filetype c,cpp,yang :compiler gcc
@@ -171,6 +171,15 @@ augroup autoSaveAndRead
     autocmd!
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
     autocmd CursorHold * silent! checktime
+augroup end
+
+" run eslint when saving javascript files
+augroup javascriptLint
+    autocmd!
+    autocmd Filetype javascript setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
+    autocmd Filetype javascript setlocal makeprg=eslint\ --format\ compact
+    autocmd BufWritePost *.js silent make! <afile> | silent redraw!
+    autocmd QuickFixCmdPost [^l]* cwindow
 augroup end
 
 " -------------------------------------------------------------------------------------------------
