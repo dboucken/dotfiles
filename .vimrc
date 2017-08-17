@@ -126,11 +126,11 @@ function! EnhanceCSyntax()
     highlight def link customType cType
     highlight def link cBoolean Boolean
 endfunction
-augroup syntax_enhancements
+augroup c_syntax_enhancements
     autocmd!
     autocmd Syntax c call EnhanceCSyntax()
     autocmd Syntax cpp call EnhanceCSyntax()
-augroup END
+augroup end
 
 " autoload cscope database
 function! LoadCscope()
@@ -145,12 +145,12 @@ endfunction
 augroup cscope
     autocmd!
     autocmd BufEnter /* call LoadCscope()
-augroup END
+augroup end
 
 " set correct make program and compiler for c projects
-augroup cMake
+augroup c_make
     autocmd!
-    autocmd Filetype c,cpp,yang set makeprg=mk\ cpm\ i386
+    autocmd Filetype c,cpp,yang setlocal makeprg=mk\ cpm\ i386
     autocmd Filetype c,cpp,yang :compiler gcc
 augroup end
 
@@ -167,14 +167,14 @@ augroup vimrc
 augroup end
 
 " automatically save when a file is changed
-augroup autoSaveAndRead
+augroup auto_save_and_read
     autocmd!
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
     autocmd CursorHold * silent! checktime
 augroup end
 
 " run eslint when saving javascript files
-augroup javascriptLint
+augroup javascript_lint
     autocmd!
     autocmd Filetype javascript setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m
     autocmd Filetype javascript setlocal makeprg=eslint\ --format\ compact
@@ -183,12 +183,13 @@ augroup javascriptLint
 augroup end
 
 " run pylint when saving python files
-augroup pythonLint
+augroup python_lint
     autocmd!
     autocmd Filetype python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
     autocmd BufWritePost *.py silent make! <afile> | silent redraw!
     autocmd QuickFixCmdPost [^l]* cwindow
 augroup end
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
