@@ -32,8 +32,9 @@ RUN sudo chmod a+rwx dotfiles/.vimrc
 RUN sudo chmod a+rwx dotfiles/.tmux.conf
 
 # Make links in the home directory to the dotfiles
-RUN ln -s dotfiles/.vimrc .vimrc
-RUN ln -s dotfiles/.tmux.conf .tmux.conf
+RUN ln -svf dotfiles/.vimrc
+RUN ln -svf dotfiles/.tmux.conf
+RUN ln -svf dotfiles/.inputrc
 RUN echo source ~/dotfiles/.bashrc >> .bashrc
 
 # Install tools
