@@ -2,7 +2,7 @@
 export TERM=screen-256color
 
 # Aliases
-alias la="ls -la"
+alias l="ls -la"
 
 # Functions
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)
