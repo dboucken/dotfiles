@@ -1,9 +1,8 @@
 # Exports
-export TERM=screen-256color
+export TERM=xterm-256color
 
 # Aliases
 alias l="ls -la"
-alias tmux="TERM=xterm-256color tmux"
 
 # Functions
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)
