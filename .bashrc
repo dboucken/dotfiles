@@ -3,6 +3,7 @@ export TERM=screen-256color
 
 # Aliases
 alias l="ls -la"
+alias tmux="TERM=xterm-256color tmux"
 
 # Functions
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)
@@ -47,11 +48,96 @@ tmux_dir="tmux"
 vim_dir="vim"
 
 function install_tools {
-    echo "install tools"
+    cd ~
+
+    # Create tools dir if it does not exist
+    if [ -d "$tools_dir" ]; then
+        mkdir $tools_dir
+    fi
+
+    cd $tools_dir
+
+    if [ ! -d "$tmux_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Install Tmux                                                                 #"
+        echo "################################################################################"
+        git clone https://github.com/tmux/tmux.git $tmux_dir
+        cd $tmux_dir
+        local latest_tag=$(git describe --tags --abbrev=0)
+        git checkout $latest_tag
+        sh autogen.sh && ./configure && make && sudo make install
+    fi
+
+    cd ~
+    cd $tools_dir
+
+    if [ ! -d "$vim_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Update Vim                                                                   #"
+        echo "################################################################################"
+        git clone https://github.com/vim/vim.git $vim_dir
+        cd $vim_dir
+        ./configure --with-features=huge && make && chmod a+rwx runtime/doc && sudo make install
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Install Vim Plugins (vim +PlugUpdate +PlugUpgrade +qall)"
+        echo "--------------------------------------------------------------------------------"
+        vim +PlugUpdate +PlugUpgrade +qall
+    fi
+
+    cd ~
+
+    echo " "
+    echo "################################################################################"
+    echo "# Install finished                                                             #"
+    echo "################################################################################"
 }
 
 function uninstall_tools {
-    echo "uninstall tools"
+    cd ~
+
+    # Tools directory must exist
+    if [ ! -d "$tools_dir" ]; then
+        echo "~/$tools_dir not found"
+        return
+    fi
+
+    cd $tools_dir
+
+    if [ -d "$tmux_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Uninstall Tmux                                                               #"
+        echo "################################################################################"
+        cd $tmux_dir
+        sudo make uninstall
+        cd ..
+        rm -rf $tmux_dir
+    fi
+
+    cd ~
+    cd $tools_dir
+
+    if [ -d "$vim_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Uninstall Vim                                                                #"
+        echo "################################################################################"
+        cd $vim_dir
+        sudo make uninstall
+        cd ..
+        rm -rf $vim_dir
+    fi
+
+    cd ~
+
+    echo " "
+    echo "################################################################################"
+    echo "# Uninstall finished                                                           #"
+    echo "################################################################################"
 }
 
 function update_tools {
@@ -65,77 +151,56 @@ function update_tools {
 
     cd $tools_dir
 
-    # Update tmux
     if [ -d "$tmux_dir" ]; then
         echo " "
         echo "################################################################################"
         echo "# Update Tmux                                                                  #"
         echo "################################################################################"
-
         cd $tmux_dir
 
-
-        echo " "
-        echo "--------------------------------------------------------------------------------"
-        echo " Get updates"
-        echo "--------------------------------------------------------------------------------"
+        # Get current version
         local current_tag=$(git describe --tags --abbrev=0)
         echo "Current tag: $current_tag"
+
+        # Update repo
         git checkout master
         git pull
+
+        # Get new version
         local latest_tag=$(git describe --tags --abbrev=0)
         echo "Latest tag: $latest_tag"
         git checkout $latest_tag
 
+        # Build and install if there is a new version
         if [ "$current_tag" != "$latest_tag" ]; then
-            echo " "
-            echo "--------------------------------------------------------------------------------"
-            echo " Build (make)"
-            echo "--------------------------------------------------------------------------------"
-            make
-
-            echo " "
-            echo "--------------------------------------------------------------------------------"
-            echo " Install (sudo make install)"
-            echo "--------------------------------------------------------------------------------"
-            sudo make install
+            make && sudo make install
         fi
     fi
 
     cd ~
     cd $tools_dir
 
-    # Update vim
     if [ -d "$vim_dir" ]; then
         echo " "
         echo "################################################################################"
         echo "# Update Vim                                                                   #"
         echo "################################################################################"
-
         cd $vim_dir
 
-        echo " "
-        echo "--------------------------------------------------------------------------------"
-        echo " Get updates"
-        echo "--------------------------------------------------------------------------------"
+        # Get current version
         local current_tag=$(git describe --all)
         echo "Current tag: $current_tag"
+
+        # Update repo
         git pull
+
+        # Get new version
         local latest_tag=$(git describe --all)
         echo "Latest tag: $latest_tag"
 
+        # Build and install if there is a new version
         if [ "$current_tag" != "$latest_tag" ]; then
-            echo " "
-            echo "--------------------------------------------------------------------------------"
-            echo " Build (make)"
-            echo "--------------------------------------------------------------------------------"
-            make
-
-            echo " "
-            echo "--------------------------------------------------------------------------------"
-            echo " Install (sudo make install)"
-            echo "--------------------------------------------------------------------------------"
-            sudo make install
+            make && sudo make install
         fi
 
         echo " "
