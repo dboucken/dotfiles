@@ -11,18 +11,22 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'                       " git wrapper
-Plug 'tpope/vim-surround'                       " all about surroundings
-Plug 'tpope/vim-commentary'                     " commenting
-Plug 'tpope/vim-unimpaired'                     " some useful key mappings
-Plug 'tpope/vim-dispatch'                       " async make
-Plug 'airblade/vim-gitgutter'                   " show git diff in gutter
-Plug 'wincent/ferret'                           " async grep and replace
-Plug 'godlygeek/tabular'                        " align text
-Plug 'nanotech/jellybeans.vim'                  " color scheme
-Plug 'morhetz/gruvbox'                          " color scheme
-Plug 'sedan07/vim-mib',         {'for': 'mib'}  " mib syntax highlighting
-Plug 'nathanalderson/yang.vim', {'for': 'yang'} " yang syntax highlighting
+Plug 'tpope/vim-fugitive'                                        " git wrapper
+Plug 'tpope/vim-surround'                                        " all about surroundings
+Plug 'tpope/vim-commentary'                                      " commenting
+Plug 'tpope/vim-unimpaired'                                      " some useful key mappings
+Plug 'tpope/vim-dispatch'                                        " async make
+Plug 'airblade/vim-gitgutter'                                    " show git diff in gutter
+Plug 'wincent/ferret'                                            " async grep and replace
+Plug 'godlygeek/tabular'                                         " align text
+Plug 'vim-airline/vim-airline'                                   " enhanced status bar
+Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
+Plug 'nanotech/jellybeans.vim'                                   " color scheme
+Plug 'morhetz/gruvbox'                                           " color scheme
+Plug 'altercation/vim-colors-solarized'                          " color scheme
+Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
+Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
+Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
@@ -94,26 +98,6 @@ set cscopequickfix=s-,c-,d-,i-,t-,e- "
 set wildignore+=*cscope*
 set wildignore+=tags
 
-" statusline
-set statusline=%#Comment#            " color
-set statusline+=[%{toupper(mode())}] " mode
-set statusline+=\ %F                 " full path to the file
-set statusline+=\ %m%w%r             " modified, preview and read only flag
-set statusline+=%=                   " switch to the right side
-set statusline+=%y                   " file type
-set statusline+=\ [buf]\ %n          " buffer number
-set statusline+=\ [col]\ %c          " column number
-set statusline+=\ [line]\ %l/%L      " line numbers
-
-" -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" -------------------------------------------------------------------------------------------------
-" default colour scheme
-try
-    colorscheme jellybeans
-catch
-endtry
-
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
@@ -173,22 +157,42 @@ augroup auto_save_and_read
     autocmd CursorHold * silent! checktime
 augroup end
 
-" run eslint when saving javascript files
-augroup javascript_lint
-    autocmd!
-    autocmd Filetype javascript setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m
-    autocmd Filetype javascript setlocal makeprg=eslint\ --format\ compact
-    autocmd BufWritePost *.js silent make! <afile> | silent redraw!
-    autocmd QuickFixCmdPost [^l]* cwindow
-augroup end
+" switch to solarized color scheme
+function! Set_colors_solarized()
+    let g:solarized_termcolors=256
+    colorscheme solarized
+    let g:airline_theme='solarized'
+    try
+        AirlineRefresh
+    catch
+    endtry
+endfunction
+command! SetColorsSolarized call Set_colors_solarized()
 
-" run pylint when saving python files
-augroup python_lint
-    autocmd!
-    autocmd Filetype python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-    autocmd BufWritePost *.py silent make! <afile> | silent redraw!
-    autocmd QuickFixCmdPost [^l]* cwindow
-augroup end
+" switch to gruvbox color scheme
+function! Set_colors_gruvbox()
+    colorscheme gruvbox
+    let g:airline_theme='gruvbox'
+    try
+        AirlineRefresh
+    catch
+    endtry
+endfunction
+command! SetColorsGruvbox call Set_colors_gruvbox()
+
+" switch to jellybeans color scheme
+function! Set_colors_jellybeans()
+    colorscheme jellybeans
+    let g:airline_theme='jellybeans'
+    try
+        AirlineRefresh
+    catch
+    endtry
+endfunction
+command! SetColorsJellybeans call Set_colors_jellybeans()
+
+" use jellybeans as default color scheme
+SetColorsJellybeans
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
