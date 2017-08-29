@@ -30,20 +30,14 @@ ADD . /home/docker/dotfiles
 RUN sudo chmod a+rwx dotfiles/.bashrc
 RUN sudo chmod a+rwx dotfiles/.vimrc
 RUN sudo chmod a+rwx dotfiles/.tmux.conf
+RUN sudo chmod a+rwx dotfiles/.inputrc
 
 # Make links in the home directory to the dotfiles
 RUN ln -svf dotfiles/.vimrc
 RUN ln -svf dotfiles/.tmux.conf
 RUN ln -svf dotfiles/.inputrc
 RUN echo source ~/dotfiles/.bashrc >> .bashrc
+RUN source ~/.bashrc
 
 # Install tools
-RUN mkdir tools
-
-# Latest tmux
-RUN git clone https://github.com/tmux/tmux.git tools/tmux
-RUN cd tools/tmux && git checkout 2.5 && sh autogen.sh && ./configure && make && sudo make install
-
-# Latest vim
-RUN git clone https://github.com/vim/vim.git tools/vim
-RUN cd tools/vim && ./configure --with-features=huge && make && sudo make install
+RUN install_tools
