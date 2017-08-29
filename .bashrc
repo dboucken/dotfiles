@@ -40,3 +40,109 @@ function extract {
         done
     fi
 }
+
+# Download. build and install Tmux and Vim in the tools directory
+tools_dir="tools"
+tmux_dir="tmux"
+vim_dir="vim"
+
+function install_tools {
+    echo "install tools"
+}
+
+function uninstall_tools {
+    echo "uninstall tools"
+}
+
+function update_tools {
+    cd ~
+
+    # Tools directory must exist
+    if [ ! -d "$tools_dir" ]; then
+        echo "~/$tools_dir not found"
+        return
+    fi
+
+    cd $tools_dir
+
+    # Update tmux
+    if [ -d "$tmux_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Update Tmux                                                                  #"
+        echo "################################################################################"
+
+        cd $tmux_dir
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Get updates"
+        echo "--------------------------------------------------------------------------------"
+        git checkout master
+        git pull
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Get latest tag (git describe --tags --abbrev=0)"
+        echo "--------------------------------------------------------------------------------"
+        local latest_tag=$(git describe --tags --abbrev=0)
+        echo "Checking out latest tag: $latest_tag"
+        git checkout $latest_tag
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Build (make)"
+        echo "--------------------------------------------------------------------------------"
+        make
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Install (sudo make install)"
+        echo "--------------------------------------------------------------------------------"
+        sudo make install
+    fi
+
+    cd ~
+    cd $tools_dir
+
+    # Update vim
+    if [ -d "$vim_dir" ]; then
+        echo " "
+        echo "################################################################################"
+        echo "# Update Vim                                                                   #"
+        echo "################################################################################"
+
+        cd $vim_dir
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Get updates (git pull)"
+        echo "--------------------------------------------------------------------------------"
+        git pull
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Build (make)"
+        echo "--------------------------------------------------------------------------------"
+        make
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Install (sudo make install)"
+        echo "--------------------------------------------------------------------------------"
+        sudo make install
+
+        echo " "
+        echo "--------------------------------------------------------------------------------"
+        echo " Update Vim Plugins (vim +PlugUpdate +PlugUpgrade +qall)"
+        echo "--------------------------------------------------------------------------------"
+        vim +PlugUpdate +PlugUpgrade +qall
+    fi
+
+    cd ~
+
+    echo " "
+    echo "################################################################################"
+    echo "# Update finished                                                              #"
+    echo "################################################################################"
+}
