@@ -2,7 +2,7 @@
 export TERM=xterm-256color
 
 # Aliases
-alias l="ls -la"
+alias l="ls -lhFA"
 
 # Functions
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)
