@@ -159,10 +159,10 @@ augroup end
 
 " switch to solarized color scheme
 function! Set_colors_solarized()
-    let g:solarized_termcolors=256
-    colorscheme solarized
-    let g:airline_theme='solarized'
     try
+        let g:solarized_termcolors=256
+        colorscheme solarized
+        let g:airline_theme='solarized'
         AirlineRefresh
     catch
     endtry
@@ -171,9 +171,9 @@ command! SetColorsSolarized call Set_colors_solarized()
 
 " switch to gruvbox color scheme
 function! Set_colors_gruvbox()
-    colorscheme gruvbox
-    let g:airline_theme='gruvbox'
     try
+        colorscheme gruvbox
+        let g:airline_theme='gruvbox'
         AirlineRefresh
     catch
     endtry
@@ -182,9 +182,9 @@ command! SetColorsGruvbox call Set_colors_gruvbox()
 
 " switch to jellybeans color scheme
 function! Set_colors_jellybeans()
-    colorscheme jellybeans
-    let g:airline_theme='jellybeans'
     try
+        colorscheme jellybeans
+        let g:airline_theme='jellybeans'
         AirlineRefresh
     catch
     endtry

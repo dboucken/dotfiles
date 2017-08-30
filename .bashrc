@@ -41,6 +41,53 @@ function extract {
     fi
 }
 
+# Set links for the dotfiles
+function install_dotfiles {
+    cd ~
+
+    # Backup existing dotfiles
+    if [ -f ".vimrc" ]; then
+        mv -vf .vimrc .vimrc.bak
+    fi
+    if [ -f ".tmux.conf" ]; then
+        mv -vf .tmux.conf .tmux.conf.bak
+    fi
+    if [ -f ".inputrc" ]; then
+        mv -vf .inputrc .inputrc.bak
+    fi
+
+    # Link to new dotfiles
+    ln -sv dotfiles/.vimrc
+    ln -sv dotfiles/.tmux.conf
+    ln -sv dotfiles/.inputrc
+}
+
+function uninstall_dotfiles {
+    cd ~
+
+    # Remove links
+    if [ -h ".vimrc" ]; then
+        rm -vf .vimrc
+    fi
+    if [ -h ".tmux.conf" ]; then
+        rm -vf .tmux.conf
+    fi
+    if [ -h ".inputrc" ]; then
+        rm -vf .inputrc
+    fi
+
+    # Restore backups
+    if [ -f ".vimrc.bak" ]; then
+        mv -vf .vimrc.bak .vimrc
+    fi
+    if [ -f ".tmux.conf.bak" ]; then
+        mv -vf .tmux.conf.bak .tmux.conf
+    fi
+    if [ -f ".inputrc.bak" ]; then
+        mv -vf .inputrc.bak .inputrc
+    fi
+}
+
 # Download. build and install Tmux and Vim in the tools directory
 tools_dir="tools"
 tmux_dir="tmux"
@@ -50,7 +97,7 @@ function install_tools {
     cd ~
 
     # Create tools dir if it does not exist
-    if [ -d "$tools_dir" ]; then
+    if [ ! -d "$tools_dir" ]; then
         mkdir $tools_dir
     fi
 
@@ -132,6 +179,15 @@ function uninstall_tools {
     fi
 
     cd ~
+
+    # Remove vim related directories and files in the home directory
+    if [ -d ".vim" ]; then
+        rm -rfv .vim
+    fi
+
+    if [ -f ".viminfo" ]; then
+        rm -rfv .viminfo
+    fi
 
     echo " "
     echo "################################################################################"
