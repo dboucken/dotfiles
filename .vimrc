@@ -27,6 +27,7 @@ Plug 'altercation/vim-colors-solarized'                          " color scheme
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}            " better javascript support
 
 " all plugins should be added before this line
 call plug#end()
@@ -62,7 +63,7 @@ set autowriteall                " autosave files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
-runtime! ftplugin/man.vim       " read man pages inside vim
+runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
 
 " tabs and indentation
 set tabstop=4     " number of visual spaces per tab
