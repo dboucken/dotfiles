@@ -210,6 +210,25 @@ function update_tools {
         return
     fi
 
+    if [ ! -d "dotfiles" ]; then
+        echo "dotfiles not found"
+        return
+    fi
+
+    echo " "
+    echo "################################################################################"
+    echo "# Update dotfiles                                                              #"
+    echo "################################################################################"
+    cd dotfiles
+    git pull
+    cd ~
+    if [ -f ".bash_profile" ]; then
+        source .bash_profile
+    fi
+    if [ -f ".bashrc" ]; then
+        source .bashrc
+    fi
+
     cd $tools_dir
 
     if [ -d "$tmux_dir" ]; then
