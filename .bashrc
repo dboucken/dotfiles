@@ -165,6 +165,12 @@ function uninstall_tools {
     fi
 
     cd ~
+
+    # Remove tmux related directories and files in the home directory
+    if [ -d ".tmux" ]; then
+        rm -rfv .tmux
+    fi
+
     cd $tools_dir
 
     if [ -d "$vim_dir" ]; then
