@@ -26,5 +26,6 @@ USER docker
 WORKDIR /home/docker
 ADD . /home/docker/dotfiles
 
-# Append custom bashrc
+# Install
 RUN echo source ~/dotfiles/.bashrc >> .bashrc
+RUN ~/dotfiles/install.sh
