@@ -31,6 +31,16 @@ ln -sv dotfiles/.vimrc
 ln -sv dotfiles/.tmux.conf
 ln -sv dotfiles/.inputrc
 
+echo "################################################################################"
+echo "# Install git scripts                                                          #"
+echo "################################################################################"
+if [ ! -f "git-prompt.sh" ]; then
+    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+fi
+if [ ! -f "git-completion.bash" ]; then
+    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+fi
+
 # Create tools dir if it does not exist
 if [ ! -d "$tools_dir" ]; then
     mkdir $tools_dir

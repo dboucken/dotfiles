@@ -13,6 +13,18 @@ alias update_tools="~/dotfiles/update.sh"
 alias uninstall_tools="~/dotfiles/uninstall.sh"
 
 # --------------------------------------------------------------------------------------------------
+# Git
+# --------------------------------------------------------------------------------------------------
+source ~/git-completion.bash
+source ~/git-prompt.sh
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_STATESEPARATOR=' '
+export PROMPT_COMMAND='__git_ps1 "\w" " > "'
+
+# --------------------------------------------------------------------------------------------------
 # Functions
 # --------------------------------------------------------------------------------------------------
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)

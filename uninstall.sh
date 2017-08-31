@@ -37,6 +37,16 @@ if [ -f ".inputrc.bak" ]; then
     mv -vf .inputrc.bak .inputrc
 fi
 
+echo "################################################################################"
+echo "# Uninstall git scripts                                                        #"
+echo "################################################################################"
+if [ -f "git-prompt.sh" ]; then
+    rm -rfv git-prompt.sh
+fi
+if [ -f "git-completion.bash" ]; then
+    rm -rfv git-completion.bash
+fi
+
 # Tools directory must exist
 if [ ! -d "$tools_dir" ]; then
     echo "~/$tools_dir not found"
