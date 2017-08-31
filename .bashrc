@@ -8,8 +8,9 @@ export TERM=xterm-256color
 # --------------------------------------------------------------------------------------------------
 alias l="ls -lhFA"
 alias c="clear"
-alias r="source ~/.bashrc"
-alias update="~/dotfiles/update.sh"
+alias install_tools="~/dotfiles/install.sh"
+alias update_tools="~/dotfiles/update.sh"
+alias uninstall_tools="~/dotfiles/uninstall.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Functions
@@ -47,5 +48,18 @@ function extract {
                 return 1
             fi
         done
+    fi
+}
+
+# Reload bash_profile and/or bashrc
+function reload {
+    cd ~
+    if [ -f ".bash_profile" ]; then
+        source ~/.bash_profile
+        echo "source ~/.bash_profile"
+    fi
+    if [ -f ".bashrc" ]; then
+        source ~/.bashrc
+        echo "source ~/.bashrc"
     fi
 }

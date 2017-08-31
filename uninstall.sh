@@ -1,6 +1,11 @@
 #!/bin/bash
 
-tools_dir="tools"
+if [ ! -d "$TOOLS_DIR" ]; then
+    tools_dir="tools"
+else
+    tools_dir=$TOOLS_DIR
+fi
+echo "Use target folder $tools_dir"
 tmux_dir="tmux"
 vim_dir="vim"
 
