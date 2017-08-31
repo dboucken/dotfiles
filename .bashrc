@@ -9,6 +9,7 @@ export TERM=xterm-256color
 alias l="ls -lhFA"
 alias c="clear"
 alias r="source ~/.bashrc"
+alias update="~/dotfiles/update.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Functions
