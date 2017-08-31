@@ -34,12 +34,8 @@ ln -sv dotfiles/.inputrc
 echo "################################################################################"
 echo "# Install git scripts                                                          #"
 echo "################################################################################"
-if [ ! -f "git-prompt.sh" ]; then
-    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-fi
-if [ ! -f "git-completion.bash" ]; then
-    wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-fi
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O git-completion.bash
 
 # Create tools dir if it does not exist
 if [ ! -d "$tools_dir" ]; then

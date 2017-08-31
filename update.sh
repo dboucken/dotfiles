@@ -36,6 +36,12 @@ if [ -f ".bashrc" ]; then
     source .bashrc
 fi
 
+echo "################################################################################"
+echo "# Update git scripts                                                           #"
+echo "################################################################################"
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O git-completion.bash
+
 cd $tools_dir
 
 if [ -d "$tmux_dir" ]; then
