@@ -64,8 +64,8 @@ if [ -d "$tmux_dir" ]; then
     echo "Latest tag: $latest_tag"
     git checkout $latest_tag
 
-    # Build and install if there is a new version
-    if [ "$current_tag" != "$latest_tag" ]; then
+    # Build and install if there is a new version or the force flag is set
+    if [ "$current_tag" != "$latest_tag" ] || [ "$1" == "-f" ]; then
         make && sudo make install
     fi
 fi
@@ -91,8 +91,8 @@ if [ -d "$vim_dir" ]; then
     latest_tag=$(git describe --all)
     echo "Latest tag: $latest_tag"
 
-    # Build and install if there is a new version
-    if [ "$current_tag" != "$latest_tag" ]; then
+    # Build and install if there is a new version or the force flag is set
+    if [ "$current_tag" != "$latest_tag" ] || [ "$1" == "-f" ]; then
         make && sudo make install
     fi
 
