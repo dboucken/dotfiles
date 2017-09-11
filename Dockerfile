@@ -14,7 +14,8 @@ RUN yum install -y sudo \
                    automake \
                    pkg-config \
                    libevent-devel \
-                   ncurses-devel
+                   ncurses-devel \
+                   wget
 
 # Add test group and user with sudoer privileges
 RUN groupadd docker-group
