@@ -62,7 +62,7 @@ cd $tools_dir
 if [ ! -d "$vim_dir" ]; then
     echo " "
     echo "################################################################################"
-    echo "# Update Vim                                                                   #"
+    echo "# Install Vim                                                                  #"
     echo "################################################################################"
     git clone https://github.com/vim/vim.git $vim_dir
     cd $vim_dir
