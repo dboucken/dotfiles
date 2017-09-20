@@ -103,7 +103,7 @@ set wildignore+=tags
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
 " add extra syntax highlighting for c functions and extra keywords
-function! EnhanceCSyntax()
+function! EnhanceCSyntax() abort
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
     syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
     syntax keyword cBoolean true false TRUE FALSE
@@ -118,7 +118,7 @@ augroup c_syntax_enhancements
 augroup end
 
 " autoload cscope database
-function! LoadCscope()
+function! LoadCscope() abort
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
         let path = strpart(db, 0, match(db, "/cscope.out$"))
@@ -159,7 +159,7 @@ augroup auto_save_and_read
 augroup end
 
 " switch to solarized color scheme
-function! Set_colors_solarized()
+function! Set_colors_solarized() abort
     try
         let g:solarized_termcolors=256
         colorscheme solarized
@@ -171,7 +171,7 @@ endfunction
 command! SetColorsSolarized call Set_colors_solarized()
 
 " switch to gruvbox color scheme
-function! Set_colors_gruvbox()
+function! Set_colors_gruvbox() abort
     try
         colorscheme gruvbox
         let g:airline_theme='gruvbox'
@@ -182,7 +182,7 @@ endfunction
 command! SetColorsGruvbox call Set_colors_gruvbox()
 
 " switch to jellybeans color scheme
-function! Set_colors_jellybeans()
+function! Set_colors_jellybeans() abort
     try
         colorscheme jellybeans
         let g:airline_theme='jellybeans'
