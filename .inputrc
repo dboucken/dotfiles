@@ -1,6 +1,3 @@
-# Use Vi, not Emacs, style editing
-set editing-mode vi
-
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
 
@@ -26,7 +23,3 @@ set bell-style none
 
 # Expand tilde
 set expand-tilde
-
-set colored-stats on
-
-set possible-completions C-d

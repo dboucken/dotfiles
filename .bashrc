@@ -15,6 +15,7 @@ alias uninstall_tools="~/dotfiles/uninstall.sh"
 # --------------------------------------------------------------------------------------------------
 # Git
 # --------------------------------------------------------------------------------------------------
+# Configure git completion and git prompt
 source ~/git-completion.bash
 source ~/git-prompt.sh
 GIT_PS1_SHOWUPSTREAM=auto
