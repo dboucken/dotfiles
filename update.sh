@@ -19,7 +19,7 @@ fi
 
 if [ ! -d "dotfiles" ]; then
     echo "dotfiles not found"
-    return
+    exit
 fi
 
 echo " "
@@ -53,7 +53,8 @@ if [ -d "$tmux_dir" ]; then
 
     # Get current version
     current_tag=$(git describe --tags --abbrev=0)
-    echo "Current tag: $current_tag"
+    current_tag_commit=$(git rev-list -n 1 $current_tag)
+    echo "Current tag: $current_tag ($current_tag_commit)"
 
     # Update repo
     git checkout master
@@ -61,11 +62,12 @@ if [ -d "$tmux_dir" ]; then
 
     # Get new version
     latest_tag=$(git describe --tags --abbrev=0)
-    echo "Latest tag: $latest_tag"
-    git checkout $latest_tag
+    git checkout $latest_tag &>/dev/null
+    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+    echo "Latest tag: $latest_tag ($latest_tag_commit)"
 
     # Build and install if there is a new version or the force flag is set
-    if [ "$current_tag" != "$latest_tag" ] || [ "$1" == "-f" ]; then
+    if [ "$current_tag" != "$latest_tag" ] || [ "$current_tag_commit" != "$latest_tag_commit" ]; then
         make && sudo make install
     fi
 fi
@@ -82,17 +84,20 @@ if [ -d "$vim_dir" ]; then
 
     # Get current version
     current_tag=$(git describe --all)
-    echo "Current tag: $current_tag"
+    current_tag_commit=$(git rev-list -n 1 $current_tag)
+    echo "Current tag: $current_tag ($current_tag_commit)"
 
     # Update repo
     git pull
 
     # Get new version
-    latest_tag=$(git describe --all)
-    echo "Latest tag: $latest_tag"
+    latest_tag=$(git describe --tags --abbrev=0)
+    git checkout $latest_tag &>/dev/null
+    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+    echo "Latest tag: $latest_tag ($latest_tag_commit)"
 
     # Build and install if there is a new version or the force flag is set
-    if [ "$current_tag" != "$latest_tag" ] || [ "$1" == "-f" ]; then
+    if [ "$current_tag" != "$latest_tag" ] || [ "$current_tag_commit" != "$latest_tag_commit" ]; then
         make && sudo make install
     fi
 
