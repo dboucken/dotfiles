@@ -229,8 +229,8 @@ inoremap <C-o> <C-x><C-o>
 " use space as leader
 let mapleader=" "
 
-" clear the highlighting of :set hlsearch
-nnoremap <silent> <leader>h :nohlsearch<cr>
+" redraw the screen, clear search highlighting and force updating syntax highlighting
+nnoremap <silent> <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 " quickly open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
