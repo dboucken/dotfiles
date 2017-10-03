@@ -22,8 +22,6 @@ Plug 'godlygeek/tabular'                                         " align text
 Plug 'vim-airline/vim-airline'                                   " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
 Plug 'nanotech/jellybeans.vim'                                   " color scheme
-Plug 'morhetz/gruvbox'                                           " color scheme
-Plug 'altercation/vim-colors-solarized'                          " color scheme
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
@@ -158,43 +156,16 @@ augroup auto_save_and_read
     autocmd CursorHold * silent! checktime
 augroup end
 
-" switch to solarized color scheme
-function! Set_colors_solarized() abort
-    try
-        let g:solarized_termcolors=256
-        colorscheme solarized
-        let g:airline_theme='solarized'
-        AirlineRefresh
-    catch
-    endtry
-endfunction
-command! SetColorsSolarized call Set_colors_solarized()
+" set colorscheme
+try
+    colorscheme jellybeans
+    let g:airline_theme='jellybeans'
+catch
+endtry
 
-" switch to gruvbox color scheme
-function! Set_colors_gruvbox() abort
-    try
-        colorscheme gruvbox
-        let g:airline_theme='gruvbox'
-        AirlineRefresh
-    catch
-    endtry
-endfunction
-command! SetColorsGruvbox call Set_colors_gruvbox()
-
-" switch to jellybeans color scheme
-function! Set_colors_jellybeans() abort
-    try
-        colorscheme jellybeans
-        let g:airline_theme='jellybeans'
-        AirlineRefresh
-    catch
-    endtry
-endfunction
-command! SetColorsJellybeans call Set_colors_jellybeans()
-
-" use jellybeans as default color scheme
-SetColorsJellybeans
-
+" -------------------------------------------------------------------------------------------------
+" ABBREVIATIONS
+" -------------------------------------------------------------------------------------------------
 " use H to open help in a vertical split
 cnoreabbrev H vert h
 
