@@ -195,6 +195,9 @@ command! SetColorsJellybeans call Set_colors_jellybeans()
 " use jellybeans as default color scheme
 SetColorsJellybeans
 
+" use H to open help in a vertical split
+cnoreabbrev H vert h
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
