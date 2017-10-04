@@ -105,7 +105,7 @@ if [ -d "$vim_dir" ]; then
     echo "--------------------------------------------------------------------------------"
     echo " Update Vim Plugins (vim +PlugUpdate +PlugUpgrade +qall)"
     echo "--------------------------------------------------------------------------------"
-    vim +PlugUpdate +PlugUpgrade +qall
+    vim +PlugClean +PlugUpgrade +PlugUpdate +qall
 fi
 
 cd ~
