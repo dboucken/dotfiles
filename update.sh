@@ -88,6 +88,7 @@ if [ -d "$vim_dir" ]; then
     echo "Current tag: $current_tag ($current_tag_commit)"
 
     # Update repo
+    git checkout master
     git pull
 
     # Get new version
