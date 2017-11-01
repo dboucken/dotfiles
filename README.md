@@ -1,6 +1,6 @@
 # My dotfiles
 Personal dotfiles repository. Feel free to steal ideas or send me suggestions. This is very much
-unfinished and a continious work in progress.
+unfinished and a continuous work in progress.
 
 ## Installation
 `echo source ~/dotfiles/.bashrc >> .bashrc`
