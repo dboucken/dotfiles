@@ -8,6 +8,8 @@ export TERM=xterm-256color
 # --------------------------------------------------------------------------------------------------
 alias l="ls -lhFA"
 alias c="clear"
+alias update="~/dotfiles/scripts/install.sh"
+alias mac_update="~/dotfiles/scripts/mac_install.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Git

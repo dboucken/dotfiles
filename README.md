@@ -5,13 +5,13 @@ unfinished and a continuous work in progress.
 ## Installation
 `echo source ~/dotfiles/.bashrc >> .bashrc`
 
-`~/dotfiles/install.sh` or `~/dotfiles/mac_install.sh`
+`~/dotfiles/scripts/install.sh` or `~/dotfiles/scripts/mac_install.sh`
 
 ## Update
-`~/dotfiles/install.sh` or `~/dotfiles/mac_install.sh`
+`~/dotfiles/scripts/install.sh` or `~/dotfiles/scripts/mac_install.sh`
 
 ## Uninstallation
-`~/dotfiles/uninstall.sh`
+`~/dotfiles/scripts/uninstall.sh`
 
 ## Test with docker
 `docker build -t dotfiles-test . && docker run -it dotfiles-test bash`

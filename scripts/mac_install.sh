@@ -7,16 +7,18 @@ echo "##########################################################################
 
 cd ~
 
-sh ~/dotfiles/install/dotfiles.sh
-sh ~/dotfiles/install/git-scripts.sh
+sh ~/dotfiles/scripts/install/dotfiles.sh
+sh ~/dotfiles/scripts/install/git-scripts.sh
 
 mkdir tools
 cd tools
 
-sh ~/dotfiles/install/tmux.sh
-sh ~/dotfiles/install/vim.sh
+sh ~/dotfiles/scripts/install/tmux.sh
+sh ~/dotfiles/scripts/install/vim.sh
 
 cd ~
+
+sh ~/dotfiles/scripts/install/mac.sh
 
 echo " "
 echo "################################################################################"
