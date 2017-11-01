@@ -2,26 +2,25 @@
 
 echo " "
 echo "################################################################################"
-echo "# Start uninstallation                                                         #"
+echo "# Start installation/update                                                    #"
 echo "################################################################################"
 
 cd ~
 
-sh ~/dotfiles/uninstall/dotfiles.sh
-sh ~/dotfiles/uninstall/git-scripts.sh
+sh ~/dotfiles/install/dotfiles.sh
+sh ~/dotfiles/install/git-scripts.sh
 
-if [ -d "tools" ]; then
-    cd tools
+mkdir tools
+cd tools
 
-    sh ~/dotfiles/uninstall/tmux.sh
-    sh ~/dotfiles/uninstall/vim.sh
+sh ~/dotfiles/install/tmux.sh
+sh ~/dotfiles/install/vim.sh
 
-    cd ~
+cd ~
 
-    rm -vrf tools
-fi
+sh ~/dotfiles/install/mac.sh
 
 echo " "
 echo "################################################################################"
-echo "# Uninstallation finished                                                      #"
+echo "# Installation/update finished                                                 #"
 echo "################################################################################"

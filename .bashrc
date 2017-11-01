@@ -8,9 +8,6 @@ export TERM=xterm-256color
 # --------------------------------------------------------------------------------------------------
 alias l="ls -lhFA"
 alias c="clear"
-alias install_tools="~/dotfiles/install.sh"
-alias update_tools="~/dotfiles/update.sh"
-alias uninstall_tools="~/dotfiles/uninstall.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Git
