@@ -1,44 +1,37 @@
-if [ ! -d "tmux" ]; then
-    echo " "
-    echo "################################################################################"
-    echo "# Install tmux                                                                 #"
-    echo "################################################################################"
+#!/bin/bash
 
-    git clone https://github.com/tmux/tmux.git tmux
+# This script installs tmux in the tools directory, make sure the dependencies to build and install
+# tmux are installed
+echo " "
+echo "################################################################################"
+echo "# Install tmux                                                                 #"
+echo "################################################################################"
 
-    cd tmux
+# Try create tools directory for case that it does not already exists
+mkdir ~/tools
 
-    # Use latest tag
-    latest_tag=$(git describe --tags --abbrev=0)
-    git checkout $latest_tag
+# Goto tools directory and push the current directory to the stack
+pushd ~/tools
 
-    # Install
-    sh autogen.sh && ./configure && make && sudo make install
-else
-    echo " "
-    echo "################################################################################"
-    echo "# Update tmux                                                                  #"
-    echo "################################################################################"
-
-    cd tmux
-
-    # Get current version
-    current_tag=$(git describe --tags --abbrev=0)
-    current_tag_commit=$(git rev-list -n 1 $current_tag)
-    echo "Current tag: $current_tag ($current_tag_commit)"
-
-    # Update repo
-    git checkout master
-    git pull
-
-    # Get new version
-    latest_tag=$(git describe --tags --abbrev=0)
-    git checkout $latest_tag &>/dev/null
-    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
-    echo "Latest tag: $latest_tag ($latest_tag_commit)"
-
-    # Build and install if there is a new version
-    if [ "$current_tag_commit" != "$latest_tag_commit" ]; then
-        make && sudo make install
-    fi
+# Tmux may not be installed already
+if [ -d "tmux" ]; then
+    echo "Tmux already installed."
+    # Return to the current directory
+    popd
+    exit
 fi
+
+# Clone the tmux repository
+git clone https://github.com/tmux/tmux.git tmux
+
+cd tmux
+
+# Use latest tag
+latest_tag=$(git describe --tags --abbrev=0)
+git checkout $latest_tag
+
+# Configure, build and install
+sh autogen.sh && ./configure && make && sudo make install
+
+# Return to the current directory
+popd

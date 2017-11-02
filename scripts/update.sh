@@ -2,23 +2,18 @@
 
 echo " "
 echo "################################################################################"
-echo "# Start installation                                                           #"
+echo "# Start update                                                                 #"
 echo "################################################################################"
 
 # Ask for administrator password upfront
 sudo -v
 
-# Make sure we can execute the scripts
-sudo chmod -R a+rwx ~/dotfiles
-
-sh ~/dotfiles/scripts/install/bashrc.sh
-sh ~/dotfiles/scripts/install/dotfiles.sh
+sh ~/dotfiles/scripts/update/dotfiles.sh
 sh ~/dotfiles/scripts/install/git-scripts.sh
-sh ~/dotfiles/scripts/install/mac.sh
-sh ~/dotfiles/scripts/install/tmux.sh
-sh ~/dotfiles/scripts/install/vim.sh
+sh ~/dotfiles/scripts/update/tmux.sh
+sh ~/dotfiles/scripts/update/vim.sh
 
 echo " "
 echo "################################################################################"
-echo "# Installation finished                                                        #"
+echo "# Update finished                                                              #"
 echo "################################################################################"

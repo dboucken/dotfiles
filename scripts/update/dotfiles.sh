@@ -2,15 +2,14 @@
 
 echo " "
 echo "################################################################################"
-echo "# Uninstall git scripts                                                        #"
+echo "# Update dotfiles                                                              #"
 echo "################################################################################"
 
-# Goto home directory and push the current directory to the stack
-pushd ~
+# Goto dotfiles directory and push the current directory to the stack
+pushd ~/dotfiles
 
-# Remove scripts
-rm -v git-prompt.sh
-rm -v git-completion.bash
+# Update dotfiles
+git pull
 
 # Return to the current directory
 popd

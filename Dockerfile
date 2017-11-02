@@ -26,7 +26,3 @@ USER docker
 # Add current directory (dotfiles) to home directory
 WORKDIR /home/docker
 ADD . /home/docker/dotfiles
-
-# Install
-RUN sudo chmod -R a+rwx ~/dotfiles
-RUN echo source ~/dotfiles/.bashrc >> .bashrc
