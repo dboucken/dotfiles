@@ -7,7 +7,8 @@ Contains all dotfiles.
 
 ## Scripts directory
 Contains helpful scripts to install, update and uninstall dotfiles and extra tools on a linux or a
-mac. Look into the scripts for more info and customization options.
+mac. Look into the scripts for more info and customization options. Source your .bashrc or
+.bash_profile after running the scripts to make sure the effects take place.
 
 ### Installation
 `~/dotfiles/scripts/install.sh`
