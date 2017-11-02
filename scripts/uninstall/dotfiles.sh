@@ -9,9 +9,9 @@ echo "##########################################################################
 pushd ~
 
 # Remove links
-rm -v .vimrc
-rm -v .tmux.conf
-rm -v .inputrc
+rm -v .vimrc 2> /dev/null
+rm -v .tmux.conf 2> /dev/null
+rm -v .inputrc 2> /dev/null
 
 # Return to the current directory
 popd

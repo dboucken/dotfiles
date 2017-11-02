@@ -8,7 +8,7 @@ echo "# Install Vim                                                             
 echo "################################################################################"
 
 # Try create tools directory for case that it does not already exists
-mkdir ~/tools
+mkdir ~/tools 2> /dev/null
 
 # Goto tools directory and push the current directory to the stack
 pushd ~/tools

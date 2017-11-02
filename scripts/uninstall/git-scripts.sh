@@ -9,8 +9,8 @@ echo "##########################################################################
 pushd ~
 
 # Remove scripts
-rm -v git-prompt.sh
-rm -v git-completion.bash
+rm -v git-prompt.sh 2> /dev/null
+rm -v git-completion.bash 2> /dev/null
 
 # Return to the current directory
 popd
