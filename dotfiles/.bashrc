@@ -11,8 +11,6 @@ alias c="clear"
 alias install="~/dotfiles/scripts/install.sh"
 alias update="~/dotfiles/scripts/update.sh"
 alias uninstall="~/dotfiles/scripts/uninstall.sh"
-alias mac_install="~/dotfiles/scripts/mac_install.sh"
-alias mac_update="~/dotfiles/scripts/mac_update.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Git
