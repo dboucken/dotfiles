@@ -12,7 +12,7 @@ alias install="~/dotfiles/scripts/install.sh"
 alias update="~/dotfiles/scripts/update.sh"
 alias uninstall="~/dotfiles/scripts/uninstall.sh"
 alias mac_install="~/dotfiles/scripts/mac_install.sh"
-alias mac_udpate="~/dotfiles/scripts/mac_update.sh"
+alias mac_update="~/dotfiles/scripts/mac_update.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Git
@@ -68,12 +68,6 @@ function extract {
 
 # Reload bash_profile and/or bashrc
 function reload {
-    if [ -f "~/.bash_profile" ]; then
-        source ~/.bash_profile
-        echo "source ~/.bash_profile"
-    fi
-    if [ -f "~/.bashrc" ]; then
-        source ~/.bashrc
-        echo "source ~/.bashrc"
-    fi
+    source .bash_profile 2> /dev/null
+    source .bashrc 2> /dev/null
 }
