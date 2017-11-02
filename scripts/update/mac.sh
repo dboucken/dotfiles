@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update App Store apps
+sudo softwareupdate -i -a
+
 # Update homebrew and cleanup
 brew update
 brew upgrade
@@ -11,5 +14,6 @@ brew cask cleanup
 # Update gems
 gem update
 
-# Update npm packages
-npm -g update
+# Update npm and npm packages
+npm install npm -g
+npm update -g
