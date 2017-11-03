@@ -9,8 +9,13 @@ echo "##########################################################################
 pushd ~
 
 # Source the repository bashrc in the correct home directory bashrc or bash_profile file
-echo source ~/dotfiles/dotfiles/.bashrc >> ~/.bashrc
-echo "Append repository .bashrc to home directory .bashrc"
+if [ -f ".bashrc" ]; then
+    echo source ~/dotfiles/dotfiles/.bashrc >> ~/.bashrc
+    echo "Append repository .bashrc to home directory .bashrc"
+elif [ -f ".bash_profile" ]; then
+    echo source ~/dotfiles/dotfiles/.bashrc >> ~/.bash_profile
+    echo "Append repository .bashrc to home directory .bash_profile"
+fi
 
 # Return to the current directory
 popd
