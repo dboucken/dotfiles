@@ -16,7 +16,7 @@ if [ "$os" == "Darwin" ]; then
 fi
 
 sh ~/dotfiles/scripts/update/dotfiles.sh
-sh ~/dotfiles/scripts/install/git-scripts.sh
+sh ~/dotfiles/scripts/update/git-scripts.sh
 sh ~/dotfiles/scripts/update/tmux.sh
 sh ~/dotfiles/scripts/update/vim.sh
 

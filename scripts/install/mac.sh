@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo xcodebuild -license accept
+
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -22,6 +24,10 @@ brew install cscope
 brew install ctags
 brew install markdown
 brew install openconnect
+brew install wget
+brew install automake
+brew install pkg-config
+brew install libevent
 
 brew cask install appcleaner
 brew cask install filezilla
@@ -38,8 +44,6 @@ brew cask install wireshark
 # brew cask install google-chrome
 # brew cask install spotify
 # brew cask install google-backup-and-sync
-# brew cask install firefox
-# brew cask install google-drive
 
 # Update homebrew and cleanup
 brew update
