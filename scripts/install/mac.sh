@@ -14,7 +14,7 @@ brew install ruby
 brew install git
 brew install node
 brew install bash
-brew install bash-eompletion
+brew install bash-completion
 brew install python
 brew install python3
 brew install the_silver_searcher
