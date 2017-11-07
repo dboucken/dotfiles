@@ -26,6 +26,8 @@ Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}            " better javascript support
+Plug 'junegunn/fzf',            {'dir': '~/.fzf', 'do': './install --all'} " fast fuzzy search
+Plug 'junegunn/fzf.vim'                                          " useful fzf commands
 
 " all plugins should be added before this line
 call plug#end()
@@ -220,7 +222,7 @@ nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " search files in the working directory
-nnoremap <leader>oo :e **/
+nnoremap <leader>oo :Files<CR>
 
 " regex tags search
 nnoremap <leader>tt :tj /
