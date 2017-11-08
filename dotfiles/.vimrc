@@ -21,7 +21,9 @@ Plug 'wincent/ferret'                                            " async grep an
 Plug 'godlygeek/tabular'                                         " align text
 Plug 'vim-airline/vim-airline'                                   " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
+Plug 'edkolev/tmuxline.vim'                                      " apply themes to tmux status bar
 Plug 'nanotech/jellybeans.vim'                                   " color scheme
+Plug 'morhetz/gruvbox'                                           " color scheme
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
