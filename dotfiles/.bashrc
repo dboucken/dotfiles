@@ -66,6 +66,6 @@ function extract {
 
 # Reload bash_profile and/or bashrc
 function reload {
-    source .bash_profile 2> /dev/null
-    source .bashrc 2> /dev/null
+    source ~/.bash_profile 2> /dev/null
+    source ~/.bashrc 2> /dev/null
 }
