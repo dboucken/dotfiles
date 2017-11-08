@@ -244,3 +244,9 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
+
+" yank to system clipboard in visual mode
+vnoremap <leader>y "*y
+
+" paste from system clipboard
+nnoremap <leader>ps "+p
