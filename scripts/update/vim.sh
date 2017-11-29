@@ -41,7 +41,7 @@ echo " "
 echo "--------------------------------------------------------------------------------"
 echo " Update Vim Plugins"
 echo "--------------------------------------------------------------------------------"
-vim +PlugClean +PlugUpgrade +PlugUpdate +qall
+vim +PlugClean! +PlugUpgrade +PlugUpdate +qall
 
 # Return to the current directory
 popd
