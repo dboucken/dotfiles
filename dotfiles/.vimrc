@@ -66,7 +66,8 @@ set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
 set tags+=~/.vim/systags        " add system functions tag files
-set complete-=i                 " don't search include files to improve performance in large projects
+set complete-=i                 " don't search include files to improve autocompletion performance
+set complete-=t                 " don't search tags to improve autocompletion performance
 runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
 
 " tabs and indentation
