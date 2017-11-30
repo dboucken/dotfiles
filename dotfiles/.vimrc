@@ -69,6 +69,7 @@ set tags+=~/.vim/systags        " add system functions tag files
 set complete-=i                 " don't search include files to improve autocompletion performance
 set complete-=t                 " don't search tags to improve autocompletion performance
 runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
+let g:ft_man_open_mode = 'vert' " open man pages in a vertical split
 
 " tabs and indentation
 set tabstop=4     " number of visual spaces per tab
