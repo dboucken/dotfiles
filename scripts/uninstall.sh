@@ -2,7 +2,7 @@
 
 echo " "
 echo "################################################################################"
-echo "# Start uninstallation                                                         #"
+echo "# Start uninstall                                                              #"
 echo "################################################################################"
 
 # Ask for administrator password upfront
@@ -15,5 +15,5 @@ sh ~/dotfiles/scripts/uninstall/vim.sh
 
 echo " "
 echo "################################################################################"
-echo "# Uninstallation finished                                                      #"
+echo "# Uninstall finished                                                           #"
 echo "################################################################################"

@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Install git scripts                                                          #"
 echo "################################################################################"
 
-# Goto home directory and push the current directory to the stack
+# Go to home directory and push the current directory to the stack
 pushd ~
 
 # Install or update the git scripts

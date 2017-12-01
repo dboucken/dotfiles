@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Update tmux                                                                  #"
 echo "################################################################################"
 
-# Goto tmux directory and push the current directory to the stack
+# Go to tmux directory and push the current directory to the stack
 pushd ~/tools
 
 # Tmux must be installed
@@ -23,7 +23,7 @@ current_tag=$(git describe --tags --abbrev=0)
 current_tag_commit=$(git rev-list -n 1 $current_tag)
 echo "Current tag: $current_tag ($current_tag_commit)"
 
-# Update repo
+# Update repository
 git checkout master
 git pull
 

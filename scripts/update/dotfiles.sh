@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Update dotfiles                                                              #"
 echo "################################################################################"
 
-# Goto dotfiles directory and push the current directory to the stack
+# Go to dotfiles directory and push the current directory to the stack
 pushd ~/dotfiles
 
 # Update dotfiles

@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Uninstall Tmux                                                               #"
 echo "################################################################################"
 
-# Goto tmux directory and push the current directory to the stack
+# Go to tmux directory and push the current directory to the stack
 pushd ~/tools
 
 # Tmux must be installed

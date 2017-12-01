@@ -2,7 +2,7 @@
 
 echo " "
 echo "################################################################################"
-echo "# Start installation                                                           #"
+echo "# Start install                                                                #"
 echo "################################################################################"
 
 # Ask for administrator password upfront
@@ -26,5 +26,5 @@ sh ~/dotfiles/scripts/install/vim.sh
 
 echo " "
 echo "################################################################################"
-echo "# Installation finished                                                        #"
+echo "# Install finished                                                             #"
 echo "################################################################################"

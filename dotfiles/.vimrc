@@ -15,9 +15,9 @@ Plug 'tpope/vim-fugitive'                                        " git wrapper
 Plug 'tpope/vim-surround'                                        " all about surroundings
 Plug 'tpope/vim-commentary'                                      " commenting
 Plug 'tpope/vim-unimpaired'                                      " some useful key mappings
-Plug 'tpope/vim-dispatch'                                        " async make
+Plug 'tpope/vim-dispatch'                                        " asynchronous make
 Plug 'airblade/vim-gitgutter'                                    " show git diff in gutter
-Plug 'wincent/ferret'                                            " async grep and replace
+Plug 'wincent/ferret'                                            " asynchronous grep and replace
 Plug 'godlygeek/tabular'                                         " align text
 Plug 'vim-airline/vim-airline'                                   " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
@@ -25,12 +25,12 @@ Plug 'edkolev/tmuxline.vim'                                      " apply themes 
 Plug 'nanotech/jellybeans.vim'                                   " color scheme
 Plug 'morhetz/gruvbox'                                           " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
-Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
-Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
+Plug 'w0rp/ale',                {'for': ['javascript','python']} " asynchronous linting
+Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}            " better javascript support
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}            " better JavaScript support
 Plug 'junegunn/fzf',            {'dir': '~/.fzf', 'do': './install --all'} " fast fuzzy search
-Plug 'junegunn/fzf.vim'                                          " useful fzf commands
+Plug 'junegunn/fzf.vim'                                          " useful FZF commands
 
 " all plugins should be added before this line
 call plug#end()
@@ -43,7 +43,7 @@ syntax on                       " enable syntax highlighting
 set synmaxcol=250               " only syntax highlight the first 250 columns
 set cursorline                  " highlight current line
 set colorcolumn=101             " set vertical line at 101 characters
-set wildmenu                    " visual autocomplete for command menu
+set wildmenu                    " visual auto complete for command menu
 set report=0                    " always report changed lines
 set lazyredraw                  " only redraw when necessary
 set ttyfast                     " always assume a fast terminal
@@ -55,20 +55,20 @@ set splitright                  " open new vertical split right of the current o
 set history=1000                " increase history
 set undolevels=1000             " increase undo levels
 set visualbell                  " use visual bell instead of beeping
-set backspace=indent,eol,start  " allow backspacing over autoindent, line breaks and insert action
+set backspace=indent,eol,start  " allow backspacing over auto indent, line breaks and insert action
 set hidden                      " buffer becomes hidden when it is abandoned
 set cmdheight=2                 " increase the height of the command bar
-set nowrap                      " dont't wrap
+set nowrap                      " don't wrap
 set laststatus=2                " always show the status line
-set completeopt=longest,menuone " better autocompletion
+set completeopt=longest,menuone " better auto completion
 set mouse=a                     " enable mouse support
-set autowriteall                " autosave files
+set autowriteall                " auto save files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
 set tags+=~/.vim/systags        " add system functions tag files
-set complete-=i                 " don't search include files to improve autocompletion performance
-set complete-=t                 " don't search tags to improve autocompletion performance
+set complete-=i                 " don't search include files to improve auto completion performance
+set complete-=t                 " don't search tags to improve auto completion performance
 runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
 let g:ft_man_open_mode = 'vert' " open man pages in a vertical split
 
@@ -76,11 +76,11 @@ let g:ft_man_open_mode = 'vert' " open man pages in a vertical split
 set tabstop=4     " number of visual spaces per tab
 set softtabstop=4 " number of spaces per tab when editing
 set expandtab     " tabs are spaces
-set shiftround    " round to multiple of shiftwidth when adjusting indentation
-set shiftwidth=4  " number of spaces for each step of autoindent
+set shiftround    " round to multiple of shift width when adjusting indentation
+set shiftwidth=4  " number of spaces for each step of auto indent
 set autoindent    " auto indent on a new line
 
-" key timeouts, quickly time out on keycodes, but never time out on mappings
+" key timeouts, quickly time out on key codes, but never time out on mappings
 set notimeout
 set ttimeout
 set ttimeoutlen=200
@@ -97,7 +97,7 @@ set smartcase  " don't ignore case when inserting uppercase characters
 
 " backups
 set nobackup   " disable backups
-set noswapfile " disable swapfiles
+set noswapfile " disable swap files
 
 " enable cscope quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e- "
@@ -114,7 +114,7 @@ set spellfile=~/.vim/spell/en.utf-8.add
 let g:online_thesaurus_map_keys = 0
 
 " -------------------------------------------------------------------------------------------------
-" CUSTOMIZATIONS
+" CUSTOMIZATION
 " -------------------------------------------------------------------------------------------------
 " add extra syntax highlighting for c functions and extra keywords
 function! EnhanceCSyntax() abort
@@ -131,7 +131,7 @@ augroup c_syntax_enhancements
     autocmd Syntax cpp call EnhanceCSyntax()
 augroup end
 
-" autoload cscope database
+" auto load cscope database
 function! LoadCscope() abort
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
@@ -179,7 +179,7 @@ augroup markdown
     autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
-" set colorscheme
+" set color scheme
 try
     colorscheme jellybeans
     let g:airline_theme='jellybeans'
@@ -204,7 +204,7 @@ nnoremap ; :
 " edit read only files
 cnoremap w!! w !sudo tee % >/dev/null
 
-" cscope keymaps
+" cscope key mappings
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -214,7 +214,7 @@ nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" omnicompletion
+" omni completion
 inoremap <C-o> <C-x><C-o>
 
 " -------------------------------------------------------------------------------------------------
@@ -229,13 +229,13 @@ nnoremap <silent> <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart
 " quickly open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" delete trailing whitespace on a line
+" delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
 " remap ctrl-w
 nnoremap <leader>w <C-w>
 
-" async make
+" asynchronous make
 nnoremap <leader>m :Make<cr>
 
 " toggle quickfix window

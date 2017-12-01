@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Install bashrc                                                               #"
 echo "################################################################################"
 
-# Goto home directory and push the current directory to the stack
+# Go to home directory and push the current directory to the stack
 pushd ~
 
 # Source the repository bashrc in the correct home directory bashrc or bash_profile file

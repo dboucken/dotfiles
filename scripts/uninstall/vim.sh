@@ -5,7 +5,7 @@ echo "##########################################################################
 echo "# Uninstall Vim                                                                #"
 echo "################################################################################"
 
-# Goto vim directory and push the current directory to the stack
+# Go to vim directory and push the current directory to the stack
 pushd ~/tools
 
 # Vim must be installed

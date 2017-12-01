@@ -4,15 +4,15 @@ set show-all-if-ambiguous on
 # Ignore case when auto-completing
 set completion-ignore-case on
 
-# Immediately add a trailing slash when autocompleting symlinks to directories
+# Immediately add a trailing slash when auto completing symbolic links to directories
 set mark-symlinked-directories on
 
 # Use the text that has already been typed as the prefix for searching through
-# # commands (i.e. more intelligent Up/Down behavior)
+# # commands (i.e. More intelligent Up/Down behavior)
 "\e[B": history-search-forward
 "\e[A": history-search-backward
 
-# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+# Do not auto complete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
 
 # Show extra file information when completing, like `ls -F` does
