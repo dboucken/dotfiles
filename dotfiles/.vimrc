@@ -106,6 +106,10 @@ set cscopequickfix=s-,c-,d-,i-,t-,e- "
 set wildignore+=*cscope*
 set wildignore+=tags
 
+" spelling (not enabled by default but can be toggled with key mapping)
+set spelllang=en_us
+set spellfile=~/.vim/spell/en.utf-8.add
+
 " don't map thesaurus plugin keys
 let g:online_thesaurus_map_keys = 0
 
@@ -162,18 +166,16 @@ augroup vimrc
 augroup end
 
 " automatically save when a file is changed
-augroup auto_save_and_read
+augroup save_and_read
     autocmd!
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
     autocmd CursorHold * silent! checktime
 augroup end
 
 " markdown settings for writing prose
-augroup auto_markdown
+augroup markdown
     autocmd!
-    autocmd Filetype markdown setlocal spell spelllang=en_us
-    autocmd Filetype markdown setlocal spellfile=~/.vim/spell/en.utf-8.add
-    autocmd Filetype markdown setlocal thesaurus=~/.vim/mthesaur.txt
+    autocmd Filetype markdown setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
