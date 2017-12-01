@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'                            " status bar co
 Plug 'edkolev/tmuxline.vim'                                      " apply themes to tmux status bar
 Plug 'nanotech/jellybeans.vim'                                   " color scheme
 Plug 'morhetz/gruvbox'                                           " color scheme
+Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " async linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " mib syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
@@ -105,6 +106,9 @@ set cscopequickfix=s-,c-,d-,i-,t-,e- "
 set wildignore+=*cscope*
 set wildignore+=tags
 
+" don't map thesaurus plugin keys
+let g:online_thesaurus_map_keys = 0
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATIONS
 " -------------------------------------------------------------------------------------------------
@@ -162,6 +166,15 @@ augroup auto_save_and_read
     autocmd!
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
     autocmd CursorHold * silent! checktime
+augroup end
+
+" markdown settings for writing prose
+augroup auto_markdown
+    autocmd!
+    autocmd Filetype markdown setlocal spell spelllang=en_us
+    autocmd Filetype markdown setlocal spellfile=~/.vim/spell/en.utf-8.add
+    autocmd Filetype markdown setlocal thesaurus=~/.vim/mthesaur.txt
+    autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
 " set colorscheme
@@ -254,3 +267,9 @@ vnoremap <leader>y "*y
 
 " paste from system clipboard
 nnoremap <leader>ps "+p
+
+" toggle spell checking
+nnoremap <leader>sp :setlocal spell! spelllang=en_us<CR>
+
+" lookup current word in online thesaurus
+nnoremap <leader>th :OnlineThesaurusCurrentWord<CR>
