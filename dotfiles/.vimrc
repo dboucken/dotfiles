@@ -25,6 +25,7 @@ Plug 'edkolev/tmuxline.vim'                                      " apply themes 
 Plug 'nanotech/jellybeans.vim'                                   " color scheme
 Plug 'morhetz/gruvbox'                                           " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
+Plug 'nelstrom/vim-markdown-folding'                             " markdown folding
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " asynchronous linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
