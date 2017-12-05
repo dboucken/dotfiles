@@ -174,9 +174,10 @@ augroup save_and_read
 augroup end
 
 " markdown settings for writing prose
-augroup markdown
+augroup spelling
     autocmd!
     autocmd Filetype markdown setlocal spell
+    autocmd Filetype gitcommit setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
