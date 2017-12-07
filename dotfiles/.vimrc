@@ -146,10 +146,10 @@ augroup cscope
 augroup end
 
 " set correct make program and compiler for c projects
-augroup c_make
+augroup panos_make
     autocmd!
-    autocmd Filetype c,cpp,yang setlocal makeprg=mk\ cpm\ i386
-    autocmd Filetype c,cpp,yang :compiler gcc
+    autocmd BufNewFile,BufRead **/panos/* setlocal makeprg=mk\ cpm\ i386
+    autocmd BufNewFile,BufRead **/panos/* compiler gcc
 augroup end
 
 " automatically cleanup fugitive buffers
