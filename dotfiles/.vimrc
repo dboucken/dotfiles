@@ -66,7 +66,6 @@ set autowriteall                " auto save files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
-set tags+=~/.vim/systags        " add system functions tag files
 set complete-=i                 " don't search include files to improve auto completion performance
 set complete-=t                 " don't search tags to improve auto completion performance
 runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
