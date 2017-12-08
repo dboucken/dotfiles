@@ -8,6 +8,7 @@ export EDITOR=vim
 # Aliases
 # --------------------------------------------------------------------------------------------------
 alias l="ls -lhFA"
+alias ll="ls -lhF"
 alias c="clear"
 alias install="~/dotfiles/scripts/install.sh"
 alias update="~/dotfiles/scripts/update.sh"
