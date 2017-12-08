@@ -115,14 +115,10 @@ let g:online_thesaurus_map_keys = 0
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATION
 " -------------------------------------------------------------------------------------------------
-" add extra syntax highlighting for c functions and extra keywords
+" add extra syntax highlighting for c functions
 function! EnhanceCSyntax() abort
     syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
-    syntax keyword customType tUint32 tUint16 tUint8 tInt32 tInt16 tInt8 tBoolean
-    syntax keyword cBoolean true false TRUE FALSE
     highlight def link cFunction Function
-    highlight def link customType cType
-    highlight def link cBoolean Boolean
 endfunction
 augroup c_syntax_enhancements
     autocmd!
