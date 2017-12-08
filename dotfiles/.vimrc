@@ -117,8 +117,10 @@ let g:online_thesaurus_map_keys = 0
 " -------------------------------------------------------------------------------------------------
 " add extra syntax highlighting for c functions
 function! EnhanceCSyntax() abort
-    syntax match cFunction /\w\+\s*(/me=e-1,he=e-1
+    syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
+    syntax match cMacro /\<[A-Z_]\+\s*(/me=e-1,he=e-1
     highlight def link cFunction Function
+    highlight def link cMacro Macro
 endfunction
 augroup c_syntax_enhancements
     autocmd!
