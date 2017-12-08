@@ -276,3 +276,10 @@ nnoremap <leader>sp :setlocal spell! spelllang=en_us<CR>
 
 " lookup current word in online thesaurus
 nnoremap <leader>th :OnlineThesaurusCurrentWord<CR>
+
+" -------------------------------------------------------------------------------------------------
+" LOCAL VIMRC
+" -------------------------------------------------------------------------------------------------
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
