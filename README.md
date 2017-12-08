@@ -5,12 +5,12 @@ It's not a good idea to blindly take over these dotfiles and scripts but feel fr
 ideas or send me suggestions or improvements.
 
 ## Dotfiles directory
-Contains all dotfiles.
+All my dotfiles.
 
 ## Scripts directory
-Contains helpful scripts to install, update and uninstall dotfiles and extra tools on a Linux or a
-Mac. Look into the scripts for more info and customization options. Source your .bashrc or
-.bash_profile after running the scripts to make sure the effects take place.
+Scripts to install, update and uninstall dotfiles and tools on a Linux or a Mac. Look into the
+scripts for more info and customization options. After running the scripts bashrc or bash_profile
+needs to be sourced.
 
 ### Install
 `~/dotfiles/scripts/install.sh`
