@@ -163,11 +163,12 @@ augroup save_and_read
 augroup end
 
 " markdown settings for writing prose
-augroup spelling
+augroup markdown
     autocmd!
     autocmd Filetype markdown setlocal spell
     autocmd Filetype gitcommit setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
+    autocmd Syntax markdown normal zR
 augroup end
 
 " set color scheme
