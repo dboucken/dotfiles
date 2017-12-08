@@ -145,13 +145,6 @@ augroup cscope
     autocmd BufEnter /* call LoadCscope()
 augroup end
 
-" set correct make program and compiler for c projects
-augroup panos_make
-    autocmd!
-    autocmd BufNewFile,BufRead **/panos/* setlocal makeprg=mk\ cpm\ i386
-    autocmd BufNewFile,BufRead **/panos/* compiler gcc
-augroup end
-
 " automatically cleanup fugitive buffers
 augroup fugitive
     autocmd!
