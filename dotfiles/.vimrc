@@ -25,6 +25,7 @@ Plug 'edkolev/tmuxline.vim'                                      " apply themes 
 Plug 'morhetz/gruvbox'                                           " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
 Plug 'nelstrom/vim-markdown-folding'                             " markdown folding
+Plug 'vimwiki/vimwiki'                                           " personal wiki
 Plug 'w0rp/ale',                {'for': ['javascript','python']} " asynchronous linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
@@ -109,6 +110,9 @@ set spellfile=~/.vim/spell/en.utf-8.add
 
 " don't map thesaurus plugin keys
 let g:online_thesaurus_map_keys = 0
+
+" vimwiki settigns
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATION
