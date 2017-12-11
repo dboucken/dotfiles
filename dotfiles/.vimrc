@@ -227,6 +227,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
+" remap <C-w>
+nnoremap <leader><leader> <C-w>
+
 " asynchronous make
 nnoremap <leader>m :Make<cr>
 
@@ -254,7 +257,7 @@ vnoremap <leader>pp "0p
 nnoremap <leader>pr viw"0p
 
 " run macro in register q
-nnoremap <leader><leader> @q
+nnoremap <leader>qq @q
 
 " yank to system clipboard in visual mode
 vnoremap <leader>y "*y
