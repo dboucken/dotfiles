@@ -227,9 +227,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" remap ctrl-w
-nnoremap <leader>w <C-w>
-
 " asynchronous make
 nnoremap <leader>m :Make<cr>
 
