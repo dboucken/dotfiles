@@ -96,8 +96,9 @@ set smartcase  " don't ignore case when inserting uppercase characters
 set nobackup   " disable backups
 set noswapfile " disable swap files
 
-" enable cscope quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e- "
+" cscope
+set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
+set cscopetag                           " use cscope by default for tag jumps
 
 " wildignore
 set wildignore+=*cscope*
@@ -242,8 +243,8 @@ nnoremap <leader>tt :tj /
 " grep what is under the cursor, don't return to allow to pass options
 nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
 
-" tag jump taking cscope (and ctags) into account
-nnoremap <leader>] :cstag <C-R>=expand("<cword>")<CR><CR>
+" remap tag jump <C-]>
+nnoremap <leader>] <C-]>
 
 " paste last yanked text
 nnoremap <leader>pp "0p
