@@ -177,7 +177,7 @@ endtry
 " USER COMMANDS
 " -------------------------------------------------------------------------------------------------
 " Vimgrep command with auto commands disabled to make it faster
-command! -nargs=+ -complete=file_in_path -bar Vimgrep noautocmd vimgrep <args> | e
+command! -nargs=+ -complete=dir -bar Vimgrep noautocmd vimgrep <args> | e | copen
 
 " -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
