@@ -17,7 +17,6 @@ Plug 'tpope/vim-commentary'                                      " commenting
 Plug 'tpope/vim-unimpaired'                                      " some useful key mappings
 Plug 'tpope/vim-dispatch'                                        " asynchronous make
 Plug 'airblade/vim-gitgutter'                                    " show git diff in gutter
-Plug 'wincent/ferret'                                            " asynchronous grep and replace
 Plug 'godlygeek/tabular'                                         " align text
 Plug 'vim-airline/vim-airline'                                   " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
@@ -25,12 +24,8 @@ Plug 'edkolev/tmuxline.vim'                                      " apply themes 
 Plug 'morhetz/gruvbox'                                           " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
 Plug 'nelstrom/vim-markdown-folding'                             " markdown folding
-Plug 'w0rp/ale',                {'for': ['javascript','python']} " asynchronous linting
 Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}            " better JavaScript support
-Plug 'junegunn/fzf',            {'dir': '~/.fzf', 'do': './install --all'} " fast fuzzy search
-Plug 'junegunn/fzf.vim'                                          " useful FZF commands
 
 " all plugins should be added before this line
 call plug#end()
@@ -179,6 +174,12 @@ catch
 endtry
 
 " -------------------------------------------------------------------------------------------------
+" USER COMMANDS
+" -------------------------------------------------------------------------------------------------
+" Vimgrep command with auto commands disabled to make it faster
+command! -nargs=+ -complete=file_in_path -bar Vimgrep noautocmd vimgrep <args> | e
+
+" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " use H to open help in a vertical split
@@ -235,13 +236,13 @@ nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " search files in the working directory
-nnoremap <leader>oo :Files<CR>
+nnoremap <leader>oo :e **/
 
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" grep what is under the cursor, don't return to allow to pass options
-nnoremap <leader>gr :Ack <C-R>=expand("<cword>")<CR>
+" grep, don't return to allow to pass options
+nnoremap <leader>gr :Vimgrep /
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
