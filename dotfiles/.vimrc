@@ -11,21 +11,21 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'                                        " git wrapper
-Plug 'tpope/vim-surround'                                        " all about surroundings
-Plug 'tpope/vim-commentary'                                      " commenting
-Plug 'tpope/vim-unimpaired'                                      " some useful key mappings
-Plug 'tpope/vim-dispatch'                                        " asynchronous make
-Plug 'airblade/vim-gitgutter'                                    " show git diff in gutter
-Plug 'godlygeek/tabular'                                         " align text
-Plug 'vim-airline/vim-airline'                                   " enhanced status bar
-Plug 'vim-airline/vim-airline-themes'                            " status bar color themes
-Plug 'edkolev/tmuxline.vim'                                      " apply themes to tmux status bar
-Plug 'morhetz/gruvbox'                                           " color scheme
-Plug 'beloglazov/vim-online-thesaurus'                           " thesaurus for writing prose
-Plug 'nelstrom/vim-markdown-folding'                             " markdown folding
-Plug 'sedan07/vim-mib',         {'for': 'mib'}                   " MIB syntax highlighting
-Plug 'nathanalderson/yang.vim', {'for': 'yang'}                  " yang syntax highlighting
+Plug 'tpope/vim-fugitive'                                  " git wrapper
+Plug 'tpope/vim-surround'                                  " all about surroundings
+Plug 'tpope/vim-commentary'                                " commenting
+Plug 'tpope/vim-unimpaired'                                " some useful key mappings
+Plug 'tpope/vim-dispatch'                                  " asynchronous make
+Plug 'airblade/vim-gitgutter'                              " show git diff in gutter
+Plug 'godlygeek/tabular'                                   " align text
+Plug 'vim-airline/vim-airline'                             " enhanced status bar
+Plug 'vim-airline/vim-airline-themes'                      " status bar color themes
+Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
+Plug 'morhetz/gruvbox'                                     " color scheme
+Plug 'beloglazov/vim-online-thesaurus'                     " thesaurus for writing prose
+Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown'} " markdown folding
+Plug 'sedan07/vim-mib',               { 'for': 'mib'}      " MIB syntax highlighting
+Plug 'nathanalderson/yang.vim',       { 'for': 'yang'}     " yang syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
@@ -61,8 +61,10 @@ set autowriteall                " auto save files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
-runtime! ftplugin/man.vim       " read man pages inside vim via :Man <cmd>
-let g:ft_man_open_mode = 'vert' " open man pages in a vertical split
+
+" read man pages inside vim (in a vertical split) via :Man <cmd>
+runtime! ftplugin/man.vim
+let g:ft_man_open_mode = 'vert'
 
 " tabs and indentation
 set tabstop=4     " number of visual spaces per tab
@@ -105,6 +107,14 @@ set spellfile=~/.vim/spell/en.utf-8.add
 
 " don't map thesaurus plugin keys
 let g:online_thesaurus_map_keys = 0
+
+" set color scheme
+try
+    set background=dark
+    colorscheme gruvbox
+    let g:airline_theme='gruvbox'
+catch
+endtry
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATION
@@ -172,18 +182,10 @@ augroup quickfix
     autocmd QuickFixCmdPost    l* lwindow
 augroup END
 
-" set color scheme
-try
-    set background=dark
-    colorscheme gruvbox
-    let g:airline_theme='gruvbox'
-catch
-endtry
-
 " -------------------------------------------------------------------------------------------------
 " USER COMMANDS
 " -------------------------------------------------------------------------------------------------
-" Grep command without the need to press enter when returning
+" grep command without the need to press enter when returning
 command! -nargs=+ -complete=file Grep execute 'silent grep <args>' | redraw!
 
 " -------------------------------------------------------------------------------------------------
