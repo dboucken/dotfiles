@@ -250,6 +250,9 @@ nnoremap <leader>tt :tj /
 " grep, don't return to allow to pass options
 nnoremap <leader>gr :Vimgrep /
 
+" grep word under the cursor in directory and sub directories of the current file
+nnoremap <leader>gc :Vimgrep /\<<C-R><C-W>\>/ %:p:h/**<CR>
+
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
 
