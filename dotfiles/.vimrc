@@ -165,6 +165,13 @@ augroup markdown
     autocmd Syntax markdown normal zR
 augroup end
 
+" automatically open the quickfix/location list window or close it when is has become empty
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost    l* lwindow
+augroup END
+
 " set color scheme
 try
     set background=dark
@@ -176,8 +183,8 @@ endtry
 " -------------------------------------------------------------------------------------------------
 " USER COMMANDS
 " -------------------------------------------------------------------------------------------------
-" Vimgrep command with auto commands disabled to make it faster
-command! -nargs=+ -complete=dir -bar Vimgrep noautocmd vimgrep <args> | e | copen
+" Grep command without the need to press enter when returning
+command! -nargs=+ -complete=file Grep execute 'silent grep <args>' | redraw!
 
 " -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
@@ -247,11 +254,14 @@ nnoremap <leader>oo :e **/
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" grep, don't return to allow to pass options
-nnoremap <leader>gr :Vimgrep /
+" grep recursive, don't return to allow to pass options
+nnoremap <leader>gr :Grep -R 
+
+" grep word recursive, don't return to allow to pass options
+nnoremap <leader>gw :Grep -Rw 
 
 " grep word under the cursor in directory and sub directories of the current file
-nnoremap <leader>gc :Vimgrep /\<<C-R><C-W>\>/ %:p:h/**<CR>
+nnoremap <leader>gc :Grep -Rw <cword> %:p:h/*<cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
