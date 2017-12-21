@@ -210,6 +210,12 @@ nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " omni completion
 inoremap <C-o> <C-x><C-o>
 
+" auto expand curly brackets
+inoremap {<CR> {<CR>}<Esc>O
+
+" auto expand parentheses
+inoremap (<Tab> ()<Esc>i
+
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
