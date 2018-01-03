@@ -21,7 +21,7 @@ Plug 'godlygeek/tabular'                                   " align text
 Plug 'vim-airline/vim-airline'                             " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                      " status bar color themes
 Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
-Plug 'morhetz/gruvbox'                                     " color scheme
+Plug 'nanotech/jellybeans.vim'                             " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                     " thesaurus for writing prose
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown'} " markdown folding
 Plug 'sedan07/vim-mib',               { 'for': 'mib'}      " MIB syntax highlighting
@@ -111,8 +111,8 @@ let g:online_thesaurus_map_keys = 0
 " set color scheme
 try
     set background=dark
-    colorscheme gruvbox
-    let g:airline_theme='gruvbox'
+    colorscheme jellybeans
+    let g:airline_theme='jellybeans'
 catch
 endtry
 
