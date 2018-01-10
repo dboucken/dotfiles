@@ -10,7 +10,9 @@ scripts for more info and customization options. After running the scripts bashr
 needs to be sourced.
 
 `~/dotfiles/scripts/install.sh`
+
 `~/dotfiles/scripts/update.sh`
+
 `~/dotfiles/scripts/uninstall.sh`
 
 ## Test with docker
