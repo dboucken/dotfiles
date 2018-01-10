@@ -13,9 +13,9 @@ git pull
 
 # Link to dotfiles
 cd ~
-ln -sv ~/dotfiles/dotfiles/.vimrc
-ln -sv ~/dotfiles/dotfiles/.tmux.conf
-ln -sv ~/dotfiles/dotfiles/.inputrc
+ln -sv ~/dotfiles/.vimrc
+ln -sv ~/dotfiles/.tmux.conf
+ln -sv ~/dotfiles/.inputrc
 
 # Return to the current directory
 popd
