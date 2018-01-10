@@ -47,8 +47,6 @@ set showmatch                   " show matching brackets
 set display+=lastline           " show as much as possible of the last line
 set splitbelow                  " open new horizontal split below the current one
 set splitright                  " open new vertical split right of the current one
-set history=1000                " increase history
-set undolevels=1000             " increase undo levels
 set visualbell                  " use visual bell instead of beeping
 set backspace=indent,eol,start  " allow backspacing over auto indent, line breaks and insert action
 set hidden                      " buffer becomes hidden when it is abandoned
@@ -203,9 +201,6 @@ inoremap jj <Esc>
 " map ; to :
 nnoremap ; :
 
-" edit read only files
-cnoremap w!! w !sudo tee % >/dev/null
-
 " cscope key mappings
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
@@ -215,9 +210,6 @@ nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-" omni completion
-inoremap <C-o> <C-x><C-o>
 
 " auto expand curly brackets
 inoremap {<CR> {<CR>}<Esc>O
@@ -231,8 +223,8 @@ inoremap (<Tab> ()<Esc>i
 " use space as leader
 let mapleader=" "
 
-" redraw the screen, clear search highlighting and force updating syntax highlighting
-nnoremap <silent> <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+" clear search highlighting
+nnoremap <leader>l :nohlsearch<cr>
 
 " quickly open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
