@@ -101,7 +101,7 @@ set wildignore+=tags
 
 " spelling (not enabled by default but can be toggled with key mapping)
 set spelllang=en_us
-set spellfile=~/.vim/spell/en.utf-8.add
+set spellfile=~/.vim/en.utf-8.add
 
 " don't map thesaurus plugin keys
 let g:online_thesaurus_map_keys = 0
