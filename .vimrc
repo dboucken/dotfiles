@@ -201,6 +201,9 @@ inoremap jj <Esc>
 " map ; to :
 nnoremap ; :
 
+" don't jump to the next search occurrence when using star
+nnoremap * *``
+
 " cscope key mappings
 nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
