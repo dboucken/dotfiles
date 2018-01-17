@@ -217,6 +217,9 @@ nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+" always use very magic regexes when searching
+nnoremap / /\v
+
 " auto expand curly brackets
 inoremap {<CR> {<CR>}<Esc>O
 
