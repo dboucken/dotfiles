@@ -190,7 +190,7 @@ augroup END
 " USER COMMANDS
 " -------------------------------------------------------------------------------------------------
 " grep command without the need to press enter when returning
-command! -nargs=+ -complete=file Grep execute 'silent grep <args>' | redraw!
+command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw!
 
 " -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
