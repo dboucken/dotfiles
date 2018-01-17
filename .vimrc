@@ -116,7 +116,7 @@ endtry
 
 " Use ripgrep for faster grepping if it is available
 if executable("rg")
-    set grepprg=rg\ --vimgrep
+    set grepprg=rg\ --vimgrep\ -S\ -e
     set grepformat^=%f:%l:%c:%m
 endif
 
