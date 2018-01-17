@@ -114,6 +114,12 @@ try
 catch
 endtry
 
+" Use ripgrep for faster grepping if it is available
+if executable("rg")
+    set grepprg=rg\ --vimgrep
+    set grepformat^=%f:%l:%c:%m
+endif
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOMIZATION
 " -------------------------------------------------------------------------------------------------
@@ -249,13 +255,10 @@ nnoremap <leader>oo :e **/
 nnoremap <leader>tt :tj /
 
 " grep recursive, don't return to allow to pass options
-nnoremap <leader>gr :Grep -R 
+nnoremap <leader>gr :Grep
 
-" grep word recursive, don't return to allow to pass options
-nnoremap <leader>gw :Grep -Rw 
-
-" grep word under the cursor in directory and sub directories of the current file
-nnoremap <leader>gc :Grep -Rw <cword> %:p:h/*<cr>
+" grep word under the cursor
+nnoremap <leader>gc :Grep -w <cword><cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
@@ -269,12 +272,6 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
-
-" yank to system clipboard in visual mode
-vnoremap <leader>y "*y
-
-" paste from system clipboard
-nnoremap <leader>ps "+p
 
 " toggle spell checking
 nnoremap <leader>sp :setlocal spell! spelllang=en_us<CR>
