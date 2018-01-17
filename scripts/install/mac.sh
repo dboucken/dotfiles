@@ -19,7 +19,6 @@ brew install bash
 brew install bash-completion
 brew install python
 brew install python3
-brew install the_silver_searcher
 brew install cscope
 brew install ctags
 brew install markdown
@@ -28,6 +27,7 @@ brew install wget
 brew install automake
 brew install pkg-config
 brew install libevent
+brew install ripgrep
 
 brew cask install appcleaner
 brew cask install filezilla
