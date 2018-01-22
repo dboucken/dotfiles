@@ -121,7 +121,7 @@ if executable("rg")
 endif
 
 " -------------------------------------------------------------------------------------------------
-" CUSTOMIZATION
+" AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
 " add extra syntax highlighting for c functions
 function! EnhanceCSyntax() abort
@@ -189,14 +189,8 @@ augroup END
 " -------------------------------------------------------------------------------------------------
 " USER COMMANDS
 " -------------------------------------------------------------------------------------------------
-" grep command without the need to press enter when returning
+" grep command without the need to press enter when returning to VIM
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw!
-
-" -------------------------------------------------------------------------------------------------
-" ABBREVIATIONS
-" -------------------------------------------------------------------------------------------------
-" use H to open help in a vertical split
-cnoreabbrev H vert h
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
@@ -207,24 +201,14 @@ inoremap jj <Esc>
 " map ; to :
 nnoremap ; :
 
-" cscope key mappings
-nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+" use H to open help in a vertical split
+cnoremap H vert h 
 
-" always use very magic regexes when searching
+" always use very magic regular expressions when searching
 nnoremap / /\v
 
 " auto expand curly brackets
 inoremap {<CR> {<CR>}<Esc>O
-
-" auto expand parentheses
-inoremap (<Tab> ()<Esc>i
 
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
@@ -262,6 +246,10 @@ nnoremap <leader>gr :Grep
 
 " grep word under the cursor
 nnoremap <leader>gc :Grep -w <cword><cr>
+
+" cscope key mappings
+nnoremap <leader>gs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
