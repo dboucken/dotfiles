@@ -245,7 +245,7 @@ nnoremap <leader>tt :tj /
 nnoremap <leader>gr :Grep
 
 " grep word under the cursor
-nnoremap <leader>gc :Grep -w <cword><cr>
+nnoremap <leader>gw :Grep -w <cword><cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <C-R>=expand("<cword>")<CR><CR>
