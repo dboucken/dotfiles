@@ -92,8 +92,8 @@ set nobackup   " disable backups
 set noswapfile " disable swap files
 
 " cscope
-set cscopequickfix=s-,c-,d-,i-,t-,e-    " enable cscope quickfix
-set cscopetag                           " use cscope by default for tag jumps
+set cscopequickfix=s-,c- " enable cscope quickfix
+set cscopetag            " use cscope by default for tag jumps
 
 " wildignore
 set wildignore+=*cscope*
@@ -247,9 +247,11 @@ nnoremap <leader>gr :Grep
 " grep word under the cursor
 nnoremap <leader>gc :Grep -w <cword><cr>
 
-" cscope key mappings
+" find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+" find callers of function under the cursor
+nnoremap <leader>gc :cs find c <C-R>=expand("<cword>")<CR><CR>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
