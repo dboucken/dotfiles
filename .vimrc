@@ -184,6 +184,7 @@ augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
+    autocmd FileType qf wincmd J " always show quickfix with the full width at the bottom
 augroup END
 
 " -------------------------------------------------------------------------------------------------
