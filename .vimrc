@@ -184,7 +184,12 @@ augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
-    autocmd FileType qf wincmd J " always show quickfix with the full width at the bottom
+augroup END
+
+" open quickfix and gitcommit window always at the bottom and with the full width
+augroup windows
+    autocmd FileType qf wincmd J
+    autocmd FileType gitcommit wincmd J
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -192,6 +197,12 @@ augroup END
 " -------------------------------------------------------------------------------------------------
 " grep command without the need to press enter when returning to VIM
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw!
+
+" -------------------------------------------------------------------------------------------------
+" ABBREVIATIONS
+" -------------------------------------------------------------------------------------------------
+" open help in a vertical split
+cabbrev H vert h
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
@@ -202,14 +213,11 @@ inoremap jj <Esc>
 " map ; to :
 nnoremap ; :
 
-" use H to open help in a vertical split
-cnoremap H vert h 
-
 " always use very magic regular expressions when searching
 nnoremap / /\v
 
 " auto expand curly brackets
-inoremap {<CR> {<CR>}<Esc>O
+inoremap {<cr> {<cr>}<Esc>O
 
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
@@ -249,10 +257,10 @@ nnoremap <leader>gr :Grep
 nnoremap <leader>gw :Grep -w <cword><cr>
 
 " find cscope symbol under the cursor
-nnoremap <leader>gs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>gs :cs find s <cword><cr><cr>
 
 " find callers of function under the cursor
-nnoremap <leader>gc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>gc :cs find c <cword><cr><cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
@@ -268,10 +276,10 @@ nnoremap <leader>pr viw"0p
 nnoremap <leader><leader> @q
 
 " toggle spell checking
-nnoremap <leader>sp :setlocal spell! spelllang=en_us<CR>
+nnoremap <leader>sp :setlocal spell! spelllang=en_us<cr>
 
 " lookup current word in online thesaurus
-nnoremap <leader>th :OnlineThesaurusCurrentWord<CR>
+nnoremap <leader>th :OnlineThesaurusCurrentWord<cr>
 
 " -------------------------------------------------------------------------------------------------
 " LOCAL VIMRC
