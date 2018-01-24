@@ -194,6 +194,12 @@ augroup END
 command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw!
 
 " -------------------------------------------------------------------------------------------------
+" ABBREVIATIONS
+" -------------------------------------------------------------------------------------------------
+" open help in a vertical split
+cabbrev H vert h
+
+" -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
 " map jj to escape
@@ -201,9 +207,6 @@ inoremap jj <Esc>
 
 " map ; to :
 nnoremap ; :
-
-" use H to open help in a vertical split
-cnoremap H vert h 
 
 " always use very magic regular expressions when searching
 nnoremap / /\v
