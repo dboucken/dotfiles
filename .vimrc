@@ -265,6 +265,9 @@ nnoremap <leader>gc :cs find c <cword><cr><cr>
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
 
+" easier change and replace word
+nnoremap <leader>cw *Ncgn
+
 " paste last yanked text
 nnoremap <leader>pp "0p
 vnoremap <leader>pp "0p
