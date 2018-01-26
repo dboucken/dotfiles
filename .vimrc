@@ -236,8 +236,7 @@ nnoremap <leader>w <C-w>
 nnoremap <leader>m :AsyncRun! -program=make<cr>
 
 " toggle quickfix window
-nnoremap <silent> <leader>qo :copen<cr>
-nnoremap <silent> <leader>qc :cclose<cr>
+nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(8)<cr>
 
 " search files in the working directory
 nnoremap <leader>oo :e **/
