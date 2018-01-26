@@ -187,6 +187,15 @@ augroup windows
 augroup END
 
 " -------------------------------------------------------------------------------------------------
+" USER COMMANDS
+" -------------------------------------------------------------------------------------------------
+" Asynchronous make command that opens the quickfix window when finished
+command! Make execute 'AsyncRun! -program=make' | copen
+
+" Asynchronous grep command that opens the quickfix window when finished
+command! -nargs=+ -complete=file Grep execute 'AsyncRun! -program=grep @ <args>' | copen
+
+" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " open help in a vertical split
@@ -226,7 +235,7 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 nnoremap <leader>w <C-w>
 
 " asynchronous make
-nnoremap <leader>m :AsyncRun! -program=make<cr>
+nnoremap <leader>m :Make<cr>
 
 " toggle quickfix window
 nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(12)<cr>
@@ -238,10 +247,10 @@ nnoremap <leader>oo :e **/
 nnoremap <leader>tt :tj /
 
 " grep recursive, don't return to allow to pass options
-nnoremap <leader>gr :AsyncRun! -program=grep @ 
+nnoremap <leader>gr :Grep
 
 " grep word under the cursor, don't return to allow to pass options
-nnoremap <leader>gw :AsyncRun! -program=grep @ -w <c-r><c-w> 
+nnoremap <leader>gw :Grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
