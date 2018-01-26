@@ -249,10 +249,10 @@ nnoremap <leader>gr :AsyncRun! -program=grep @
 nnoremap <leader>gw :AsyncRun! -program=grep @ -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
-nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
+nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>:copen<cr>
 
 " find callers of function under the cursor
-nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
+nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>:copen<cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
