@@ -253,8 +253,8 @@ nnoremap <leader>tt :tj /
 " grep recursive, don't return to allow to pass options
 nnoremap <leader>gr :Grep
 
-" grep word under the cursor
-nnoremap <leader>gw :Grep -w <cword><cr>
+" grep word under the cursor, don't return to allow to pass options
+nnoremap <leader>gw :Grep -w <cword>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <cword><cr><cr>
