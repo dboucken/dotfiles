@@ -103,15 +103,20 @@ set wildignore+=tags
 set spelllang=en_us
 set spellfile=~/.vim/en.utf-8.add
 
-" don't map thesaurus plugin keys
-let g:online_thesaurus_map_keys = 0
-
-" set color scheme and status bar
 try
+    " set color scheme
     set background=dark
     colorscheme jellybeans
+
+    " configure airline
     let g:airline_theme='jellybeans'
     let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+    " don't map thesaurus plugin keys
+    let g:online_thesaurus_map_keys = 0
+
+    " open quickfix window after an asynchronous job is finished
+    let g:asyncrun_exit = "cwindow"
 catch
 endtry
 
@@ -187,15 +192,6 @@ augroup windows
 augroup END
 
 " -------------------------------------------------------------------------------------------------
-" USER COMMANDS
-" -------------------------------------------------------------------------------------------------
-" Asynchronous make command that opens the quickfix window when finished
-command! Make execute 'AsyncRun! -program=make' | copen
-
-" Asynchronous grep command that opens the quickfix window when finished
-command! -nargs=+ -complete=file Grep execute 'AsyncRun! -program=grep @ <args>' | copen
-
-" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " open help in a vertical split
@@ -235,7 +231,7 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 nnoremap <leader>w <C-w>
 
 " asynchronous make
-nnoremap <leader>m :Make<cr>
+nnoremap <leader>m :AsyncRun! -program=make<cr>
 
 " toggle quickfix window
 nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(12)<cr>
@@ -246,11 +242,11 @@ nnoremap <leader>oo :e **/
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" grep recursive, don't return to allow to pass options
-nnoremap <leader>gr :Grep
+" asynchronouse recursive grep, don't return to allow to pass options
+nnoremap <leader>gr :AsyncRun! -program=grep @ 
 
-" grep word under the cursor, don't return to allow to pass options
-nnoremap <leader>gw :Grep -w <c-r><c-w> 
+" asynchronous grep the word under the cursor, don't return to allow to pass options
+nnoremap <leader>gw :AsyncRun! -program=grep @ -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
