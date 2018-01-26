@@ -251,16 +251,16 @@ nnoremap <leader>oo :e **/
 nnoremap <leader>tt :tj /
 
 " grep recursive, don't return to allow to pass options
-nnoremap <leader>gr :Grep
+nnoremap <leader>gr :Grep 
 
 " grep word under the cursor, don't return to allow to pass options
-nnoremap <leader>gw :Grep -w <cword>
+nnoremap <leader>gw :Grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
-nnoremap <leader>gs :cs find s <cword><cr><cr>
+nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
 
 " find callers of function under the cursor
-nnoremap <leader>gc :cs find c <cword><cr><cr>
+nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
