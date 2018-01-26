@@ -15,7 +15,7 @@ Plug 'tpope/vim-fugitive'                                  " git wrapper
 Plug 'tpope/vim-surround'                                  " all about surroundings
 Plug 'tpope/vim-commentary'                                " commenting
 Plug 'tpope/vim-unimpaired'                                " some useful key mappings
-Plug 'tpope/vim-dispatch'                                  " asynchronous make
+Plug 'skywind3000/asyncrun.vim'                            " run shell commands in the background
 Plug 'airblade/vim-gitgutter'                              " show git diff in gutter
 Plug 'godlygeek/tabular'                                   " align text
 Plug 'vim-airline/vim-airline'                             " enhanced status bar
@@ -106,11 +106,12 @@ set spellfile=~/.vim/en.utf-8.add
 " don't map thesaurus plugin keys
 let g:online_thesaurus_map_keys = 0
 
-" set color scheme
+" set color scheme and status bar
 try
     set background=dark
     colorscheme jellybeans
     let g:airline_theme='jellybeans'
+    let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 catch
 endtry
 
@@ -193,12 +194,6 @@ augroup windows
 augroup END
 
 " -------------------------------------------------------------------------------------------------
-" USER COMMANDS
-" -------------------------------------------------------------------------------------------------
-" grep command without the need to press enter when returning to VIM
-command! -nargs=+ -complete=file Grep execute 'silent grep! <args>' | redraw!
-
-" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " open help in a vertical split
@@ -238,7 +233,7 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 nnoremap <leader>w <C-w>
 
 " asynchronous make
-nnoremap <leader>m :Make<cr>
+nnoremap <leader>m :AsyncRun! -program=make<cr>
 
 " toggle quickfix window
 nnoremap <silent> <leader>qo :copen<cr>
@@ -251,10 +246,10 @@ nnoremap <leader>oo :e **/
 nnoremap <leader>tt :tj /
 
 " grep recursive, don't return to allow to pass options
-nnoremap <leader>gr :Grep 
+nnoremap <leader>gr :AsyncRun! -program=grep @ 
 
 " grep word under the cursor, don't return to allow to pass options
-nnoremap <leader>gw :Grep -w <c-r><c-w> 
+nnoremap <leader>gw :AsyncRun! -program=grep @ -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
