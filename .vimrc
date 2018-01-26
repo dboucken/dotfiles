@@ -180,13 +180,6 @@ augroup markdown
     autocmd Syntax markdown normal zR
 augroup end
 
-" automatically open the quickfix/location list window or close it when is has become empty
-augroup quickfix
-    autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost    l* lwindow
-augroup END
-
 " open quickfix and gitcommit window always at the bottom and with the full width
 augroup windows
     autocmd FileType qf wincmd J
@@ -236,7 +229,7 @@ nnoremap <leader>w <C-w>
 nnoremap <leader>m :AsyncRun! -program=make<cr>
 
 " toggle quickfix window
-nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(12)<cr>
 
 " search files in the working directory
 nnoremap <leader>oo :e **/
