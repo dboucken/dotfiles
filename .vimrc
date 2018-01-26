@@ -23,7 +23,6 @@ Plug 'vim-airline/vim-airline-themes'                      " status bar color th
 Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
 Plug 'nanotech/jellybeans.vim'                             " color scheme
 Plug 'beloglazov/vim-online-thesaurus'                     " thesaurus for writing prose
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown'} " markdown folding
 Plug 'sedan07/vim-mib',               { 'for': 'mib'}      " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim',       { 'for': 'yang'}     " yang syntax highlighting
 
@@ -182,7 +181,6 @@ augroup markdown
     autocmd Filetype markdown setlocal spell
     autocmd Filetype gitcommit setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
-    autocmd Syntax markdown normal zR
 augroup end
 
 " open quickfix and gitcommit window always at the bottom and with the full width
