@@ -17,7 +17,7 @@ Plug 'tpope/vim-commentary'                                " commenting
 Plug 'tpope/vim-unimpaired'                                " some useful key mappings
 Plug 'skywind3000/asyncrun.vim'                            " run shell commands in the background
 Plug 'airblade/vim-gitgutter'                              " show git diff in gutter
-Plug 'godlygeek/tabular'                                   " align text
+Plug 'tommcdo/vim-lion'                                    " align text
 Plug 'vim-airline/vim-airline'                             " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                      " status bar color themes
 Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
@@ -116,6 +116,9 @@ try
 
     " open quickfix window after an asynchronous job is finished
     let g:asyncrun_exit = "cwindow"
+
+    " vim lion settings
+    let g:lion_squeeze_spaces = 1
 catch
 endtry
 
