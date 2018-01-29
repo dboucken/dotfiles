@@ -17,13 +17,11 @@ Plug 'tpope/vim-commentary'                                " commenting
 Plug 'tpope/vim-unimpaired'                                " some useful key mappings
 Plug 'skywind3000/asyncrun.vim'                            " run shell commands in the background
 Plug 'airblade/vim-gitgutter'                              " show git diff in gutter
-Plug 'tommcdo/vim-lion'                                    " align text
+Plug 'junegunn/vim-easy-align'                             " alignment plugin
 Plug 'vim-airline/vim-airline'                             " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                      " status bar color themes
 Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
 Plug 'nanotech/jellybeans.vim'                             " color scheme
-Plug 'beloglazov/vim-online-thesaurus'                     " thesaurus for writing prose
-Plug 'sedan07/vim-mib',               { 'for': 'mib'}      " MIB syntax highlighting
 Plug 'nathanalderson/yang.vim',       { 'for': 'yang'}     " yang syntax highlighting
 
 " all plugins should be added before this line
@@ -111,14 +109,8 @@ try
     let g:airline_theme='jellybeans'
     let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
-    " don't map thesaurus plugin keys
-    let g:online_thesaurus_map_keys = 0
-
     " open quickfix window after an asynchronous job is finished
     let g:asyncrun_exit = "cwindow"
-
-    " vim lion settings
-    let g:lion_squeeze_spaces = 1
 catch
 endtry
 
@@ -273,9 +265,6 @@ nnoremap <leader><leader> @q
 
 " toggle spell checking
 nnoremap <leader>sp :setlocal spell! spelllang=en_us<cr>
-
-" lookup current word in online thesaurus
-nnoremap <leader>th :OnlineThesaurusCurrentWord<cr>
 
 " -------------------------------------------------------------------------------------------------
 " LOCAL VIMRC
