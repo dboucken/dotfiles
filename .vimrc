@@ -190,6 +190,9 @@ augroup END
 " open help in a vertical split
 cabbrev H vert h
 
+" insert todo
+iabbrev todo // TODO dboucken:
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
