@@ -188,7 +188,7 @@ augroup END
 cabbrev H vert h
 
 " insert todo
-iabbrev todo // TODO dboucken:
+iabbrev TODO /* TODO dboucken: */<left><left><left>
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
