@@ -132,8 +132,7 @@ function! EnhanceCSyntax() abort
 endfunction
 augroup c_syntax_enhancements
     autocmd!
-    autocmd Syntax c call EnhanceCSyntax()
-    autocmd Syntax cpp call EnhanceCSyntax()
+    autocmd Syntax c,cpp call EnhanceCSyntax()
 augroup end
 
 " auto load cscope database
@@ -173,15 +172,13 @@ augroup end
 " markdown settings for writing prose
 augroup markdown
     autocmd!
-    autocmd Filetype markdown setlocal spell
-    autocmd Filetype gitcommit setlocal spell
+    autocmd Filetype markdown,gitcommit setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
 " open quickfix and gitcommit window always at the bottom and with the full width
 augroup windows
-    autocmd FileType qf wincmd J
-    autocmd FileType gitcommit wincmd J
+    autocmd FileType qf,gitcommit wincmd J
 augroup END
 
 " -------------------------------------------------------------------------------------------------
