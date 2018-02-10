@@ -10,10 +10,3 @@ brew cleanup
 brew prune
 brew cask outdated | xargs brew cask reinstall
 brew cask cleanup
-
-# Update gems
-gem update
-
-# Update npm and npm packages
-npm install npm -g
-npm update -g

@@ -12,12 +12,9 @@ brew update
 brew upgrade
 
 # Install packages
-brew install ruby
 brew install git
-brew install node
 brew install bash
 brew install bash-completion
-brew install python
 brew install python3
 brew install cscope
 brew install ctags
@@ -38,8 +35,6 @@ brew cask install dhs
 brew cask install malwarebytes
 brew cask install oversight
 brew cask install pixum-fotowereld
-brew cask install visual-studio-code
-brew cask install wireshark
 
 # brew cask install google-chrome
 # brew cask install spotify
@@ -51,6 +46,3 @@ brew upgrade
 brew cleanup
 brew cask cleanup
 brew prune
-
-# Install gems
-gem install jekyll
