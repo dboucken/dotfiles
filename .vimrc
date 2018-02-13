@@ -11,18 +11,20 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'                        " git wrapper
-Plug 'tpope/vim-surround'                        " all about surroundings
-Plug 'tpope/vim-commentary'                      " commenting
-Plug 'tpope/vim-unimpaired'                      " some useful key mappings
-Plug 'skywind3000/asyncrun.vim'                  " run shell commands in the background
-Plug 'airblade/vim-gitgutter'                    " show git diff in gutter
-Plug 'junegunn/vim-easy-align'                   " alignment plugin
-Plug 'vim-airline/vim-airline'                   " enhanced status bar
-Plug 'vim-airline/vim-airline-themes'            " status bar color themes
-Plug 'edkolev/tmuxline.vim'                      " apply vim themes to tmux status bar
-Plug 'nanotech/jellybeans.vim'                   " color scheme
-Plug 'nathanalderson/yang.vim', { 'for': 'yang'} " yang syntax highlighting
+Plug 'tpope/vim-fugitive'                            " git wrapper
+Plug 'tpope/vim-surround'                            " all about surroundings
+Plug 'tpope/vim-commentary'                          " commenting
+Plug 'tpope/vim-unimpaired'                          " some useful key mappings
+Plug 'skywind3000/asyncrun.vim'                      " run shell commands in the background
+Plug 'airblade/vim-gitgutter'                        " show git diff in gutter
+Plug 'junegunn/vim-easy-align'                       " alignment plugin
+Plug 'vim-airline/vim-airline'                       " enhanced status bar
+Plug 'vim-airline/vim-airline-themes'                " status bar color themes
+Plug 'edkolev/tmuxline.vim'                          " apply vim themes to tmux status bar
+Plug 'nanotech/jellybeans.vim'                       " color scheme
+Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
+Plug 'prabirshrestha/vim-lsp',   { 'for': 'python' } " language server protocol support
+Plug 'prabirshrestha/async.vim', { 'for': 'python' } " needed by vim-lsp
 
 " all plugins should be added before this line
 call plug#end()
@@ -114,7 +116,7 @@ try
 catch
 endtry
 
-" Use ripgrep for faster grepping if it is available
+" use ripgrep for faster grepping if it is available
 if executable("rg")
     set grepprg=rg\ --vimgrep\ -S
     set grepformat^=%f:%l:%c:%m
@@ -179,6 +181,20 @@ augroup end
 " open quickfix and gitcommit window always at the bottom and with the full width
 augroup windows
     autocmd FileType qf,gitcommit wincmd J
+augroup END
+
+" python language server protocol support
+augroup lsp
+    if executable('pyls')
+        autocmd User lsp_setup call lsp#register_server({
+            \ 'name': 'pyls',
+            \ 'cmd': {server_info->['pyls']},
+            \ 'whitelist': ['python'],
+            \ })
+    endif
+
+    " python omnicompletion
+    autocmd FileType python setlocal omnifunc=lsp#complete
 augroup END
 
 " -------------------------------------------------------------------------------------------------
