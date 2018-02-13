@@ -11,18 +11,18 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'                                  " git wrapper
-Plug 'tpope/vim-surround'                                  " all about surroundings
-Plug 'tpope/vim-commentary'                                " commenting
-Plug 'tpope/vim-unimpaired'                                " some useful key mappings
-Plug 'skywind3000/asyncrun.vim'                            " run shell commands in the background
-Plug 'airblade/vim-gitgutter'                              " show git diff in gutter
-Plug 'junegunn/vim-easy-align'                             " alignment plugin
-Plug 'vim-airline/vim-airline'                             " enhanced status bar
-Plug 'vim-airline/vim-airline-themes'                      " status bar color themes
-Plug 'edkolev/tmuxline.vim'                                " apply vim themes to tmux status bar
-Plug 'nanotech/jellybeans.vim'                             " color scheme
-Plug 'nathanalderson/yang.vim',       { 'for': 'yang'}     " yang syntax highlighting
+Plug 'tpope/vim-fugitive'                        " git wrapper
+Plug 'tpope/vim-surround'                        " all about surroundings
+Plug 'tpope/vim-commentary'                      " commenting
+Plug 'tpope/vim-unimpaired'                      " some useful key mappings
+Plug 'skywind3000/asyncrun.vim'                  " run shell commands in the background
+Plug 'airblade/vim-gitgutter'                    " show git diff in gutter
+Plug 'junegunn/vim-easy-align'                   " alignment plugin
+Plug 'vim-airline/vim-airline'                   " enhanced status bar
+Plug 'vim-airline/vim-airline-themes'            " status bar color themes
+Plug 'edkolev/tmuxline.vim'                      " apply vim themes to tmux status bar
+Plug 'nanotech/jellybeans.vim'                   " color scheme
+Plug 'nathanalderson/yang.vim', { 'for': 'yang'} " yang syntax highlighting
 
 " all plugins should be added before this line
 call plug#end()
