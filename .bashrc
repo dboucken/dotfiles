@@ -26,7 +26,7 @@ GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_STATESEPARATOR=' '
-export PROMPT_COMMAND='__git_ps1 "\w" " > "'
+export PROMPT_COMMAND='__venv_prefix; __git_ps1 "\w" " > "'
 
 # --------------------------------------------------------------------------------------------------
 # Functions
@@ -71,4 +71,11 @@ function extract {
 function reload {
     source ~/.bash_profile 2> /dev/null
     source ~/.bashrc 2> /dev/null
+}
+
+# Print virtual environment, can be used in PROMPT_COMMAND
+function __venv_prefix {
+    if [ ! -z "$VIRTUAL_ENV" ]; then
+        printf "(`basename \"$VIRTUAL_ENV\"`) "
+    fi
 }
