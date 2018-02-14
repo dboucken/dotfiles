@@ -76,6 +76,6 @@ function reload {
 # Print virtual environment, can be used in PROMPT_COMMAND
 function __venv_prefix {
     if [ ! -z "$VIRTUAL_ENV" ]; then
-        printf "(`basename \"$VIRTUAL_ENV\"`) "
+        printf "\033[1;34m(`basename \"$VIRTUAL_ENV\"`)\e[0m "
     fi
 }
