@@ -183,7 +183,7 @@ augroup end
 " javascript specific settings
 augroup javascript
     autocmd!
-    autocmd Filetype vue,javascript setlocal tabstop=2 softtabstop=2
+    autocmd Filetype vue,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 " open quickfix and gitcommit window always at the bottom and with the full width
