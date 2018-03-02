@@ -25,8 +25,6 @@ Plug 'nanotech/jellybeans.vim'                       " color scheme
 Plug 'nathanalderson/yang.vim', { 'for': 'yang' }    " yang syntax highlighting
 Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }   " language server protocol support
 Plug 'prabirshrestha/async.vim', { 'for': 'python' } " needed by vim-lsp
-Plug 'posva/vim-vue', { 'for': 'vue' }               " vue syntax highlighting
-Plug 'w0rp/ale', { 'for': ['vue', 'javascript'] }    " asynchronous linting
 
 " all plugins should be added before this line
 call plug#end()
@@ -180,10 +178,10 @@ augroup markdown
     autocmd Filetype markdown setlocal textwidth=100
 augroup end
 
-" javascript specific settings
-augroup javascript
+" web specific settings
+augroup web
     autocmd!
-    autocmd Filetype vue,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd Filetype html,javascript,json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 " open quickfix and gitcommit window always at the bottom and with the full width
