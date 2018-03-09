@@ -22,8 +22,8 @@ Plug 'vim-airline/vim-airline'                       " enhanced status bar
 Plug 'vim-airline/vim-airline-themes'                " status bar color themes
 Plug 'edkolev/tmuxline.vim'                          " apply vim themes to tmux status bar
 Plug 'nanotech/jellybeans.vim'                       " color scheme
-Plug 'nathanalderson/yang.vim', { 'for': 'yang' }    " yang syntax highlighting
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }   " language server protocol support
+Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
+Plug 'prabirshrestha/vim-lsp',   { 'for': 'python' } " language server protocol support
 Plug 'prabirshrestha/async.vim', { 'for': 'python' } " needed by vim-lsp
 
 " all plugins should be added before this line
@@ -176,12 +176,6 @@ augroup markdown
     autocmd!
     autocmd Filetype markdown,gitcommit setlocal spell
     autocmd Filetype markdown setlocal textwidth=100
-augroup end
-
-" web specific settings
-augroup web
-    autocmd!
-    autocmd Filetype html,javascript,json setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 " open quickfix and gitcommit window always at the bottom and with the full width
