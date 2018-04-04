@@ -210,8 +210,8 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 " remap <C-w>
 nnoremap <leader>w <C-w>
 
-" make, use silent to avoid pressing enter when make is done
-nnoremap <leader>m :silent make<cr>
+" make
+nnoremap <leader>m :make<cr>
 
 " toggle quickfix window
 nnoremap <silent> <leader>qo :copen<cr>
@@ -223,11 +223,11 @@ nnoremap <leader>oo :e **/
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" recursive grep, use silent to avoid pressing enter when grep is done
-nnoremap <leader>gr :silent grep 
+" recursive grep, don't return to be able to pass options and directory
+nnoremap <leader>gr :grep 
 
-" grep the word under the cursor, use silent to avoid pressing enter when grep is done
-nnoremap <leader>gw :silent grep -w <c-r><c-w> 
+" grep the word under the cursor, don't return to be able to pass options and directory
+nnoremap <leader>gw :grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>:copen<cr>
