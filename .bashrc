@@ -10,14 +10,11 @@ export EDITOR=vim
 alias ll="ls -lhFA"
 alias l="ls -lhF"
 alias c="clear"
-alias install="~/dotfiles/scripts/install.sh"
 alias update="~/dotfiles/scripts/update.sh"
-alias uninstall="~/dotfiles/scripts/uninstall.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Git
 # --------------------------------------------------------------------------------------------------
-# Configure git completion and git prompt
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/git-completion.bash
 source ~/git-prompt.sh
