@@ -230,10 +230,10 @@ nnoremap <leader>gr :grep
 nnoremap <leader>gw :grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
-nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>:copen<cr>
+nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
 
 " find callers of function under the cursor
-nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>:copen<cr>
+nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
 
 " remap tag jump <C-]>
 nnoremap <leader>] <C-]>
