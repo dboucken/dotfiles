@@ -24,6 +24,8 @@ set scrolloff=1                 " always keep a line from the top and the bottom
 set number                      " enable line numbers
 set showmode                    " show mode in command line
 set ruler                       " show line number info in status line
+set formatoptions+=j            " delete comment character when joining lines
+runtime! macros/matchit.vim     " extend % to html tags
 
 " read man pages inside vim (in a vertical split) via :Man <cmd>
 runtime! ftplugin/man.vim
