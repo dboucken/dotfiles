@@ -25,7 +25,6 @@ set autowriteall                " auto save files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
-set background=dark             " hint vim the terminal is using a dark background
 set showmode                    " show mode in status line
 set ruler                       " show line number info in status line
 
@@ -79,8 +78,26 @@ if executable("rg")
 endif
 
 " -------------------------------------------------------------------------------------------------
-" AUTO COMMANDS
+" FUNCTIONS
 " -------------------------------------------------------------------------------------------------
+" Toggle colorcolumn on line 101
+function! ToggleColorColumn() abort
+    if &colorcolumn > 0
+        set colorcolumn=0
+    else
+        set colorcolumn=101
+    endif
+endfunction
+
+" Toggle background setting to hint vim wich background color the terminal is using
+function! ToggleBackground() abort
+    if &background == "dark"
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
 " add extra syntax highlighting for c functions
 function! EnhanceCSyntax() abort
     syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
@@ -88,12 +105,8 @@ function! EnhanceCSyntax() abort
     highlight def link cFunction Function
     highlight def link cMacro Macro
 endfunction
-augroup c_syntax_enhancements
-    autocmd!
-    autocmd Syntax c,cpp call EnhanceCSyntax()
-augroup end
 
-" auto load cscope database
+" load cscope database
 function! LoadCscope() abort
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
@@ -103,7 +116,18 @@ function! LoadCscope() abort
         set cscopeverbose
     endif
 endfunction
-augroup cscope
+
+" -------------------------------------------------------------------------------------------------
+" AUTO COMMANDS
+" -------------------------------------------------------------------------------------------------
+" enhance c syntax highlighting
+augroup c_syntax_enhancements
+    autocmd!
+    autocmd Syntax c,cpp call EnhanceCSyntax()
+augroup end
+
+" auto load cscope database
+augroup load_cscope
     autocmd!
     autocmd BufEnter /* call LoadCscope()
 augroup end
@@ -232,6 +256,12 @@ nnoremap <leader><leader> @q
 
 " toggle spell checking
 nnoremap <leader>sp :setlocal spell! spelllang=en_us<cr>
+
+" toggle background
+nnoremap <leader>tb :call ToggleBackground()<cr>
+
+" toggle colorcolumn
+nnoremap <leader>tc :call ToggleColorColumn()<cr>
 
 " -------------------------------------------------------------------------------------------------
 " LOCAL VIMRC
