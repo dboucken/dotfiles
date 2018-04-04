@@ -25,6 +25,7 @@ set number                      " enable line numbers
 set showmode                    " show mode in command line
 set ruler                       " show line number info in status line
 set formatoptions+=j            " delete comment character when joining lines
+set termguicolors               " enable true colors
 runtime! macros/matchit.vim     " extend % to html tags
 
 " read man pages inside vim (in a vertical split) via :Man <cmd>
