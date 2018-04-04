@@ -6,11 +6,9 @@ syntax on                       " enable syntax highlighting
 set synmaxcol=250               " only syntax highlight the first 250 columns
 set wildmenu                    " visual auto complete for command menu
 set report=0                    " always report changed lines
-set lazyredraw                  " only redraw when necessary
+set lazyredraw                  " improves performance by not redrawing the screen during macros,...
 set ttyfast                     " always assume a fast terminal
 set autoread                    " reload file when changed outside vim
-set showmatch                   " show matching brackets
-set display+=lastline           " show as much as possible of the last line
 set splitbelow                  " open new horizontal split below the current one
 set splitright                  " open new vertical split right of the current one
 set visualbell                  " use visual bell instead of beeping
@@ -19,13 +17,12 @@ set hidden                      " buffer becomes hidden when it is abandoned
 set cmdheight=2                 " increase the height of the command bar
 set nowrap                      " don't wrap
 set laststatus=2                " always show the status line
-set completeopt=longest,menuone " better auto completion
+set completeopt=longest,menuone " better insert mode auto completion
 set mouse=a                     " enable mouse support
 set autowriteall                " auto save files
-set noshowmode                  " don't show mode as we use a status line plugin
-set scrolloff=1                 " always keep a couple of lines from the top and the bottom
+set scrolloff=1                 " always keep a line from the top and the bottom to the cursor
 set number                      " enable line numbers
-set showmode                    " show mode in status line
+set showmode                    " show mode in command line
 set ruler                       " show line number info in status line
 
 " read man pages inside vim (in a vertical split) via :Man <cmd>
@@ -67,7 +64,7 @@ set cscopetag            " use cscope by default for tag jumps
 set wildignore+=*cscope*
 set wildignore+=tags
 
-" spelling (not enabled by default but canetbe toggled with key mapping)
+" spelling (not enabled by default but can be toggled with key mapping)
 set spelllang=en_us
 set spellfile=~/.vim/en.utf-8.add
 
@@ -80,7 +77,7 @@ endif
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
 " -------------------------------------------------------------------------------------------------
-" Toggle colorcolumn on line 101
+" Toggle colorcolumn
 function! ToggleColorColumn() abort
     if &colorcolumn > 0
         set colorcolumn=0
@@ -213,7 +210,7 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 " remap <C-w>
 nnoremap <leader>w <C-w>
 
-" make
+" make, use silent to avoid pressing enter when make is done
 nnoremap <leader>m :silent make<cr>
 
 " toggle quickfix window
@@ -226,10 +223,10 @@ nnoremap <leader>oo :e **/
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" recursive grep, use silent to skip pressing enter when grep is done
+" recursive grep, use silent to avoid pressing enter when grep is done
 nnoremap <leader>gr :silent grep 
 
-" grep the word under the cursor, use silent to skip pressing enter when grep is done
+" grep the word under the cursor, use silent to avoid pressing enter when grep is done
 nnoremap <leader>gw :silent grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
@@ -290,5 +287,5 @@ Plug 'tpope/vim-unimpaired'                          " some useful key mappings
 Plug 'airblade/vim-gitgutter'                        " show git diff in gutter
 Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
 
-" all plugins should be added before this line
+" plugins should be added before this line
 call plug#end()
