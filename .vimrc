@@ -1,42 +1,9 @@
 " -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-" install vim-plug if it is not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd vimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" plugins should be added after this line
-call plug#begin()
-
-Plug 'tpope/vim-fugitive'                            " git wrapper
-Plug 'tpope/vim-surround'                            " all about surroundings
-Plug 'tpope/vim-commentary'                          " commenting
-Plug 'tpope/vim-unimpaired'                          " some useful key mappings
-Plug 'skywind3000/asyncrun.vim'                      " run shell commands in the background
-Plug 'airblade/vim-gitgutter'                        " show git diff in gutter
-Plug 'junegunn/vim-easy-align'                       " alignment plugin
-Plug 'vim-airline/vim-airline'                       " enhanced status bar
-Plug 'vim-airline/vim-airline-themes'                " status bar color themes
-Plug 'edkolev/tmuxline.vim'                          " apply vim themes to tmux status bar
-Plug 'nanotech/jellybeans.vim'                       " color scheme
-Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
-Plug 'prabirshrestha/vim-lsp',   { 'for': 'python' } " language server protocol support
-Plug 'prabirshrestha/async.vim', { 'for': 'python' } " needed by vim-lsp
-
-" all plugins should be added before this line
-call plug#end()
-
-" -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on       " attempt to determine file type
 syntax on                       " enable syntax highlighting
 set synmaxcol=250               " only syntax highlight the first 250 columns
-set cursorline                  " highlight current line
-set colorcolumn=101             " set vertical line at 101 characters
 set wildmenu                    " visual auto complete for command menu
 set report=0                    " always report changed lines
 set lazyredraw                  " only redraw when necessary
@@ -58,6 +25,9 @@ set autowriteall                " auto save files
 set noshowmode                  " don't show mode as we use a status line plugin
 set scrolloff=1                 " always keep a couple of lines from the top and the bottom
 set number                      " enable line numbers
+set background=dark             " hint vim the terminal is using a dark background
+set showmode                    " show mode in status line
+set ruler                       " show line number info in status line
 
 " read man pages inside vim (in a vertical split) via :Man <cmd>
 runtime! ftplugin/man.vim
@@ -98,23 +68,9 @@ set cscopetag            " use cscope by default for tag jumps
 set wildignore+=*cscope*
 set wildignore+=tags
 
-" spelling (not enabled by default but can be toggled with key mapping)
+" spelling (not enabled by default but canetbe toggled with key mapping)
 set spelllang=en_us
 set spellfile=~/.vim/en.utf-8.add
-
-try
-    " set color scheme
-    set background=dark
-    colorscheme jellybeans
-
-    " configure airline
-    let g:airline_theme='jellybeans'
-    let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
-
-    " open quickfix window after an asynchronous job is finished
-    let g:asyncrun_exit = "cwindow"
-catch
-endtry
 
 " use ripgrep for faster grepping if it is available
 if executable("rg")
@@ -183,18 +139,12 @@ augroup windows
     autocmd FileType qf,gitcommit wincmd J
 augroup END
 
-" python language server protocol support
-augroup lsp
-    if executable('pyls')
-        autocmd User lsp_setup call lsp#register_server({
-            \ 'name': 'pyls',
-            \ 'cmd': {server_info->['pyls']},
-            \ 'whitelist': ['python'],
-            \ })
-    endif
-
-    " python omnicompletion
-    autocmd FileType python setlocal omnifunc=lsp#complete
+" open quickfix when it is populated
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost    l* lwindow
+    autocmd VimEnter            * cwindow
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -239,11 +189,12 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 " remap <C-w>
 nnoremap <leader>w <C-w>
 
-" asynchronous make
-nnoremap <leader>m :AsyncRun! -program=make<cr>
+" make
+nnoremap <leader>m :silent make<cr>
 
 " toggle quickfix window
-nnoremap <silent> <leader>qf :call asyncrun#quickfix_toggle(12)<cr>
+nnoremap <silent> <leader>qo :copen<cr>
+nnoremap <silent> <leader>qc :cclose<cr>
 
 " search files in the working directory
 nnoremap <leader>oo :e **/
@@ -251,11 +202,11 @@ nnoremap <leader>oo :e **/
 " regex tags search
 nnoremap <leader>tt :tj /
 
-" asynchronouse recursive grep, don't return to allow to pass options
-nnoremap <leader>gr :AsyncRun! -program=grep @ 
+" recursive grep, use silent to skip pressing enter when grep is done
+nnoremap <leader>gr :silent grep 
 
-" asynchronous grep the word under the cursor, don't return to allow to pass options
-nnoremap <leader>gw :AsyncRun! -program=grep @ -w <c-r><c-w> 
+" grep the word under the cursor, use silent to skip pressing enter when grep is done
+nnoremap <leader>gw :silent grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>:copen<cr>
@@ -288,3 +239,26 @@ nnoremap <leader>sp :setlocal spell! spelllang=en_us<cr>
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+" install vim-plug if it is not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd vimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" plugins should be added after this line
+call plug#begin()
+
+Plug 'tpope/vim-fugitive'                            " git wrapper
+Plug 'tpope/vim-surround'                            " all about surroundings
+Plug 'tpope/vim-commentary'                          " commenting
+Plug 'tpope/vim-unimpaired'                          " some useful key mappings
+Plug 'airblade/vim-gitgutter'                        " show git diff in gutter
+Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
+
+" all plugins should be added before this line
+call plug#end()
