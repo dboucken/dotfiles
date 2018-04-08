@@ -80,24 +80,6 @@ endif
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
 " -------------------------------------------------------------------------------------------------
-" Toggle colorcolumn
-function! ToggleColorColumn() abort
-    if &colorcolumn > 0
-        set colorcolumn=0
-    else
-        set colorcolumn=101
-    endif
-endfunction
-
-" Toggle background setting to hint vim wich background color the terminal is using
-function! ToggleBackground() abort
-    if &background == "dark"
-        set background=light
-    else
-        set background=dark
-    endif
-endfunction
-
 " add extra syntax highlighting for c functions
 function! EnhanceCSyntax() abort
     syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
@@ -130,18 +112,6 @@ augroup end
 augroup load_cscope
     autocmd!
     autocmd BufEnter /* call LoadCscope()
-augroup end
-
-" automatically cleanup fugitive buffers
-augroup fugitive
-    autocmd!
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup end
-
-" source vimrc on save
-augroup vimrc
-    autocmd!
-    autocmd BufWritePost .vimrc source $MYVIMRC
 augroup end
 
 " automatically save when a file is changed
@@ -254,15 +224,6 @@ nnoremap <leader>pr viw"0p
 " run macro in register q
 nnoremap <leader><leader> @q
 
-" toggle spell checking
-nnoremap <leader>sp :setlocal spell! spelllang=en_us<cr>
-
-" toggle background
-nnoremap <leader>tb :call ToggleBackground()<cr>
-
-" toggle colorcolumn
-nnoremap <leader>tc :call ToggleColorColumn()<cr>
-
 " -------------------------------------------------------------------------------------------------
 " LOCAL VIMRC
 " -------------------------------------------------------------------------------------------------
@@ -283,11 +244,9 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'                            " git wrapper
 Plug 'tpope/vim-surround'                            " all about surroundings
 Plug 'tpope/vim-commentary'                          " commenting
 Plug 'tpope/vim-unimpaired'                          " some useful key mappings
-Plug 'airblade/vim-gitgutter'                        " show git diff in gutter
 Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
 
 " plugins should be added before this line
