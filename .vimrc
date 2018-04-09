@@ -247,6 +247,7 @@ call plug#begin()
 Plug 'tpope/vim-surround'                            " all about surroundings
 Plug 'tpope/vim-commentary'                          " commenting
 Plug 'tpope/vim-unimpaired'                          " some useful key mappings
+Plug 'tpope/vim-fugitive'                            " git wrapper
 Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
 
 " plugins should be added before this line
