@@ -244,11 +244,10 @@ endif
 " plugins should be added after this line
 call plug#begin()
 
-Plug 'tpope/vim-surround'                            " all about surroundings
-Plug 'tpope/vim-commentary'                          " commenting
-Plug 'tpope/vim-unimpaired'                          " some useful key mappings
-Plug 'tpope/vim-fugitive'                            " git wrapper
-Plug 'nathanalderson/yang.vim',  { 'for': 'yang' }   " yang syntax highlighting
+Plug 'tpope/vim-commentary' " comment stuff out
+Plug 'tpope/vim-fugitive'   " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-surround'   " plugin for deleting, changing, and adding surroundings
+Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 
 " plugins should be added before this line
 call plug#end()
