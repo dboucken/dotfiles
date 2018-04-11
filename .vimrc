@@ -53,6 +53,7 @@ set listchars+=trail:-            " trailing white space
 set listchars+=extends:>          " line continues on the right
 set listchars+=precedes:<         " line continues on the left
 set listchars+=nbsp:+             " unbreakable space
+colorscheme evening               " set color scheme
 runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
