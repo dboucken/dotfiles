@@ -43,8 +43,8 @@ set cscopetag                     " use cscope by default for tag jumps
 set notimeout                     " never timeout on mappings
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
-set wildignore+=*cscope*          " ignore cscope files when expanding wildcards
-set wildignore+=tags              " ignore tag files when expanding wildcards
+set wildignore+=*cscope*          " ignore cscope files when expanding wild cards
+set wildignore+=tags              " ignore tag files when expanding wild cards
 set spelllang=en_us               " use English as spelling language
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set list                          " show non-printable characters
@@ -53,11 +53,11 @@ set listchars+=trail:-            " trailing white space
 set listchars+=extends:>          " line continues on the right
 set listchars+=precedes:<         " line continues on the left
 set listchars+=nbsp:+             " unbreakable space
-runtime! macros/matchit.vim       " extend % to html tags
+runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 if executable("rg")               " use ripgrep when it is available
-    set grepprg=rg\ --vimgrep\ -S " use vimgrep format and smartcase
+    set grepprg=rg\ --vimgrep\ -S " use vimgrep format and smart case
     set grepformat^=%f:%l:%c:%m   " file name:line number:column number:message
 endif
 
@@ -86,46 +86,35 @@ endfunction
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
-" enhance c syntax highlighting
-augroup c_syntax_enhancements
+augroup custom_autocommands
+    " clear all auto commands in this group
     autocmd!
+
+    " enhance c syntax highlighting
     autocmd Syntax c,cpp call EnhanceCSyntax()
-augroup end
 
-" auto load cscope database
-augroup load_cscope
-    autocmd!
+    " auto load cscope database
     autocmd BufEnter /* call LoadCscope()
-augroup end
 
-" automatically save when a file is changed
-augroup save_and_read
-    autocmd!
+    " auto save when a file is changed
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
+
+    " check if the file has changed outside of vim when the cursor has moved
     autocmd CursorHold * silent! checktime
-augroup end
 
-" markdown settings for writing prose
-augroup markdown
-    autocmd!
+    " enable spell checking for markdown and gitcommit files
     autocmd Filetype markdown,gitcommit setlocal spell
+
+    " set text width for markdown files
     autocmd Filetype markdown setlocal textwidth=100
-augroup end
 
-" don't show invisible characters in man pages
-augroup manpage
-    autocmd!
+    " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
-augroup end
 
-" open quickfix and gitcommit window always at the bottom and with the full width
-augroup windows
+    " open quickfix and gitcommit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
-augroup END
 
-" open quickfix when it is populated
-augroup quickfix
-    autocmd!
+    " open quickfix/location list when it is populated
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
@@ -137,22 +126,22 @@ augroup END
 " open help in a vertical split
 cabbrev H vert h
 
-" insert todo
+" insert to do comment
 iabbrev TODO /* TODO dboucken: */<left><left><left>
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
-" map jj to escape
+" remap escape in insert mode
 inoremap jj <Esc>
 
-" map ; to :
+" remap : in normal mode
 nnoremap ; :
 
 " always use very magic regular expressions when searching
 nnoremap / /\v
 
-" auto expand curly brackets
+" auto expand curly brackets in insert mode
 inoremap {<cr> {<cr>}<Esc>O
 
 " -------------------------------------------------------------------------------------------------
@@ -160,6 +149,12 @@ inoremap {<cr> {<cr>}<Esc>O
 " -------------------------------------------------------------------------------------------------
 " use space as leader
 let mapleader=" "
+
+" remap <C-w>
+nnoremap <leader>w <C-w>
+
+" remap tag jump <C-]>
+nnoremap <leader>] <C-]>
 
 " clear search highlighting
 nnoremap <leader>l :nohlsearch<cr>
@@ -169,9 +164,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
-
-" remap <C-w>
-nnoremap <leader>w <C-w>
 
 " make
 nnoremap <leader>m :make<cr>
@@ -197,9 +189,6 @@ nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
 
 " find callers of function under the cursor
 nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
-
-" remap tag jump <C-]>
-nnoremap <leader>] <C-]>
 
 " easier change and replace word
 nnoremap <leader>cw *Ncgn
@@ -236,7 +225,7 @@ call plug#begin()
 
 Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tpope/vim-fugitive'   " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-surround'   " plugin for deleting, changing, and adding surroundings
+Plug 'tpope/vim-surround'   " plugin for deleting, changing and adding surroundings
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 
 " plugins should be added before this line
