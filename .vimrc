@@ -1,7 +1,7 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-filetype plugin indent on         " attempt to determine file type
+filetype plugin indent on         " file type detection, load file type plugins and indent files
 syntax on                         " enable syntax highlighting
 set synmaxcol=250                 " only syntax highlight the first 250 columns
 set wildmenu                      " visual auto complete for command menu
