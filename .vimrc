@@ -119,6 +119,9 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
+
+    " automatically cleanup fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 " -------------------------------------------------------------------------------------------------
