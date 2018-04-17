@@ -57,10 +57,6 @@ colorscheme evening               " set color scheme
 runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
-if executable("rg")               " use ripgrep when it is available
-    set grepprg=rg\ --vimgrep\ -S " use vimgrep format and smart case
-    set grepformat^=%f:%l:%c:%m   " file name:line number:column number:message
-endif
 
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
@@ -154,14 +150,8 @@ inoremap {<cr> {<cr>}<Esc>O
 " use space as leader
 let mapleader=" "
 
-" remap <C-w>
-nnoremap <leader>w <C-w>
-
-" remap tag jump <C-]>
-nnoremap <leader>] <C-]>
-
 " clear search highlighting
-nnoremap <leader>l :nohlsearch<cr>
+nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " quickly open vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -179,13 +169,13 @@ nnoremap <silent> <leader>qc :cclose<cr>
 " search files in the working directory
 nnoremap <leader>oo :e **/
 
-" regex tags search
+" regex tag search
 nnoremap <leader>tt :tj /
 
-" recursive grep, don't return to be able to pass options and directory
+" grep, don't return to be able to pass options and files
 nnoremap <leader>gr :grep 
 
-" grep the word under the cursor, don't return to be able to pass options and directory
+" grep the word under the cursor, don't return to be able to pass options and files
 nnoremap <leader>gw :grep -w <c-r><c-w> 
 
 " find cscope symbol under the cursor
@@ -224,7 +214,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd vimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" plugins should be added after this line
 call plug#begin()
 
 Plug 'tpope/vim-commentary' " comment stuff out
@@ -232,5 +221,4 @@ Plug 'tpope/vim-fugitive'   " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-surround'   " plugin for deleting, changing and adding surroundings
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 
-" plugins should be added before this line
 call plug#end()
