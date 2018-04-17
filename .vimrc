@@ -99,7 +99,7 @@ augroup custom_autocommands
     " check if the file has changed outside of vim when the cursor has moved
     autocmd CursorHold * silent! checktime
 
-    " enable spell checking for markdown and gitcommit files
+    " enable spell checking for markdown and git commit files
     autocmd Filetype markdown,gitcommit setlocal spell
 
     " set text width for markdown files
@@ -108,7 +108,7 @@ augroup custom_autocommands
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
 
-    " open quickfix and gitcommit window always at the bottom and with the full width of the screen
+    " open quickfix and git commit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
 
     " open quickfix/location list when it is populated
