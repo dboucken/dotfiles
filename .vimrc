@@ -61,16 +61,9 @@ let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
 " -------------------------------------------------------------------------------------------------
-" add extra syntax highlighting for c functions
-function! EnhanceCSyntax() abort
-    syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
-    syntax match cMacro /\<[A-Z_]\+\s*(/me=e-1,he=e-1
-    highlight def link cFunction Function
-    highlight def link cMacro Macro
-endfunction
-
 " load cscope database
 function! LoadCscope() abort
+    " search for a cscope database in the current directory and all upward parent directories
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
         let path = strpart(db, 0, match(db, "/cscope.out$"))
@@ -87,8 +80,11 @@ augroup custom_autocommands
     " clear all auto commands in this group
     autocmd!
 
-    " enhance c syntax highlighting
-    autocmd Syntax c,cpp call EnhanceCSyntax()
+    " add extra syntax highlighting for c functions and macros
+    autocmd Syntax c,cpp syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
+    autocmd Syntax c,cpp syntax match cMacro /\<[A-Z_]\+\s*(/me=e-1,he=e-1
+    autocmd Syntax c,cpp highlight def link cFunction Function
+    autocmd Syntax c,cpp highlight def link cMacro Macro
 
     " auto load cscope database
     autocmd BufEnter /* call LoadCscope()
