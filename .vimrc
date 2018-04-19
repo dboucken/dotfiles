@@ -146,6 +146,9 @@ inoremap {<cr> {<cr>}<Esc>O
 " use space as leader
 let mapleader=" "
 
+" remap <c-w> to something easier
+nnoremap <leader>w <c-w>
+
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
 
