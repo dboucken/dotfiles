@@ -98,8 +98,11 @@ augroup custom_autocommands
     " enable spell checking for markdown and git commit files
     autocmd Filetype markdown,gitcommit setlocal spell
 
-    " set text width for markdown files
+    " set text width and tab size for markdown files
     autocmd Filetype markdown setlocal textwidth=100
+    autocmd Filetype markdown setlocal tabstop=2
+    autocmd Filetype markdown setlocal softtabstop=2
+    autocmd Filetype markdown setlocal shiftwidth=2
 
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
