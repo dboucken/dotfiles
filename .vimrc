@@ -155,8 +155,11 @@ nnoremap <leader>w <c-w>
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
 
-" quickly open vimrc
+" edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" edit scratchpad
+nnoremap <leader>es :vsplit ~/scratchpad.md<cr>
 
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
