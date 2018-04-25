@@ -3,9 +3,7 @@
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " file type detection, load file type plugins and indent files
 syntax on                         " enable syntax highlighting
-set synmaxcol=250                 " only syntax highlight the first 250 columns
 set wildmenu                      " visual auto complete for command menu
-set report=0                      " always report changed lines
 set lazyredraw                    " don't redraw the screen during macros to improve performance
 set ttyfast                       " always assume a fast terminal
 set autoread                      " reload file when changed outside vim
@@ -13,7 +11,6 @@ set splitbelow                    " open new horizontal split below the current 
 set splitright                    " open new vertical split right of the current one
 set visualbell                    " use visual bell instead of beeping
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
-set hidden                        " buffer becomes hidden when it is abandoned
 set cmdheight=2                   " increase the height of the command bar
 set nowrap                        " don't wrap
 set laststatus=2                  " always show the status line
@@ -36,15 +33,13 @@ set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set smartcase                     " don't ignore case when inserting uppercase characters
-set nobackup                      " disable backups
 set noswapfile                    " disable swap files
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set notimeout                     " never timeout on mappings
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
-set wildignore+=*cscope*          " ignore cscope files when expanding wild cards
-set wildignore+=tags              " ignore tag files when expanding wild cards
+set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
 set spelllang=en_us               " use English as spelling language
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set list                          " show non-printable characters
@@ -62,9 +57,8 @@ let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
 " -------------------------------------------------------------------------------------------------
-" load cscope database
-function! LoadCscope() abort
-    " search for a cscope database in the current directory and all upward parent directories
+function! LoadCscopeDatabase() abort
+    " search for a cscope database in the current directory and all upward directories
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
         let path = strpart(db, 0, match(db, "/cscope.out$"))
@@ -88,7 +82,7 @@ augroup custom_autocommands
     autocmd Syntax c,cpp highlight def link cMacro Macro
 
     " auto load cscope database
-    autocmd BufEnter /* call LoadCscope()
+    autocmd BufEnter /* call LoadCscopeDatabase()
 
     " auto save when a file is changed
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
@@ -165,18 +159,8 @@ nnoremap <leader>es :vsplit ~/scratchpad.md<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" make
-nnoremap <leader>m :make<cr>
-
-" toggle quickfix window
-nnoremap <silent> <leader>qo :copen<cr>
+" close quickfix window
 nnoremap <silent> <leader>qc :cclose<cr>
-
-" regex tag search
-nnoremap <leader>tt :tj /
-
-" grep, don't return to be able to pass options and files
-nnoremap <leader>gr :grep 
 
 " grep the word under the cursor, don't return to be able to pass options and files
 nnoremap <leader>gw :grep -w <c-r><c-w> 
@@ -189,10 +173,6 @@ nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
 
 " easier change and replace word
 nnoremap <leader>cw *Ncgn
-
-" paste last yanked text
-nnoremap <leader>pp "0p
-vnoremap <leader>pp "0p
 
 " replace word with last yanked text
 nnoremap <leader>pr viw"0p
