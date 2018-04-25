@@ -53,6 +53,7 @@ set listchars+=trail:-            " trailing white space
 set listchars+=extends:>          " line continues on the right
 set listchars+=precedes:<         " line continues on the left
 set listchars+=nbsp:+             " unbreakable space
+set path+=**                      " search down into sub directories when searching for files
 colorscheme desert                " set color scheme
 runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
@@ -170,9 +171,6 @@ nnoremap <leader>m :make<cr>
 " toggle quickfix window
 nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
-
-" search files in the working directory
-nnoremap <leader>oo :e **/
 
 " regex tag search
 nnoremap <leader>tt :tj /
