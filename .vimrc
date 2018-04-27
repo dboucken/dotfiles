@@ -49,6 +49,7 @@ set listchars+=extends:>          " line continues on the right
 set listchars+=precedes:<         " line continues on the left
 set listchars+=nbsp:+             " unbreakable space
 set path+=**                      " search down into sub directories when searching for files
+set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 colorscheme desert                " set color scheme
 runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
@@ -115,6 +116,20 @@ augroup custom_autocommands
 augroup END
 
 " -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+" vim-plug is used to manage plugins (plug.vim has to be installed in ~/.vim/autoload)
+call plug#begin()
+
+Plug 'tpope/vim-commentary'   " comment stuff out
+Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-surround'     " plugin for deleting, changing and adding surroundings
+Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter' " git diff in the gutter column
+
+call plug#end()
+
+" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " open help in a vertical split
@@ -179,22 +194,3 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-" install vim-plug if it is not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd vimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-
-Plug 'tpope/vim-commentary' " comment stuff out
-Plug 'tpope/vim-fugitive'   " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-surround'   " plugin for deleting, changing and adding surroundings
-Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
-
-call plug#end()
