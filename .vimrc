@@ -116,20 +116,6 @@ augroup custom_autocommands
 augroup END
 
 " -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-" vim-plug is used to manage plugins (plug.vim has to be installed in ~/.vim/autoload)
-call plug#begin()
-
-Plug 'tpope/vim-commentary'   " comment stuff out
-Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-surround'     " plugin for deleting, changing and adding surroundings
-Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
-Plug 'airblade/vim-gitgutter' " git diff in the gutter column
-
-call plug#end()
-
-" -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
 " open help in a vertical split
@@ -194,3 +180,17 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+" vim-plug is used to manage plugins (plug.vim has to be installed in ~/.vim/autoload)
+call plug#begin()
+
+Plug 'tpope/vim-commentary'   " comment stuff out
+Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-surround'     " plugin for deleting, changing and adding surroundings
+Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter' " git diff in the gutter column
+
+call plug#end()
