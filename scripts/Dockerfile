@@ -1,5 +1,6 @@
 # Dockerfile to test dotfiles on linux
-# Build and run with: docker build -t dotfiles-test . && docker run -it dotfiles-test bash
+# Build and run in dotfiles directory with:
+#   docker build -t dotfiles-test -f scripts/Dockerfile . && docker run -it dotfiles-test bash
 
 # Use latest centos
 FROM centos:latest
@@ -15,7 +16,8 @@ RUN yum install -y sudo \
                    pkg-config \
                    libevent-devel \
                    ncurses-devel \
-                   wget
+                   wget \
+                   curl
 
 # Add test group and user with sudoer privileges
 RUN groupadd docker-group

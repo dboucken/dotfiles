@@ -33,6 +33,11 @@ echo " "
 echo "--------------------------------------------------------------------------------"
 echo " Install Vim Plugins"
 echo "--------------------------------------------------------------------------------"
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install all vim plugins configured in vimrc
 vim +PlugUpdate +PlugUpgrade +qall
 
 # Return to the current directory
