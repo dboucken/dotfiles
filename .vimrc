@@ -11,9 +11,7 @@ set splitbelow                    " open new horizontal split below the current 
 set splitright                    " open new vertical split right of the current one
 set visualbell                    " use visual bell instead of beeping
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
-set cmdheight=2                   " increase the height of the command bar
 set nowrap                        " don't wrap
-set laststatus=2                  " always show the status line
 set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
