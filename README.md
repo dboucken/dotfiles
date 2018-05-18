@@ -20,5 +20,5 @@ A docker container that gets initialized with the required packages to test the 
 uninstall scripts and dotfiles.
 
 ```bash
-docker build -t dotfiles-test . && docker run -it dotfiles-test bash
+docker build -t dotfiles-test -f scripts/Dockerfile . && docker run -it dotfiles-test bash
 ```
