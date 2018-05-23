@@ -1,6 +1,2 @@
-[alias]
-    d = difftool
 [diff]
     tool = vimdiff
-[difftool]
-    prompt = false

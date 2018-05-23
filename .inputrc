@@ -7,11 +7,6 @@ set completion-ignore-case on
 # Immediately add a trailing slash when auto completing symbolic links to directories
 set mark-symlinked-directories on
 
-# Use the text that has already been typed as the prefix for searching through
-# # commands (i.e. More intelligent Up/Down behavior)
-"\e[B": history-search-forward
-"\e[A": history-search-backward
-
 # Do not auto complete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
 
@@ -24,5 +19,5 @@ set bell-style none
 # Expand tilde
 set expand-tilde
 
-# Enable vi mode (entered with <Esc>)
+# Enable vi mode (enter vi normal mode with <Esc>)
 set editing-mode vi
