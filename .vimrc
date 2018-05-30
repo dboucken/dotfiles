@@ -152,9 +152,6 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" edit scratchpad
-nnoremap <leader>es :vsplit ~/scratchpad.md<cr>
-
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
@@ -188,10 +185,9 @@ nnoremap <leader><leader> @q
 " vim-plug is used to manage plugins (plug.vim has to be installed in ~/.vim/autoload)
 call plug#begin()
 
+Plug 'airblade/vim-gitgutter' " git diff in the gutter column
 Plug 'tpope/vim-commentary'   " comment stuff out
 Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-surround'     " plugin for deleting, changing and adding surroundings
 Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
-Plug 'airblade/vim-gitgutter' " git diff in the gutter column
 
 call plug#end()
