@@ -164,6 +164,9 @@ nnoremap <silent> <leader>qc :cclose<cr>
 " grep the word under the cursor, don't return to be able to pass options and files
 nnoremap <leader>gw :grep -w <c-r><c-w> 
 
+" grep the word under the cursor recursively in the directory of the current file
+nnoremap <leader>gd :grep -rw <c-r><c-w> %:p:h<cr>
+
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
 
