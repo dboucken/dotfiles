@@ -16,7 +16,6 @@ set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
 set scrolloff=1                   " always keep a line from the top and the bottom to the cursor
-set number                        " enable line numbers
 set showmode                      " show mode in command line
 set ruler                         " show line number info in status line
 set formatoptions+=j              " delete comment character when joining lines
