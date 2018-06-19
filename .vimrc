@@ -4,8 +4,8 @@
 filetype plugin indent on         " file type detection, load file type plugins and indent files
 syntax on                         " enable syntax highlighting
 set wildmenu                      " visual auto complete for command menu
+set wildmode=longest,full         " complete longest common string, then each full match
 set lazyredraw                    " don't redraw the screen during macros to improve performance
-set ttyfast                       " always assume a fast terminal
 set autoread                      " reload file when changed outside vim
 set splitbelow                    " open new horizontal split below the current one
 set splitright                    " open new vertical split right of the current one
@@ -15,7 +15,6 @@ set nowrap                        " don't wrap
 set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
-set scrolloff=1                   " always keep a line from the top and the bottom to the cursor
 set showmode                      " show mode in command line
 set ruler                         " show line number info in status line
 set formatoptions+=j              " delete comment character when joining lines
@@ -158,16 +157,16 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " grep the word under the cursor, don't return to be able to pass options and files
-nnoremap <leader>gw :grep -w <c-r><c-w> 
+nnoremap <leader>gw :grep! -w <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep -rw <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
-nnoremap <leader>gs :cs find s <c-r><c-w><cr><cr>
+nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
 
 " find callers of function under the cursor
-nnoremap <leader>gc :cs find c <c-r><c-w><cr><cr>
+nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
 
 " easier change and replace word
 nnoremap <leader>cw *Ncgn
