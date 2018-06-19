@@ -14,7 +14,8 @@ mkdir ~/tools 2> /dev/null
 pushd ~/tools
 
 # Vim may not be installed already
-if [ -d "vim" ]; then
+if [ -d "vim" ]
+then
     echo "Vim already installed."
     # Return to the current directory
     popd
@@ -29,16 +30,11 @@ cd vim
 # Configure, build and install vim
 ./configure --with-features=huge && make && chmod a+rwx runtime/doc && sudo make install
 
-echo " "
-echo "--------------------------------------------------------------------------------"
-echo " Install Vim Plugins"
-echo "--------------------------------------------------------------------------------"
-# Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Try create .vim directory for case that it does not already exists
+mkdir ~/.vim 2> /dev/null
 
-# Install all vim plugins configured in vimrc
-vim +PlugUpdate +PlugUpgrade +qall
+# Make a link to the plugin directory
+ln -vs ~/dotfiles/vim/pack ~/.vim/pack
 
 # Return to the current directory
 popd

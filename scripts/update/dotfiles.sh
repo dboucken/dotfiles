@@ -11,5 +11,8 @@ pushd ~/dotfiles
 # Update dotfiles
 git pull
 
+# Update submodules
+git submodule update --remote --init
+
 # Return to the current directory
 popd

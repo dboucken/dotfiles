@@ -177,16 +177,3 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-" vim-plug is used to manage plugins (plug.vim has to be installed in ~/.vim/autoload)
-call plug#begin()
-
-Plug 'airblade/vim-gitgutter' " git diff in the gutter column
-Plug 'tpope/vim-commentary'   " comment stuff out
-Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
-
-call plug#end()

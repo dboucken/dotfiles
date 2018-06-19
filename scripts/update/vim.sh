@@ -8,7 +8,8 @@ echo "##########################################################################
 # Go to vim directory and push the current directory to the stack
 pushd ~/tools
 
-if [ ! -d "vim" ]; then
+if [ ! -d "vim" ]
+then
     echo "Vim not installed."
     # Return to the current directory
     popd
@@ -33,15 +34,10 @@ latest_tag_commit=$(git rev-list -n 1 $latest_tag)
 echo "Latest tag: $latest_tag ($latest_tag_commit)"
 
 # Build and install if there is a new version
-if [ "$current_tag_commit" != "$latest_tag_commit" ]; then
+if [ "$current_tag_commit" != "$latest_tag_commit" ]
+then
     make && sudo make install
 fi
-
-echo " "
-echo "--------------------------------------------------------------------------------"
-echo " Update Vim Plugins"
-echo "--------------------------------------------------------------------------------"
-vim +PlugClean! +PlugUpgrade +PlugUpdate +qall
 
 # Return to the current directory
 popd

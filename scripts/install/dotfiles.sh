@@ -11,6 +11,9 @@ pushd ~/dotfiles
 # Update dotfiles
 git pull
 
+# Update submodules
+git submodule update --remote --init
+
 # Link to dotfiles
 cd ~
 ln -sv ~/dotfiles/.vimrc
