@@ -12,7 +12,7 @@ pushd ~/dotfiles
 git pull
 
 # Update submodules
-git submodule update --remote --init
+git submodule update --remote --merge --recursive --init
 
 # Link to dotfiles
 cd ~
