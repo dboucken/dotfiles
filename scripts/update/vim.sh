@@ -39,5 +39,8 @@ then
     make && sudo make install
 fi
 
+# Generate helptags for vim plugins
+vim -c 'helptags ALL' +qall
+
 # Return to the current directory
 popd
