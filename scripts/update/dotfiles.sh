@@ -14,7 +14,7 @@ git pull
 # Update submodules
 git submodule update --remote --merge --recursive --init
 git add vim
-git commit
+git commit -m 'Update submodules'
 
 # Return to the current directory
 popd
