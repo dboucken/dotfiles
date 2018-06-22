@@ -12,13 +12,116 @@ sudo -v
 os="$(uname -s)"
 if [ "$os" == "Darwin" ]; then
     echo "Mac specific scripts."
-    sh ~/dotfiles/scripts/update/mac.sh
+
+    # Update App Store apps
+    sudo softwareupdate -i -a
+
+    # Update homebrew and cleanup
+    brew update
+    brew upgrade
+    brew cleanup
+    brew prune
+    brew cask outdated | xargs brew cask reinstall
+    brew cask cleanup
 fi
 
-sh ~/dotfiles/scripts/update/dotfiles.sh
-sh ~/dotfiles/scripts/update/git-scripts.sh
-sh ~/dotfiles/scripts/update/tmux.sh
-sh ~/dotfiles/scripts/update/vim.sh
+# Go to dotfiles directory and push the current directory to the stack
+pushd ~/dotfiles
+
+echo " "
+echo "################################################################################"
+echo "# Update dotfiles                                                              #"
+echo "################################################################################"
+
+# Update dotfiles
+git pull
+
+# Update submodules
+git submodule update --remote --merge --recursive --init
+git add vim
+git commit -m 'Update submodules'
+
+echo " "
+echo "################################################################################"
+echo "# Update git scripts                                                           #"
+echo "################################################################################"
+
+# Install or update the git scripts
+cd ~
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O git-completion.bash
+
+echo " "
+echo "################################################################################"
+echo "# Update tmux                                                                  #"
+echo "################################################################################"
+
+cd ~/tools
+
+# Tmux must be installed
+if [ -d "tmux" ]
+then
+    cd tmux
+
+    # Get current version
+    current_tag=$(git describe --tags --abbrev=0)
+    current_tag_commit=$(git rev-list -n 1 $current_tag)
+    echo "Current tag: $current_tag ($current_tag_commit)"
+
+    # Update repository
+    git checkout master
+    git pull
+
+    # Get new version
+    latest_tag=$(git describe --tags --abbrev=0)
+    git checkout $latest_tag &>/dev/null
+    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+    echo "Latest tag: $latest_tag ($latest_tag_commit)"
+
+    # Build and install if there is a new version
+    if [ "$current_tag_commit" != "$latest_tag_commit" ]; then
+        make && sudo make install
+    fi
+fi
+
+echo " "
+echo "################################################################################"
+echo "# Update Vim                                                                   #"
+echo "################################################################################"
+
+cd ~/tools
+
+if [ -d "vim" ]
+then
+    cd vim
+
+    # Get current version
+    current_tag=$(git describe --tags --abbrev=0)
+    current_tag_commit=$(git rev-list -n 1 $current_tag)
+    echo "Current tag: $current_tag ($current_tag_commit)"
+
+    # Update repository
+    git checkout master
+    git pull
+
+    # Get new version
+    latest_tag=$(git describe --tags --abbrev=0)
+    git checkout $latest_tag &>/dev/null
+    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+    echo "Latest tag: $latest_tag ($latest_tag_commit)"
+
+    # Build and install if there is a new version
+    if [ "$current_tag_commit" != "$latest_tag_commit" ]
+    then
+        make && sudo make install
+    fi
+
+    # Generate helptags for vim plugins
+    vim -c 'helptags ALL' +qall
+fi
+
+# Return to the current directory
+popd
 
 echo " "
 echo "################################################################################"
