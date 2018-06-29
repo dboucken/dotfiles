@@ -168,7 +168,10 @@ then
         cd vim
 
         # Configure, build and install vim
-        ./configure --with-features=huge && make && chmod a+rwx runtime/doc && sudo make install
+        ./configure --with-features=huge --enable-python3interp=yes --enable-pythoninterp=yes
+        make
+        chmod a+rwx runtime/doc
+        sudo make install
 
         # Try create .vim directory for case that it does not already exists
         mkdir ~/.vim 2> /dev/null
