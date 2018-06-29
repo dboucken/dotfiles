@@ -13,7 +13,9 @@ sudo chmod -R a+rwx ~/dotfiles
 
 # Mac specific scripts
 os="$(uname -s)"
-if [ "$os" == "Darwin" ]; then
+
+if [ "$os" == "Darwin" ]
+then
     echo "Mac specific scripts."
 
     sudo xcodebuild -license accept
@@ -41,6 +43,8 @@ if [ "$os" == "Darwin" ]; then
     brew install pkg-config
     brew install libevent
     brew install ripgrep
+    brew install vim
+    brew install tmux
 
     brew cask install appcleaner
     brew cask install filezilla
@@ -121,53 +125,57 @@ ln -sv ~/dotfiles/.vimrc
 ln -sv ~/dotfiles/.tmux.conf
 ln -sv ~/dotfiles/.inputrc
 
-# Try create tools directory for case that it does not already exists
-mkdir ~/tools 2> /dev/null
-
-cd ~/tools
-
-if [ ! -d "tmux" ]
+# Install tools on linux
+if [ "$os" != "Darwin" ]
 then
-    echo " "
-    echo "################################################################################"
-    echo "# Install tmux                                                                 #"
-    echo "################################################################################"
+    # Try create tools directory for case that it does not already exists
+    mkdir ~/tools 2> /dev/null
 
-    # Clone the tmux repository
-    git clone https://github.com/tmux/tmux.git tmux
+    cd ~/tools
 
-    cd tmux
+    if [ ! -d "tmux" ]
+    then
+        echo " "
+        echo "################################################################################"
+        echo "# Install tmux                                                                 #"
+        echo "################################################################################"
 
-    # Use latest tag
-    latest_tag=$(git describe --tags --abbrev=0)
-    git checkout $latest_tag
+        # Clone the tmux repository
+        git clone https://github.com/tmux/tmux.git tmux
 
-    # Configure, build and install
-    sh autogen.sh && ./configure && make && sudo make install
-fi
+        cd tmux
 
-cd ~/tools
+        # Use latest tag
+        latest_tag=$(git describe --tags --abbrev=0)
+        git checkout $latest_tag
 
-if [ ! -d "vim" ]
-then
-    echo " "
-    echo "################################################################################"
-    echo "# Install Vim                                                                  #"
-    echo "################################################################################"
+        # Configure, build and install
+        sh autogen.sh && ./configure && make && sudo make install
+    fi
 
-    # Clone the vim repository
-    git clone https://github.com/vim/vim.git vim
+    cd ~/tools
 
-    cd vim
+    if [ ! -d "vim" ]
+    then
+        echo " "
+        echo "################################################################################"
+        echo "# Install Vim                                                                  #"
+        echo "################################################################################"
 
-    # Configure, build and install vim
-    ./configure --with-features=huge && make && chmod a+rwx runtime/doc && sudo make install
+        # Clone the vim repository
+        git clone https://github.com/vim/vim.git vim
 
-    # Try create .vim directory for case that it does not already exists
-    mkdir ~/.vim 2> /dev/null
+        cd vim
 
-    # Make a link to the plugin directory
-    ln -vs ~/dotfiles/vim/pack ~/.vim/pack
+        # Configure, build and install vim
+        ./configure --with-features=huge && make && chmod a+rwx runtime/doc && sudo make install
+
+        # Try create .vim directory for case that it does not already exists
+        mkdir ~/.vim 2> /dev/null
+
+        # Make a link to the plugin directory
+        ln -vs ~/dotfiles/vim/pack ~/.vim/pack
+    fi
 fi
 
 echo " "
