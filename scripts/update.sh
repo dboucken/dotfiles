@@ -51,73 +51,78 @@ cd ~
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O git-completion.bash
 
-echo " "
-echo "################################################################################"
-echo "# Update tmux                                                                  #"
-echo "################################################################################"
+cd ~
 
-cd ~/tools
-
-# Tmux must be installed
-if [ -d "tmux" ]
+if [ -d "tools" ]
 then
-    cd tmux
+    cd ~/tools
 
-    # Get current version
-    current_tag=$(git describe --tags --abbrev=0)
-    current_tag_commit=$(git rev-list -n 1 $current_tag)
-    echo "Current tag: $current_tag ($current_tag_commit)"
-
-    # Update repository
-    git checkout master
-    git pull
-
-    # Get new version
-    latest_tag=$(git describe --tags --abbrev=0)
-    git checkout $latest_tag &>/dev/null
-    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
-    echo "Latest tag: $latest_tag ($latest_tag_commit)"
-
-    # Build and install if there is a new version
-    if [ "$current_tag_commit" != "$latest_tag_commit" ]; then
-        make && sudo make install
-    fi
-fi
-
-echo " "
-echo "################################################################################"
-echo "# Update Vim                                                                   #"
-echo "################################################################################"
-
-cd ~/tools
-
-if [ -d "vim" ]
-then
-    cd vim
-
-    # Get current version
-    current_tag=$(git describe --tags --abbrev=0)
-    current_tag_commit=$(git rev-list -n 1 $current_tag)
-    echo "Current tag: $current_tag ($current_tag_commit)"
-
-    # Update repository
-    git checkout master
-    git pull
-
-    # Get new version
-    latest_tag=$(git describe --tags --abbrev=0)
-    git checkout $latest_tag &>/dev/null
-    latest_tag_commit=$(git rev-list -n 1 $latest_tag)
-    echo "Latest tag: $latest_tag ($latest_tag_commit)"
-
-    # Build and install if there is a new version
-    if [ "$current_tag_commit" != "$latest_tag_commit" ]
+    # Tmux must be installed
+    if [ -d "tmux" ]
     then
-        make && sudo make install
+        echo " "
+        echo "################################################################################"
+        echo "# Update tmux                                                                  #"
+        echo "################################################################################"
+
+        cd tmux
+
+        # Get current version
+        current_tag=$(git describe --tags --abbrev=0)
+        current_tag_commit=$(git rev-list -n 1 $current_tag)
+        echo "Current tag: $current_tag ($current_tag_commit)"
+
+        # Update repository
+        git checkout master
+        git pull
+
+        # Get new version
+        latest_tag=$(git describe --tags --abbrev=0)
+        git checkout $latest_tag &>/dev/null
+        latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+        echo "Latest tag: $latest_tag ($latest_tag_commit)"
+
+        # Build and install if there is a new version
+        if [ "$current_tag_commit" != "$latest_tag_commit" ]; then
+            make && sudo make install
+        fi
     fi
 
-    # Generate helptags for vim plugins
-    vim -c 'helptags ALL' +qall
+    cd ~/tools
+
+    if [ -d "vim" ]
+    then
+        echo " "
+        echo "################################################################################"
+        echo "# Update Vim                                                                   #"
+        echo "################################################################################"
+
+        cd vim
+
+        # Get current version
+        current_tag=$(git describe --tags --abbrev=0)
+        current_tag_commit=$(git rev-list -n 1 $current_tag)
+        echo "Current tag: $current_tag ($current_tag_commit)"
+
+        # Update repository
+        git checkout master
+        git pull
+
+        # Get new version
+        latest_tag=$(git describe --tags --abbrev=0)
+        git checkout $latest_tag &>/dev/null
+        latest_tag_commit=$(git rev-list -n 1 $latest_tag)
+        echo "Latest tag: $latest_tag ($latest_tag_commit)"
+
+        # Build and install if there is a new version
+        if [ "$current_tag_commit" != "$latest_tag_commit" ]
+        then
+            make && sudo make install
+        fi
+
+        # Generate helptags for vim plugins
+        vim -c 'helptags ALL' +qall
+    fi
 fi
 
 # Return to the current directory
