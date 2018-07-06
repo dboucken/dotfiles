@@ -129,9 +129,6 @@ inoremap jj <Esc>
 " remap : in normal mode
 nnoremap ; :
 
-" always use very magic regular expressions when searching
-nnoremap / /\v
-
 " auto expand curly brackets in insert mode
 inoremap {<cr> {<cr>}<Esc>O
 
@@ -176,3 +173,6 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
+
+" use very magic regular expressions when searching
+nnoremap <leader>/ /\v
