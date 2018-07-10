@@ -173,6 +173,3 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
-
-" use very magic regular expressions when searching
-nnoremap <leader>/ /\v
