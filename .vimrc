@@ -38,16 +38,14 @@ set ttimeoutlen=200               " timeout length on key codes
 set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
 set spelllang=en_us               " use English as spelling language
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
-set list                          " show non-printable characters
-set listchars=tab:>\              " tab
-set listchars+=trail:-            " trailing white space
-set listchars+=extends:>          " line continues on the right
-set listchars+=precedes:<         " line continues on the left
+set listchars=tab:>\              " show tab when list is enabled
+set listchars+=trail:-            " show trailing white space when list is enabled
+set listchars+=extends:>          " show line continues on the right when list is enabled
+set listchars+=precedes:<         " show line continues on the left when list is enabled
 set listchars+=nbsp:+             " unbreakable space
 set path+=**                      " search down into sub directories when searching for files
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 colorscheme desert                " set color scheme
-runtime! macros/matchit.vim       " extend % to HTML tags
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 
