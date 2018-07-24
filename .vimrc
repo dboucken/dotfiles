@@ -38,6 +38,7 @@ set ttimeoutlen=200               " timeout length on key codes
 set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
 set spelllang=en_us               " use English as spelling language
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
+set list                          " show hidden characters
 set listchars=tab:>\              " show tab when list is enabled
 set listchars+=trail:-            " show trailing white space when list is enabled
 set listchars+=extends:>          " show line continues on the right when list is enabled
@@ -171,3 +172,6 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
+
+" highlight part of a line that is longer than 100 characters
+nnoremap <leader>cc :/\%>100v./+<cr>
