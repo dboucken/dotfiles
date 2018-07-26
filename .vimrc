@@ -175,3 +175,6 @@ nnoremap <leader><leader> @q
 
 " highlight part of a line that is longer than 100 characters
 nnoremap <leader>cc :/\%>100v./+<cr>
+
+" toggle colorcolumn at 101 characters
+nnoremap <leader>cc :set colorcolumn=<C-R>=&colorcolumn != 0 ? 0 : 101<cr><cr>
