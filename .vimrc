@@ -178,3 +178,15 @@ nnoremap <leader>cc :/\%>100v./+<cr>
 
 " toggle colorcolumn at 101 characters
 nnoremap <leader>cc :set colorcolumn=<C-R>=&colorcolumn != 0 ? 0 : 101<cr><cr>
+
+" -------------------------------------------------------------------------------------------------
+" Plugins
+" -------------------------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
+Plug 'tpope/vim-commentary'   " Comment stuff out
+Plug 'tpope/vim-fugitive'     " A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'   " Pairs of handy bracket mappings
+
+call plug#end()

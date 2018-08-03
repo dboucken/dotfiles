@@ -36,11 +36,6 @@ echo "##########################################################################
 # Update dotfiles
 git pull
 
-# Update submodules
-git submodule update --remote --merge --recursive --init
-git add vim
-git commit -m 'Update submodules'
-
 echo " "
 echo "################################################################################"
 echo "# Update git scripts                                                           #"
@@ -122,6 +117,9 @@ then
 
         # Generate helptags for vim plugins
         vim -c 'helptags ALL' +qall
+
+        # Cleanup and update plugins
+        vim +PlugClean! +PlugUpgrade +PlugUpdate +qall
     fi
 fi
 

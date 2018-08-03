@@ -173,11 +173,11 @@ then
         chmod a+rwx runtime/doc
         sudo make install
 
-        # Try create .vim directory for case that it does not already exists
-        mkdir ~/.vim 2> /dev/null
+        # Install vim-plug
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-        # Make a link to the plugin directory
-        ln -vs ~/dotfiles/vim/pack ~/.vim/pack
+        # Install and update plugins
+        vim +PlugClean! +PlugUpgrade +PlugUpdate +qall
     fi
 fi
 
