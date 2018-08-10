@@ -46,8 +46,6 @@ then
     brew install tmux
 
     brew cask install appcleaner
-    brew cask install filezilla
-    brew cask install sketchup
     brew cask install stellarium
     brew cask install docker
     brew cask install dhs
