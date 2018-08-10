@@ -49,7 +49,6 @@ then
     brew cask install stellarium
     brew cask install docker
     brew cask install dhs
-    brew cask install malwarebytes
     brew cask install oversight
 
     # Update homebrew and cleanup
