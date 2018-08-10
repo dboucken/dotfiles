@@ -42,7 +42,6 @@ then
     brew install automake
     brew install pkg-config
     brew install libevent
-    brew install ripgrep
     brew install vim
     brew install tmux
 
@@ -54,11 +53,6 @@ then
     brew cask install dhs
     brew cask install malwarebytes
     brew cask install oversight
-    brew cask install pixum-fotowereld
-
-    # brew cask install google-chrome
-    # brew cask install spotify
-    # brew cask install google-backup-and-sync
 
     # Update homebrew and cleanup
     brew update
@@ -80,12 +74,14 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O git-completion.bash
 
 # Source the repository bashrc in the correct home directory bashrc or bash_profile file
-if [ -f ".bashrc" ]; then
+if [ -f ".bashrc" ]
+then
     echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
     echo source ~/git-prompt.sh >> ~/.bashrc
     echo source ~/git-completion.bash >> ~/.bashrc
     echo "Source git scripts in bashrc."
-elif [ -f ".bash_profile" ]; then
+elif [ -f ".bash_profile" ]
+then
     echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bash_profile
     echo source ~/git-prompt.sh >> ~/.bash_profile
     echo source ~/git-completion.bash >> ~/.bash_profile
@@ -98,10 +94,12 @@ echo "# Install bashrc                                                          
 echo "################################################################################"
 
 # Source the repository bashrc in the correct home directory bashrc or bash_profile file
-if [ -f ".bashrc" ]; then
+if [ -f ".bashrc" ]
+then
     echo source ~/dotfiles/.bashrc >> ~/.bashrc
     echo "Append repository .bashrc to home directory .bashrc"
-elif [ -f ".bash_profile" ]; then
+elif [ -f ".bash_profile" ]
+then
     echo source ~/dotfiles/.bashrc >> ~/.bash_profile
     echo "Append repository .bashrc to home directory .bash_profile"
 fi

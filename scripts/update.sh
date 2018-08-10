@@ -10,7 +10,9 @@ sudo -v
 
 # Mac specific scripts
 os="$(uname -s)"
-if [ "$os" == "Darwin" ]; then
+
+if [ "$os" == "Darwin" ]
+then
     echo "Mac specific scripts."
 
     # Update App Store apps
