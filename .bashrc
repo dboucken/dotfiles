@@ -13,19 +13,6 @@ alias c="clear"
 alias update="~/dotfiles/scripts/update.sh"
 
 # --------------------------------------------------------------------------------------------------
-# Git
-# --------------------------------------------------------------------------------------------------
-GIT_PROMPT_ONLY_IN_REPO=1
-source ~/git-completion.bash
-source ~/git-prompt.sh
-GIT_PS1_SHOWUPSTREAM=auto
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_STATESEPARATOR=' '
-export PROMPT_COMMAND='__venv_prefix; __git_ps1 "\w" " > "'
-
-# --------------------------------------------------------------------------------------------------
 # Functions
 # --------------------------------------------------------------------------------------------------
 # Extract all compressed file types (credit https://github.com/xvoland/Extract)
@@ -68,11 +55,4 @@ function extract {
 function reload {
     source ~/.bash_profile 2> /dev/null
     source ~/.bashrc 2> /dev/null
-}
-
-# Print virtual environment, can be used in PROMPT_COMMAND
-function __venv_prefix {
-    if [ ! -z "$VIRTUAL_ENV" ]; then
-        printf "\033[1;34m(`basename \"$VIRTUAL_ENV\"`)\e[0m "
-    fi
 }
