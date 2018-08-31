@@ -46,7 +46,7 @@ set listchars+=precedes:<         " show line continues on the left when list is
 set listchars+=nbsp:+             " unbreakable space
 set path+=**                      " search down into sub directories when searching for files
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
-colorscheme desert                " set color scheme
+set colorcolumn=101               " highlight column 101
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 
@@ -173,20 +173,20 @@ nnoremap <leader>pr viw"0p
 " run macro in register q
 nnoremap <leader><leader> @q
 
-" highlight part of a line that is longer than 100 characters
-nnoremap <leader>cc :/\%>100v./+<cr>
-
-" toggle colorcolumn at 101 characters
-nnoremap <leader>cc :set colorcolumn=<C-R>=&colorcolumn != 0 ? 0 : 101<cr><cr>
-
 " -------------------------------------------------------------------------------------------------
-" Plugins
+" PLUGINS
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter
-Plug 'tpope/vim-commentary'   " Comment stuff out
-Plug 'tpope/vim-fugitive'     " A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'   " Pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'nanotech/jellybeans.vim' " colorscheme
+Plug 'tpope/vim-commentary'    " comment stuff out
+Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
 call plug#end()
+
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+colorscheme jellybeans
