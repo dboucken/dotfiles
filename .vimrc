@@ -15,8 +15,9 @@ set nowrap                        " don't wrap
 set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
-set showmode                      " show mode in command line
-set ruler                         " show line number info in status line
+set laststatus=2                  " always show status line
+set noshowmode                    " don't show mode
+set number                        " show line numbers
 set formatoptions+=j              " delete comment character when joining lines
 set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
 set tabstop=4                     " number of visual spaces per tab
@@ -179,6 +180,7 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'itchyny/lightline.vim'   " light and configurable statusline
 Plug 'nanotech/jellybeans.vim' " colorscheme
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
@@ -189,4 +191,5 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme jellybeans                            " apply jellybeans colorscheme
+let g:lightline = { 'colorscheme': 'jellybeans' } " use jellbeans colours for the status line
