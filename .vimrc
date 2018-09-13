@@ -1,4 +1,19 @@
 " -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
+Plug 'itchyny/lightline.vim'      " light and configurable statusline
+Plug 'nanotech/jellybeans.vim'    " colorscheme
+Plug 'NLKNguyen/papercolor-theme' " colorscheme
+Plug 'tpope/vim-commentary'       " comment stuff out
+Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'       " pairs of handy bracket mappings
+
+call plug#end()
+
+" -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " file type detection, load file type plugins and indent files
@@ -51,6 +66,9 @@ set colorcolumn=101               " highlight column 101
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
 
+colorscheme jellybeans                            " apply jellybeans colorscheme
+let g:lightline = { 'colorscheme': 'jellybeans' } " use jellbeans colours for the status line
+
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
 " -------------------------------------------------------------------------------------------------
@@ -90,11 +108,14 @@ augroup custom_autocommands
     " enable spell checking for markdown and git commit files
     autocmd Filetype markdown,gitcommit setlocal spell
 
-    " set text width and tab size for markdown files
+    " markdown settings
     autocmd Filetype markdown setlocal textwidth=100
     autocmd Filetype markdown setlocal tabstop=2
     autocmd Filetype markdown setlocal softtabstop=2
     autocmd Filetype markdown setlocal shiftwidth=2
+    autocmd Filetype markdown setlocal background=light
+    autocmd Filetype markdown colorscheme PaperColor
+    autocmd Filetype markdown let g:lightline = { 'colorscheme': 'PaperColor' }
 
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
@@ -173,23 +194,3 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'itchyny/lightline.vim'   " light and configurable statusline
-Plug 'nanotech/jellybeans.vim' " colorscheme
-Plug 'tpope/vim-commentary'    " comment stuff out
-Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
-
-call plug#end()
-
-" -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" -------------------------------------------------------------------------------------------------
-colorscheme jellybeans                            " apply jellybeans colorscheme
-let g:lightline = { 'colorscheme': 'jellybeans' } " use jellbeans colours for the status line
