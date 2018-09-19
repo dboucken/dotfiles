@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'      " light and configurable statusline
 Plug 'nanotech/jellybeans.vim'    " colorscheme
 Plug 'NLKNguyen/papercolor-theme' " colorscheme
 Plug 'tpope/vim-commentary'       " comment stuff out
+Plug 'tpope/vim-dispatch'         " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'       " pairs of handy bracket mappings
 
