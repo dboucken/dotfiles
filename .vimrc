@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
 Plug 'itchyny/lightline.vim'      " light and configurable statusline
 Plug 'nanotech/jellybeans.vim'    " colorscheme
-Plug 'NLKNguyen/papercolor-theme' " colorscheme
 Plug 'tpope/vim-commentary'       " comment stuff out
 Plug 'tpope/vim-dispatch'         " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
@@ -114,9 +113,6 @@ augroup custom_autocommands
     autocmd Filetype markdown setlocal tabstop=2
     autocmd Filetype markdown setlocal softtabstop=2
     autocmd Filetype markdown setlocal shiftwidth=2
-    autocmd Filetype markdown setlocal background=light
-    autocmd Filetype markdown colorscheme PaperColor
-    autocmd Filetype markdown let g:lightline = { 'colorscheme': 'PaperColor' }
 
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist

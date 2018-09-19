@@ -21,10 +21,9 @@ then
     # Update homebrew and cleanup
     brew update
     brew upgrade
-    brew cleanup
     brew prune
     brew cask outdated | xargs brew cask reinstall
-    brew cask cleanup
+    brew cleanup
 fi
 
 # Go to dotfiles directory and push the current directory to the stack
