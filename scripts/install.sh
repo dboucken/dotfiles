@@ -55,7 +55,6 @@ then
     brew update
     brew upgrade
     brew cleanup
-    brew cask cleanup
     brew prune
 fi
 
