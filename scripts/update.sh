@@ -21,7 +21,7 @@ then
     # Update homebrew and cleanup
     brew update
     brew upgrade
-    brew cask outdated | xargs brew cask reinstall
+    brew cask upgrade --greedy
     brew cleanup
     brew prune
 fi
@@ -105,9 +105,6 @@ then
         then
             make && sudo make install
         fi
-
-        # Generate helptags for vim plugins
-        vim -c 'helptags ALL' +qall
 
         # Cleanup and update plugins
         vim +PlugClean! +PlugUpgrade +PlugUpdate +qall

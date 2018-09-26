@@ -42,14 +42,12 @@ then
     brew install automake
     brew install pkg-config
     brew install libevent
-    brew install vim
     brew install tmux
 
     brew cask install appcleaner
     brew cask install stellarium
     brew cask install docker
-    brew cask install dhs
-    brew cask install oversight
+    brew cask install sketchup
 
     # Update homebrew and cleanup
     brew update
