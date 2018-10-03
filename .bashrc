@@ -11,7 +11,6 @@ PS1="\w > "
 alias ll="ls -lhFA"
 alias l="ls -lhF"
 alias c="clear"
-alias update="~/dotfiles/scripts/update.sh"
 
 # --------------------------------------------------------------------------------------------------
 # Functions
