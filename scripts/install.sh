@@ -43,6 +43,7 @@ then
     brew install pkg-config
     brew install libevent
     brew install tmux
+    brew install vim --with-override-system-vi
 
     brew cask install appcleaner
     brew cask install stellarium
