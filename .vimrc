@@ -3,12 +3,11 @@
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
-Plug 'flazz/vim-colorschemes'     " colorscheme collection
-Plug 'itchyny/lightline.vim'      " light and configurable statusline
+Plug 'flazz/vim-colorschemes'     " color scheme collection
 Plug 'tpope/vim-commentary'       " comment stuff out
 Plug 'tpope/vim-dispatch'         " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
+Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
 Plug 'tpope/vim-unimpaired'       " pairs of handy bracket mappings
 
 call plug#end()
@@ -30,9 +29,8 @@ set nowrap                        " don't wrap
 set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
-set laststatus=2                  " always show status line
-set noshowmode                    " don't show mode
-set number                        " show line numbers
+set laststatus=0                  " don't show the status line
+set ruler                         " show the line and column number of the cursor
 set formatoptions+=j              " delete comment character when joining lines
 set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
 set tabstop=4                     " number of visual spaces per tab
@@ -63,11 +61,10 @@ set listchars+=nbsp:+             " unbreakable space
 set path+=**                      " search down into sub directories when searching for files
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set colorcolumn=101               " highlight column 101
+set background=dark               " use a dark background
+colorscheme hybrid                " apply colorscheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
-
-colorscheme jellybeans                            " apply jellybeans colorscheme
-let g:lightline = { 'colorscheme': 'jellybeans' } " use jellbeans colours for the status line
 
 " -------------------------------------------------------------------------------------------------
 " FUNCTIONS
@@ -113,6 +110,7 @@ augroup custom_autocommands
     autocmd Filetype markdown setlocal tabstop=2
     autocmd Filetype markdown setlocal softtabstop=2
     autocmd Filetype markdown setlocal shiftwidth=2
+    autocmd Filetype markdown setlocal background=light
 
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
@@ -182,9 +180,6 @@ nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
 
 " find callers of function under the cursor
 nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
-
-" easier change and replace word
-nnoremap <leader>cw *Ncgn
 
 " replace word with last yanked text
 nnoremap <leader>pr viw"0p
