@@ -4,8 +4,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
+Plug 'flazz/vim-colorschemes'     " colorscheme collection
 Plug 'itchyny/lightline.vim'      " light and configurable statusline
-Plug 'nanotech/jellybeans.vim'    " colorscheme
 Plug 'tpope/vim-commentary'       " comment stuff out
 Plug 'tpope/vim-dispatch'         " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
