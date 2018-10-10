@@ -29,7 +29,7 @@ set nowrap                        " don't wrap
 set completeopt=longest,menuone   " better insert mode auto completion
 set mouse=a                       " enable mouse support
 set autowriteall                  " auto save files
-set laststatus=0                  " don't show the status line
+set laststatus=2                  " always show the status line status line
 set ruler                         " show the line and column number of the cursor
 set formatoptions+=j              " delete comment character when joining lines
 set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
