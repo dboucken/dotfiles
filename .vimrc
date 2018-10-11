@@ -3,12 +3,12 @@
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes'     " color scheme collection
-Plug 'tpope/vim-commentary'       " comment stuff out
-Plug 'tpope/vim-dispatch'         " asynchronous build and test dispatcher
-Plug 'tpope/vim-fugitive'         " a Git wrapper so awesome, it should be illegal
-Plug 'airblade/vim-gitgutter'     " a Vim plugin which shows a git diff in the gutter
-Plug 'tpope/vim-unimpaired'       " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
+Plug 'rafi/awesome-vim-colorschemes' " color scheme collection
+Plug 'tpope/vim-commentary'          " comment stuff out
+Plug 'tpope/vim-dispatch'            " asynchronous build and test dispatcher
+Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
 
 call plug#end()
 
@@ -17,51 +17,51 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " file type detection, load file type plugins and indent files
 syntax on                         " enable syntax highlighting
-set wildmenu                      " visual auto complete for command menu
-set wildmode=longest,full         " complete longest common string, then each full match
-set lazyredraw                    " don't redraw the screen during macros to improve performance
-set autoread                      " reload file when changed outside vim
-set splitbelow                    " open new horizontal split below the current one
-set splitright                    " open new vertical split right of the current one
-set visualbell                    " use visual bell instead of beeping
-set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
-set nowrap                        " don't wrap
-set completeopt=longest,menuone   " better insert mode auto completion
-set mouse=a                       " enable mouse support
-set autowriteall                  " auto save files
-set laststatus=2                  " always show the status line status line
-set ruler                         " show the line and column number of the cursor
-set formatoptions+=j              " delete comment character when joining lines
-set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
-set tabstop=4                     " number of visual spaces per tab
-set softtabstop=4                 " number of spaces per tab when editing
-set expandtab                     " tabs are spaces
-set shiftround                    " round to multiple of shift width when adjusting indentation
-set shiftwidth=4                  " number of spaces for each step of auto indent
 set autoindent                    " auto indent on a new line
-set incsearch                     " search as characters are entered
-set hlsearch                      " highlight matches
-set ignorecase                    " ignore case when searching lowercase
-set smartcase                     " don't ignore case when inserting uppercase characters
-set noswapfile                    " disable swap files
+set autoread                      " reload file when changed outside vim
+set autowriteall                  " auto save files
+set background=dark               " use a dark background
+set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
+set colorcolumn=101               " highlight column 101
+set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
+set expandtab                     " tabs are spaces
+set formatoptions+=j              " delete comment character when joining lines
+set hlsearch                      " highlight matches
+set ignorecase                    " ignore case when searching lowercase
+set incsearch                     " search as characters are entered
+set laststatus=2                  " always show the status line status line
+set lazyredraw                    " don't redraw the screen during macros to improve performance
+set list                          " show hidden characters
+set listchars+=extends:>          " show line continues on the right when list is enabled
+set listchars+=nbsp:+             " unbreakable space
+set listchars+=precedes:<         " show line continues on the left when list is enabled
+set listchars+=trail:-            " show trailing white space when list is enabled
+set listchars=tab:>\              " show tab when list is enabled
+set mouse=a                       " enable mouse support
+set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
+set nowrap                        " don't wrap
+set path+=**                      " search down into sub directories when searching for files
+set ruler                         " show the line and column number of the cursor
+set shiftround                    " round to multiple of shift width when adjusting indentation
+set shiftwidth=4                  " number of spaces for each step of auto indent
+set smartcase                     " don't ignore case when inserting uppercase characters
+set softtabstop=4                 " number of spaces per tab when editing
+set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
+set spelllang=en_us               " use English as spelling language
+set splitbelow                    " open new horizontal split below the current one
+set splitright                    " open new vertical split right of the current one
+set tabstop=4                     " number of visual spaces per tab
+set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
-set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
-set spelllang=en_us               " use English as spelling language
-set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
-set list                          " show hidden characters
-set listchars=tab:>\              " show tab when list is enabled
-set listchars+=trail:-            " show trailing white space when list is enabled
-set listchars+=extends:>          " show line continues on the right when list is enabled
-set listchars+=precedes:<         " show line continues on the left when list is enabled
-set listchars+=nbsp:+             " unbreakable space
-set path+=**                      " search down into sub directories when searching for files
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
-set colorcolumn=101               " highlight column 101
-set background=dark               " use a dark background
+set visualbell                    " use visual bell instead of beeping
+set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
+set wildmenu                      " visual auto complete for command menu
+set wildmode=longest,full         " complete longest common string, then each full match
 colorscheme hybrid                " apply colorscheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
