@@ -110,7 +110,6 @@ augroup custom_autocommands
     autocmd Filetype markdown setlocal tabstop=2
     autocmd Filetype markdown setlocal softtabstop=2
     autocmd Filetype markdown setlocal shiftwidth=2
-    autocmd Filetype markdown setlocal background=light
 
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
