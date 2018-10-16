@@ -1,18 +1,4 @@
 " -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
-Plug 'rafi/awesome-vim-colorschemes' " color scheme collection
-Plug 'tpope/vim-commentary'          " comment stuff out
-Plug 'tpope/vim-dispatch'            " asynchronous build and test dispatcher
-Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
-
-call plug#end()
-
-" -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " file type detection, load file type plugins and indent files
@@ -20,9 +6,9 @@ syntax on                         " enable syntax highlighting
 set autoindent                    " auto indent on a new line
 set autoread                      " reload file when changed outside vim
 set autowriteall                  " auto save files
-set background=dark               " use a dark background
+set background=dark               " hint the color scheme a dark terminal background is used
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
-set colorcolumn=101               " highlight column 101
+set complete-=i                   " don't scan include files in insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
@@ -31,14 +17,12 @@ set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
-set laststatus=2                  " always show the status line status line
-set lazyredraw                    " don't redraw the screen during macros to improve performance
 set list                          " show hidden characters
-set listchars+=extends:>          " show line continues on the right when list is enabled
+set listchars=extends:>           " show line continues on the right when list is enabled
 set listchars+=nbsp:+             " unbreakable space
 set listchars+=precedes:<         " show line continues on the left when list is enabled
 set listchars+=trail:-            " show trailing white space when list is enabled
-set listchars=tab:>\              " show tab when list is enabled
+set listchars+=tab:>\             " show tab when list is enabled
 set mouse=a                       " enable mouse support
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
@@ -50,35 +34,15 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
-set spelllang=en_us               " use English as spelling language
-set splitbelow                    " open new horizontal split below the current one
-set splitright                    " open new vertical split right of the current one
 set tabstop=4                     " number of visual spaces per tab
 set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
-set wildignore+=*cscope*,tags     " ignore cscope and tags files when expanding wild cards
 set wildmenu                      " visual auto complete for command menu
-set wildmode=longest,full         " complete longest common string, then each full match
-colorscheme hybrid                " apply colorscheme
+set wildmode=full                 " complete the first full match
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
-let g:ft_man_open_mode = 'vert'   " open man pages in a vertical split
-
-" -------------------------------------------------------------------------------------------------
-" FUNCTIONS
-" -------------------------------------------------------------------------------------------------
-function! LoadCscopeDatabase() abort
-    " search for a cscope database in the current directory and all upward directories
-    let db = findfile("cscope.out", ".;")
-    if (!empty(db))
-        let path = strpart(db, 0, match(db, "/cscope.out$"))
-        set nocscopeverbose
-        exe "cs add " . db . " " . path
-        set cscopeverbose
-    endif
-endfunction
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -93,17 +57,14 @@ augroup custom_autocommands
     autocmd Syntax c,cpp highlight def link cFunction Function
     autocmd Syntax c,cpp highlight def link cMacro Macro
 
-    " auto load cscope database
-    autocmd BufEnter /* call LoadCscopeDatabase()
-
     " auto save when a file is changed
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
 
     " check if the file has changed outside of vim when the cursor has moved
     autocmd CursorHold * silent! checktime
 
-    " enable spell checking for markdown and git commit files
-    autocmd Filetype markdown,gitcommit setlocal spell
+    " enable spell checking by default for git commit files
+    autocmd Filetype gitcommit setlocal spell
 
     " markdown settings
     autocmd Filetype markdown setlocal textwidth=100
@@ -129,9 +90,6 @@ augroup END
 " -------------------------------------------------------------------------------------------------
 " ABBREVIATIONS
 " -------------------------------------------------------------------------------------------------
-" open help in a vertical split
-cabbrev H vert h
-
 " insert to do comment
 iabbrev TODO /* TODO dboucken: */<left><left><left>
 
@@ -165,7 +123,8 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" close quickfix window
+" open/close quickfix window
+nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " grep the word under the cursor, don't return to be able to pass options and files
@@ -185,3 +144,16 @@ nnoremap <leader>pr viw"0p
 
 " run macro in register q
 nnoremap <leader><leader> @q
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'   " a Vim plugin which shows a git diff in the gutter
+Plug 'skywind3000/asyncrun.vim' " run a shell commands asynchronous in the quickfix window
+Plug 'tpope/vim-commentary'     " comment stuff out
+Plug 'tpope/vim-fugitive'       " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'     " pairs of handy bracket mappings
+
+call plug#end()
