@@ -6,7 +6,6 @@ syntax on                         " enable syntax highlighting
 set autoindent                    " auto indent on a new line
 set autoread                      " reload file when changed outside vim
 set autowriteall                  " auto save files
-set background=dark               " hint the color scheme a dark terminal background is used
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set complete-=i                   " don't scan include files in insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
@@ -42,6 +41,7 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=full                 " complete the first full match
+colorscheme desert                " set color scheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 
 " -------------------------------------------------------------------------------------------------
