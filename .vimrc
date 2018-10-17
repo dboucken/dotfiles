@@ -18,7 +18,6 @@ set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
-set laststatus=2                  " always show the status line
 set list                          " show hidden characters
 set listchars=extends:>           " show line continues on the right when list is enabled
 set listchars+=nbsp:+             " unbreakable space
@@ -26,12 +25,11 @@ set listchars+=precedes:<         " show line continues on the left when list is
 set listchars+=tab:>\             " show tab when list is enabled
 set listchars+=trail:-            " show trailing white space when list is enabled
 set mouse=a                       " enable mouse support
-set noshowmode                    " don't show edit mode
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
-set number                        " enable line numbers
 set path+=**                      " search down into sub directories when searching for files
+set ruler                         " show the line and column number of the cursor position
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters
@@ -153,8 +151,6 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
-Plug 'cocopon/lightline-hybrid.vim'  " hybrid color scheme for the status line
-Plug 'itchyny/lightline.vim'         " light and configurable status line for vim
 Plug 'rafi/awesome-vim-colorschemes' " color scheme collection
 Plug 'tpope/vim-commentary'          " comment stuff out
 Plug 'tpope/vim-dispatch'            " asynchronous build and test dispatcher
@@ -168,5 +164,3 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 set background=dark
 colorscheme hybrid
-let g:lightline = {}
-let g:lightline.colorscheme = 'hybrid'
