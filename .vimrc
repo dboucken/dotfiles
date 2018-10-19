@@ -163,4 +163,4 @@ call plug#end()
 " COLOR SCHEME
 " -------------------------------------------------------------------------------------------------
 set background=dark
-colorscheme hybrid
+colorscheme molokai
