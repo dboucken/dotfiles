@@ -1,18 +1,17 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
+colorscheme desert                " colorscheme
 filetype plugin indent on         " file type detection, load file type plugins and indent files
-syntax on                         " enable syntax highlighting
+runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent on a new line
 set autoread                      " reload file when changed outside vim
 set autowriteall                  " auto save files
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
-set colorcolumn=101               " highlight the column 101
 set complete-=i                   " don't scan include files in insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
-set cursorline                    " highlight the line of the cursor position
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
@@ -43,7 +42,7 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
-runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
+syntax on                         " enable syntax highlighting
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -151,16 +150,9 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
-Plug 'rafi/awesome-vim-colorschemes' " color scheme collection
 Plug 'tpope/vim-commentary'          " comment stuff out
 Plug 'tpope/vim-dispatch'            " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
 
 call plug#end()
-
-" -------------------------------------------------------------------------------------------------
-" COLOR SCHEME
-" -------------------------------------------------------------------------------------------------
-set background=dark
-colorscheme molokai
