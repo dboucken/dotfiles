@@ -93,6 +93,9 @@ augroup END
 " insert to do comment
 iabbrev TODO /* TODO dboucken: */<left><left><left>
 
+" open help in a vertical split
+cabbrev h vertical help
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
