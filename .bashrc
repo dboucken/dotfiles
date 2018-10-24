@@ -2,7 +2,12 @@
 # Settings
 # --------------------------------------------------------------------------------------------------
 export TERM=xterm-256color
-export EDITOR=vim
+
+# Use VIM as default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Change the prompt string to the current complete path
 PS1="\w > "
 
 # --------------------------------------------------------------------------------------------------
