@@ -5,6 +5,7 @@ colorscheme desert                " apply color scheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
+set autowriteall                  " auto save files on certain events
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
