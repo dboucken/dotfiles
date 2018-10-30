@@ -33,6 +33,8 @@ set tabstop=4                     " number of visual spaces per tab
 set termguicolors                 " enable true colors (assuming the terminal emulator supports it)
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
+set undodir=~/.vim/undo           " persistent undo directory
+set undofile                      " enable persistent undo
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
