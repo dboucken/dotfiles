@@ -22,7 +22,6 @@ set mouse=a                       " enable mouse support
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
-set path+=**                      " search down into sub directories when searching for files
 set ruler                         " show the line and column number of the cursor position
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
