@@ -144,9 +144,11 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter' " a Vim plugin which shows a git diff in the gutter
-Plug 'tpope/vim-commentary'   " comment stuff out
-Plug 'tpope/vim-dispatch'     " asynchronous build and test dispatcher
-Plug 'tpope/vim-fugitive'     " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'   " pairs of handy bracket mappings
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a command-line fuzzy finder
+Plug 'junegunn/fzf.vim' " fzf Vim integration
+Plug 'tpope/vim-commentary' " comment stuff out
+Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
+Plug 'tpope/vim-fugitive' " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 
 call plug#end()
