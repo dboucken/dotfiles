@@ -113,6 +113,12 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
+" open fuzzy file finder
+nnoremap <leader>ff :Files<cr>
+
+" fuzzy find tags in current buffer
+nnoremap <leader>ft :BTags<cr>
+
 " close the quickfix window
 nnoremap <silent> <leader>qc :cclose<cr>
 
