@@ -153,6 +153,7 @@ Plug 'airblade/vim-gitgutter'       " a Vim plugin which shows a git diff in the
 Plug 'endel/vim-github-colorscheme' " color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a command-line fuzzy finder
 Plug 'junegunn/fzf.vim'             " fzf Vim integration
+Plug 'junegunn/gv.vim'              " a git commit browser
 Plug 'junegunn/seoul256.vim'        " color scheme
 Plug 'morhetz/gruvbox'              " color scheme
 Plug 'nanotech/jellybeans.vim'      " color scheme
