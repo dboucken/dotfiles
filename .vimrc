@@ -1,12 +1,12 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme desert                " apply color scheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
+set colorcolumn=101               " highlight column 101
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
@@ -22,6 +22,7 @@ set mouse=a                       " enable mouse support
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
+set number                        " enable line numbers
 set ruler                         " show the line and column number of the cursor position
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
@@ -148,12 +149,25 @@ nnoremap <leader><leader> @q
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter' " a Vim plugin which shows a git diff in the gutter
+Plug 'airblade/vim-gitgutter'       " a Vim plugin which shows a git diff in the gutter
+Plug 'endel/vim-github-colorscheme' " color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a command-line fuzzy finder
-Plug 'junegunn/fzf.vim' " fzf Vim integration
-Plug 'tpope/vim-commentary' " comment stuff out
-Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
-Plug 'tpope/vim-fugitive' " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
+Plug 'junegunn/fzf.vim'             " fzf Vim integration
+Plug 'junegunn/seoul256.vim'        " color scheme
+Plug 'morhetz/gruvbox'              " color scheme
+Plug 'nanotech/jellybeans.vim'      " color scheme
+Plug 'tomasr/molokai'               " color scheme
+Plug 'tpope/vim-commentary'         " comment stuff out
+Plug 'tpope/vim-dispatch'           " asynchronous build and test dispatcher
+Plug 'tpope/vim-fugitive'           " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'         " pairs of handy bracket mappings
+Plug 'w0ng/vim-hybrid'              " color scheme
 
 call plug#end()
+
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+let g:seoul256_background = 233       " increase seoul dark color scheme contrast
+let g:seoul256_light_background = 256 " use lighter background for seoul light color scheme
+colorscheme seoul256                  " apply color scheme
