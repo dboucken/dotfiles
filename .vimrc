@@ -1,12 +1,12 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme desert                " apply color scheme
 runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
+set colorcolumn=101               " highlight column 101
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
@@ -16,9 +16,11 @@ set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
+set laststatus=2                  " always show the status line
 set list                          " show hidden characters
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
+set noshowmode                    " don't show mode in the command line
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
@@ -29,7 +31,6 @@ set smartcase                     " don't ignore case when inserting uppercase c
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
-set termguicolors                 " use 24 bit colors
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
@@ -143,9 +144,17 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'nanotech/jellybeans.vim' " color scheme
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
+Plug 'itchyny/lightline.vim'   " enhanced status line
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
 call plug#end()
+
+" -------------------------------------------------------------------------------------------------
+" " PLUGINS SETTINGS
+" " -------------------------------------------------------------------------------------------------
+colorscheme jellybeans                            " apply color scheme
+let g:lightline = { 'colorscheme': 'jellybeans' } " set status line theme
