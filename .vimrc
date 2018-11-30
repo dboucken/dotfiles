@@ -11,6 +11,7 @@ set complete-=i                   " don't scan include files during insert mode 
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
+set cursorline                    " highlight the line of the cursor
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
@@ -24,6 +25,7 @@ set noshowmode                    " don't show mode in the command line
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
+set number                        " enable line numbers
 set ruler                         " show the line and column number of the cursor position
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
