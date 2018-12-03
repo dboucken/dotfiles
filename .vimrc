@@ -9,7 +9,7 @@ set backspace=indent,eol,start    " allow backspacing over auto indent, line bre
 set colorcolumn=101               " highlight column 101
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
-set cscopequickfix=s-,c-          " enable cscope results in the quickfix window
+set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set cursorline                    " highlight the line of the cursor
 set expandtab                     " tabs are spaces
@@ -26,7 +26,6 @@ set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
 set number                        " enable line numbers
-set ruler                         " show the line and column number of the cursor position
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
@@ -156,7 +155,7 @@ Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 call plug#end()
 
 " -------------------------------------------------------------------------------------------------
-" " PLUGINS SETTINGS
-" " -------------------------------------------------------------------------------------------------
+" PLUGINS SETTINGS
+" -------------------------------------------------------------------------------------------------
 colorscheme jellybeans                            " apply color scheme
 let g:lightline = { 'colorscheme': 'jellybeans' } " set status line theme
