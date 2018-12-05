@@ -139,17 +139,25 @@ nnoremap <leader>pr viw"0p
 " run the macro in register q
 nnoremap <leader><leader> @q
 
+" search files with fzf
+nnoremap <leader>ff :Files<cr>
+
+" search tags in the current buffer with fzf
+nnoremap <leader>ft :BTags<cr>
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'itchyny/lightline.vim'   " enhanced status line
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a fuzzy finder
+Plug 'junegunn/fzf.vim'        " vim mappings for fzf
 Plug 'nanotech/jellybeans.vim' " color scheme
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
-Plug 'itchyny/lightline.vim'   " enhanced status line
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
 call plug#end()
