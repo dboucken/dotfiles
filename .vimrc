@@ -14,6 +14,7 @@ set cscopetag                     " use cscope by default for tag jumps
 set cursorline                    " highlight the line of the cursor
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
+set grepprg=rg\ --vimgrep         " use ripgrep as external grep program
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
@@ -122,7 +123,7 @@ nnoremap <silent> <leader>qc :cclose<cr>
 nnoremap <leader>gw :grep! -w <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
