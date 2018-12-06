@@ -166,5 +166,11 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGINS SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme jellybeans                            " apply color scheme
-let g:lightline = { 'colorscheme': 'jellybeans' } " set status line theme
+" use terminal background when using jellybeans color scheme
+let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
+
+" apply color scheme
+colorscheme jellybeans
+
+" match status line colors with color scheme
+let g:lightline = { 'colorscheme': 'jellybeans' }
