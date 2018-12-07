@@ -149,6 +149,7 @@ nnoremap <leader>ft :BTags<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a fuzzy finder
 Plug 'junegunn/fzf.vim'        " vim mappings for fzf
 Plug 'nanotech/jellybeans.vim' " color scheme
 Plug 'tpope/vim-commentary'    " comment stuff out
