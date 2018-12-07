@@ -11,18 +11,15 @@ set complete-=i                   " don't scan include files during insert mode 
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
-set cursorline                    " highlight the line of the cursor
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set grepprg=rg\ --vimgrep         " use ripgrep as external grep program
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
-set laststatus=2                  " always show the status line
 set list                          " show hidden characters
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
-set noshowmode                    " don't show mode in the command line
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
@@ -152,7 +149,6 @@ nnoremap <leader>ft :BTags<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'itchyny/lightline.vim'   " enhanced status line
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a fuzzy finder
 Plug 'junegunn/fzf.vim'        " vim mappings for fzf
 Plug 'nanotech/jellybeans.vim' " color scheme
@@ -171,6 +167,3 @@ let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 
 
 " apply color scheme
 colorscheme jellybeans
-
-" match status line colors with color scheme
-let g:lightline = { 'colorscheme': 'jellybeans' }
