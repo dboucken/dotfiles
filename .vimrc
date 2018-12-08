@@ -12,7 +12,6 @@ set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
-set grepprg=rg\ --vimgrep         " use ripgrep as external grep program
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
@@ -23,6 +22,7 @@ set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
 set number                        " enable line numbers
+set path+=**                      " add current directory and subdirectories to path
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
@@ -122,7 +122,7 @@ nnoremap <silent> <leader>qc :cclose<cr>
 nnoremap <leader>gw :grep! -w <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
@@ -139,20 +139,12 @@ nnoremap <leader>pr viw"0p
 " run the macro in register q
 nnoremap <leader><leader> @q
 
-" search files with fzf
-nnoremap <leader>ff :Files<cr>
-
-" search tags in the current buffer with fzf
-nnoremap <leader>ft :BTags<cr>
-
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " a fuzzy finder
-Plug 'junegunn/fzf.vim'        " vim mappings for fzf
 Plug 'nanotech/jellybeans.vim' " color scheme
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
