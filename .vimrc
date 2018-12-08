@@ -82,6 +82,9 @@ iabbrev TODO /* TODO dboucken: */<left><left><left>
 " open help in a vertical split
 cabbrev h vertical help
 
+" open man files in a new tab
+cabbrev man tab Man
+
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
