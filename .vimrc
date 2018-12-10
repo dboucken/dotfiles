@@ -10,7 +10,6 @@ set complete-=i                   " don't scan include files during insert mode 
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
-set colorcolumn=101               " highlight column 101
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
