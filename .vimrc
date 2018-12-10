@@ -42,12 +42,6 @@ augroup custom_autocommands
     " clear all auto commands in this group
     autocmd!
 
-    " add extra syntax highlighting for c functions and macros
-    autocmd Syntax c,cpp syntax match cFunction /\<\w\+\s*(/me=e-1,he=e-1
-    autocmd Syntax c,cpp syntax match cMacro /\<[A-Z_]\+\s*(/me=e-1,he=e-1
-    autocmd Syntax c,cpp highlight def link cFunction Function
-    autocmd Syntax c,cpp highlight def link cMacro Macro
-
     " auto save when a file is changed
     autocmd TextChanged, InsertLeave, FocusLost * silent! wall
 
