@@ -22,7 +22,6 @@ set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
 set number                        " enable line numbers
-set path+=**                      " add current directory and subdirectories to path
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
@@ -108,6 +107,9 @@ nnoremap <leader>w <c-w>
 
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
+
+" open files in the working directory
+nnoremap <leader>ee :e **/
 
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
