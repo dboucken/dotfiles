@@ -144,12 +144,12 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'itchyny/lightline.vim'   " enhanced status line
 Plug 'nanotech/jellybeans.vim' " color scheme
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
-Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
