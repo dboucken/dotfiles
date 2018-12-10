@@ -10,14 +10,17 @@ set complete-=i                   " don't scan include files during insert mode 
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
+set colorcolumn=101               " highlight column 101
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
+set laststatus=2                  " always show status line
 set list                          " show hidden characters
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
+set noshowmode                    " don't show mode in command line
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
@@ -146,6 +149,7 @@ Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -157,3 +161,6 @@ let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 
 
 " apply color scheme
 colorscheme jellybeans
+
+" match status line color scheme
+let g:lightline = { 'colorscheme': 'jellybeans' }
