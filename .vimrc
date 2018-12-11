@@ -29,7 +29,9 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
+set t_ut=                         " disable Background Color Erase (BCE)
 set tabstop=4                     " number of visual spaces per tab
+set termguicolors                 " enable 24 bit colors needed by some color schemes
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
@@ -143,8 +145,7 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'itchyny/lightline.vim'   " enhanced status line
-Plug 'nanotech/jellybeans.vim' " color scheme
+Plug 'chriskempson/base16-vim' " color scheme collection
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
@@ -153,13 +154,6 @@ Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 call plug#end()
 
 " -------------------------------------------------------------------------------------------------
-" PLUGINS SETTINGS
+" PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-" use terminal background when using jellybeans color scheme
-let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
-
-" apply color scheme
-colorscheme jellybeans
-
-" match status line color scheme
-let g:lightline = { 'colorscheme': 'jellybeans' }
+colorscheme base16-default-dark " apply color scheme
