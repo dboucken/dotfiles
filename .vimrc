@@ -19,7 +19,6 @@ set laststatus=2                  " always show status line
 set list                          " show hidden characters
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
-set noshowmode                    " don't show mode in command line
 set noswapfile                    " disable swap files
 set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
