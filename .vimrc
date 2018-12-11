@@ -1,7 +1,6 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -156,3 +155,4 @@ call plug#end()
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 colorscheme base16-default-dark " apply color scheme
+runtime! ftplugin/man.vim       " read man pages in vim via :Man <command>
