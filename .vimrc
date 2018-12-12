@@ -4,6 +4,7 @@
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
+set background=dark               " use a dark background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
@@ -141,7 +142,7 @@ nnoremap <leader><leader> @q
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'chriskempson/base16-vim' " color scheme collection
+Plug 'flazz/vim-colorschemes'  " color scheme collection
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
@@ -152,5 +153,5 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme base16-default-dark " apply color scheme
-runtime! ftplugin/man.vim       " read man pages in vim via :Man <command>
+colorscheme hybrid        " apply color scheme
+runtime! ftplugin/man.vim " read man pages in vim via :Man <command>
