@@ -109,6 +109,9 @@ nnoremap <leader>ee :e **/
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
+" edit notes
+nnoremap <leader>en :vsplit ~/notes.md<cr>
+
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
