@@ -110,9 +110,6 @@ nnoremap <leader>ee :e **/
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" edit notes
-nnoremap <leader>en :vsplit ~/notes.md<cr>
-
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
@@ -162,4 +159,6 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-runtime! ftplugin/man.vim " read man pages in vim via :Man <command>
+
+ " read man pages in vim via :Man <command>
+runtime! ftplugin/man.vim
