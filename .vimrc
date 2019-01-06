@@ -27,9 +27,7 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
-set t_ut=                         " disable Background Color Erase (BCE)
 set tabstop=4                     " number of visual spaces per tab
-set termguicolors                 " enable 24 bit colors needed by some color schemes
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
