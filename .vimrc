@@ -135,6 +135,9 @@ nnoremap <leader>pr viw"0p
 " run the macro in register q
 nnoremap <leader><leader> @q
 
+" toggle colorcolumn
+nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : "")<CR>
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
