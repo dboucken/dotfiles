@@ -54,6 +54,9 @@ augroup custom_autocommands
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
 
+    " conceal markdown syntax
+    autocmd FileType markdown setlocal conceallevel=2
+
     " open quickfix and git commit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
 
@@ -137,6 +140,9 @@ nnoremap <leader><leader> @q
 
 " toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : "")<CR>
+
+" edit notes
+nnoremap <leader>en :vsplit ~/notes.md<cr>
 
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
