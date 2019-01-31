@@ -141,9 +141,6 @@ nnoremap <leader><leader> @q
 " toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : "")<CR>
 
-" edit notes
-nnoremap <leader>en :vsplit ~/notes.md<cr>
-
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
