@@ -141,6 +141,9 @@ nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : 
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
+" fuzzy find files in current working directory
+nnoremap <leader>ee :Files<cr>
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
@@ -148,6 +151,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
 Plug 'chriskempson/base16-vim' " color scheme collection
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " command line fuzzy file finder
+Plug 'junegunn/fzf.vim'        " FZF Vim mappings
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
