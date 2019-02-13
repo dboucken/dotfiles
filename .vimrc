@@ -105,9 +105,6 @@ nnoremap <leader>w <c-w>
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
 
-" open files in the working directory
-nnoremap <leader>ee :e **/
-
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
@@ -140,6 +137,9 @@ nnoremap <leader><leader> @q
 
 " toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : "")<CR>
+
+" allow saving of files as sudo when I forgot to start vim using sudo.
+cnoremap w!! w !sudo tee > /dev/null %
 
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
