@@ -129,8 +129,9 @@ nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
 " find places where the symbol under the cursor is assigned a value
 nnoremap <leader>ga :cscope find a <c-r><c-w><cr><cr>
 
-" replace the word with last yanked text
-nnoremap <leader>pr viw"0p
+" paste last yanked text in normal and visual mode
+nnoremap <leader>pp "0p
+vnoremap <leader>pp "0p
 
 " run the macro in register q
 nnoremap <leader><leader> @q
@@ -143,6 +144,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " fuzzy find files in current working directory
 nnoremap <leader>ee :Files<cr>
+
+" fuzzy find open buffers
+nnoremap <leader>bb :Buffers<cr>
 
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
