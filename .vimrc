@@ -1,6 +1,8 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
+colorscheme desert                " set colorscheme
+runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -28,13 +30,13 @@ set smartcase                     " don't ignore case when inserting uppercase c
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
+set termguicolors                 " better terminal colors
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
-runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -136,9 +138,6 @@ vnoremap <leader>pp "0p
 
 " run the macro in register q
 nnoremap <leader><leader> @q
-
-" toggle colorcolumn
-nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "101" : "")<CR>
 
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
