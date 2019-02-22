@@ -1,8 +1,7 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme desert                " set colorscheme
-runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
+colorscheme desert                " set color scheme
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -57,9 +56,6 @@ augroup custom_autocommands
     " don't show invisible characters in man pages
     autocmd Filetype man setlocal nolist
 
-    " conceal markdown syntax
-    autocmd FileType markdown setlocal conceallevel=2
-
     " open quickfix and git commit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
 
@@ -80,9 +76,6 @@ iabbrev TODO /* TODO dboucken: */<left><left><left>
 
 " open help in a vertical split
 cabbrev h vertical help
-
-" open man files in a new tab
-cabbrev man tab Man
 
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
@@ -108,17 +101,14 @@ nnoremap <leader>w <c-w>
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
 
-" edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
 " close the quickfix window
 nnoremap <silent> <leader>qc :cclose<cr>
 
-" grep the word under the cursor, don't return to be able to pass options and files
-nnoremap <leader>gw :grep! -w <c-r><c-w> 
+" grep the word under the cursor recursively, don't return to be able to pass options and directories
+nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
 nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
@@ -128,9 +118,6 @@ nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
 
 " find callers of the function under the cursor
 nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
-
-" find places where the symbol under the cursor is assigned a value
-nnoremap <leader>ga :cscope find a <c-r><c-w><cr><cr>
 
 " paste last yanked text in normal and visual mode
 nnoremap <leader>pp "0p
@@ -149,7 +136,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
 Plug 'tpope/vim-commentary'    " comment stuff out
-Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
