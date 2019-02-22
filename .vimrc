@@ -34,6 +34,7 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+runtime! ftplugin/man.vim         " read man pages in vim via :Man <command>
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -148,22 +149,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'chriskempson/base16-vim' " color scheme collection
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " asynchronous build and test dispatcher
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
 call plug#end()
-
-" -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" -------------------------------------------------------------------------------------------------
-" apply base16-shell color scheme
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
- " read man pages in vim via :Man <command>
-runtime! ftplugin/man.vim
