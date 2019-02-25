@@ -1,7 +1,6 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme desert                " set color scheme
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -135,8 +134,13 @@ cnoremap w!! w !sudo tee > /dev/null %
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax highlighting)
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
+Plug 'w0ng/vim-hybrid'         " color scheme
 
 call plug#end()
+
+" set color scheme
+colorscheme hybrid
