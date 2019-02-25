@@ -27,14 +27,19 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
+set t_ut=                         " disable Background Color Erase (BCE)
 set tabstop=4                     " number of visual spaces per tab
-set termguicolors                 " better terminal colors
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+
+" Auto load cscope database
+if filereadable("cscope.out")
+    cscope add cscope.out
+endif
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -133,10 +138,14 @@ cnoremap w!! w !sudo tee > /dev/null %
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax highlighting)
-Plug 'tpope/vim-commentary'    " comment stuff out
-Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
+Plug 'rafi/awesome-vim-colorschemes' " color scheme collection
+Plug 'sheerun/vim-polyglot'          " language pack (eg. including better syntax highlighting)
+Plug 'tpope/vim-commentary'          " comment stuff out
+Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
 
 call plug#end()
+
+" set color scheme
+colorscheme OceanicNext
