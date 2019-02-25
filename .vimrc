@@ -138,9 +138,5 @@ Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax high
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
-Plug 'w0ng/vim-hybrid'         " color scheme
 
 call plug#end()
-
-" set color scheme
-colorscheme hybrid
