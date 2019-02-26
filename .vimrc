@@ -70,6 +70,9 @@ augroup custom_autocommands
 
     " automatically cleanup fugitive buffers
     autocmd BufReadPost fugitive://* set bufhidden=delete
+
+    " automatically source vimrc on save
+    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -101,6 +104,9 @@ let mapleader=" "
 
 " remap <c-w> to something easier
 nnoremap <leader>w <c-w>
+
+" quickly open vimrc
+nnoremap <leader>ev :vertical split $MYVIMRC<cr>
 
 " clear search highlighting
 nnoremap <silent> <leader>l :nohlsearch<cr>
