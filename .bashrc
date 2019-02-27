@@ -1,8 +1,8 @@
 # --------------------------------------------------------------------------------------------------
 # Settings
 # --------------------------------------------------------------------------------------------------
-# Use VIM as default editor
-export VISUAL=vim
+# Use Neovim as default editor
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Change the prompt string to the current complete path
