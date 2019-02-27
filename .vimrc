@@ -133,6 +133,9 @@ nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
 nnoremap <leader>pp "0p
 vnoremap <leader>pp "0p
 
+" replace wordt with last yanked text
+nnoremap <leader>pr viw"0p
+
 " run the macro in register q
 nnoremap <leader><leader> @q
 
