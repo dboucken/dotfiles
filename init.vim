@@ -16,6 +16,7 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
 set tabstop=4                     " number of visual spaces per tab
+set termguicolors                 " 24 bit color support
 set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
@@ -133,7 +134,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
-Plug 'mhartington/oceanic-next'      " color scheme
+Plug 'chriskempson/base16-vim'       " color schemes
 Plug 'sheerun/vim-polyglot'          " language pack (eg. including better syntax highlighting)
 Plug 'tpope/vim-commentary'          " comment stuff out
 Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
@@ -141,5 +142,5 @@ Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
 
 call plug#end()
 
-" set color scheme
-colorscheme OceanicNext
+" Base16 colorscheme
+source ~/.vimrc_background
