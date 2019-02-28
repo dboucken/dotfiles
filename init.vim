@@ -6,7 +6,6 @@ set clipboard+=unnamedplus        " always use the clipboard instead of unnamed 
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
-set undofile                      " persistent undo history
 set expandtab                     " tabs are spaces
 set ignorecase                    " ignore case when searching lowercase
 set list                          " show hidden characters
@@ -17,6 +16,7 @@ set shiftwidth=4                  " number of spaces for each step of auto inden
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
 set tabstop=4                     " number of visual spaces per tab
+set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
