@@ -12,6 +12,7 @@ set inccommand=nosplit            " show the effect of a command as you type (eg
 set list                          " show hidden characters
 set mouse=a                       " enable mouse support
 set nowrap                        " don't wrap
+set pumblend=25                   " make popup-menus a little transparent
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
