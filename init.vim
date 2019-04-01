@@ -130,11 +130,6 @@ nnoremap <leader><leader> @q
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" Fuzzy find files, buffers or tags in a file
-nnoremap <leader>fe :Files<cr>
-nnoremap <leader>fb :Buffers<cr>
-nnoremap <leader>ft :BTags<cr>
-
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
@@ -142,8 +137,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
 Plug 'chriskempson/base16-vim'       " color schemes
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
-Plug 'junegunn/fzf.vim'              " FZF vim integration
 Plug 'machakann/vim-highlightedyank' " highlight yanked text
 Plug 'neomake/neomake'               " async linter and syntax checker
 Plug 'sheerun/vim-polyglot'          " language pack (eg. including better syntax highlighting)
