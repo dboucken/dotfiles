@@ -136,15 +136,13 @@ cnoremap w!! w !sudo tee > /dev/null %
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'        " a Vim plugin which shows a git diff in the gutter
-Plug 'chriskempson/base16-vim'       " color schemes
-Plug 'machakann/vim-highlightedyank' " highlight yanked text
-Plug 'neomake/neomake'               " async linter and syntax checker
-Plug 'sheerun/vim-polyglot'          " language pack (eg. including better syntax highlighting)
-Plug 'tpope/vim-commentary'          " comment stuff out
-Plug 'tpope/vim-dispatch'            " async make
-Plug 'tpope/vim-fugitive'            " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'          " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
+Plug 'chriskempson/base16-vim' " color schemes
+Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax highlighting)
+Plug 'tpope/vim-commentary'    " comment stuff out
+Plug 'tpope/vim-dispatch'      " async make
+Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
 
 call plug#end()
 
