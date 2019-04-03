@@ -23,6 +23,7 @@ set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+set wildoptions+=pum              " display command line completion matches in a popup menu
 
 " add spelling dictionary
 set spellfile=~/.local/shar/nvim/site/en.utf-8.add
