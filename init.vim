@@ -138,6 +138,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
 Plug 'chriskempson/base16-vim' " color schemes
+Plug 'neomake/neomake'         " asynchronous linter
 Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax highlighting)
 Plug 'tpope/vim-commentary'    " comment stuff out
 Plug 'tpope/vim-dispatch'      " async make
