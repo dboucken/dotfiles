@@ -103,8 +103,11 @@ nnoremap <silent> <leader>l :nohlsearch<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" close the quickfix window
+" open/close the quickfix/location list window
+nnoremap <silent> <leader>qo :copen<cr>
+nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
+nnoremap <silent> <leader>lc :lclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and directories
 nnoremap <leader>gw :grep! -rw <c-r><c-w> 
@@ -122,9 +125,6 @@ nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
 nnoremap <leader>pp "0p
 vnoremap <leader>pp "0p
 
-" replace word with last yanked text
-nnoremap <leader>pr viw"0p
-
 " run the macro in register q
 nnoremap <leader><leader> @q
 
@@ -136,16 +136,27 @@ cnoremap w!! w !sudo tee > /dev/null %
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'  " a Vim plugin which shows a git diff in the gutter
-Plug 'chriskempson/base16-vim' " color schemes
-Plug 'neomake/neomake'         " asynchronous linter
-Plug 'sheerun/vim-polyglot'    " language pack (eg. including better syntax highlighting)
-Plug 'tpope/vim-commentary'    " comment stuff out
-Plug 'tpope/vim-dispatch'      " async make
-Plug 'tpope/vim-fugitive'      " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'    " pairs of handy bracket mappings
+Plug 'airblade/vim-gitgutter'          " a Vim plugin which shows a git diff in the gutter
+Plug 'chriskempson/base16-vim'         " color schemes
+Plug 'sheerun/vim-polyglot'            " language pack (eg. including better syntax highlighting)
+Plug 'tpope/vim-commentary'            " comment stuff out
+Plug 'tpope/vim-dispatch'              " async make
+Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-unimpaired'            " pairs of handy bracket mappings
+Plug 'vim-scripts/ReplaceWithRegister' " handy mappings
+Plug 'w0rp/ale'                        " asynchronous linter and lsp client
 
 call plug#end()
 
 " Base16 colorscheme
 source ~/.vimrc_background
+
+" ALE settings
+let g:c_syntax_for_h=1
+let g:ale_linters = { 'c': ['ccls'] }
+let g:ale_c_ccls_init_options = { "cache": { "directory": "/tmp/ccls/cache" } }
+
+" ALE mappings
+imap <C-]> <Plug>(ale_complete)
+nmap <leader>gr <Plug>(ale_find_references)
+nmap <leader>gt <Plug>(ale_go_to_definition)
