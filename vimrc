@@ -1,37 +1,51 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
+" set t_ut=                         " disable Background Color Erase (BCE)
+set autoindent                    " auto indent when inserting a new line
+set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
+set background=dark               " use a dark background
+set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard+=unnamedplus        " always use the clipboard instead of unnamed register
+set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
 set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
+set formatoptions+=j              " delete comment character when joining lines
+set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
-set inccommand=nosplit            " show the effect of a command as you type (eg. for substitute)
+set incsearch                     " search as characters are entered
 set list                          " show hidden characters
+set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
+set noswapfile                    " disable swap files
+set notimeout                     " never timeout on mappings
 set nowrap                        " don't wrap
-set pumblend=25                   " make popup-menus a little transparent
+set ruler                         " show line and column number in command line
 set shiftround                    " round to multiple of shift width when adjusting indentation
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
+set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
-set termguicolors                 " 24 bit color support
+set ttimeout                      " timeout on key codes
+set ttimeoutlen=200               " timeout length on key codes
+set undodir=~/.vim/undo           " undo history directory
 set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
+set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
-set wildoptions+=pum              " display command line completion matches in a popup menu
-
-" add spelling dictionary
-set spellfile=~/.local/shar/nvim/site/en.utf-8.add
 
 " auto load cscope database
 if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
+
+" use C instead of C++ syntax for header files
+let g:c_syntax_for_h=1
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -134,10 +148,10 @@ cnoremap w!! w !sudo tee > /dev/null %
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'          " a Vim plugin which shows a git diff in the gutter
-Plug 'chriskempson/base16-vim'         " color schemes
+Plug 'nanotech/jellybeans.vim'         " color scheme
 Plug 'sheerun/vim-polyglot'            " language pack (eg. including better syntax highlighting)
 Plug 'tpope/vim-commentary'            " comment stuff out
 Plug 'tpope/vim-dispatch'              " async make
@@ -148,15 +162,4 @@ Plug 'w0rp/ale'                        " asynchronous linter and lsp client
 
 call plug#end()
 
-" Base16 colorscheme
-source ~/.vimrc_background
-
-" ALE settings
-let g:c_syntax_for_h=1
-let g:ale_linters = { 'c': ['ccls'] }
-let g:ale_c_ccls_init_options = { "cache": { "directory": "/tmp/ccls/cache" } }
-
-" ALE mappings
-imap <C-]> <Plug>(ale_complete)
-nmap <leader>gr <Plug>(ale_find_references)
-nmap <leader>gt <Plug>(ale_go_to_definition)
+colorscheme jellybeans

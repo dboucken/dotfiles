@@ -1,9 +1,8 @@
 # --------------------------------------------------------------------------------------------------
 # Settings
 # --------------------------------------------------------------------------------------------------
-# Use Neovim as default editor
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+export EDITOR=vim
+export VISUAL=$EDITOR
 
 # Change the prompt string to the current complete path
 PS1="\w > "
@@ -11,18 +10,9 @@ PS1="\w > "
 # --------------------------------------------------------------------------------------------------
 # Aliases
 # --------------------------------------------------------------------------------------------------
-alias vim="nvim"
 alias ll="ls -lhFA"
 alias l="ls -lhF"
 alias c="clear"
 alias r="source ~/.bash_profile 2> /dev/null && source ~/.bashrc 2> /dev/null"
 alias tmuxd='tmux new -A -s tmux'
-alias nvim_plug_update='nvim +"PlugClean!" +"PlugInstall!" +"PlugUpgrade!" +"PlugUpdate!" +qall &> /dev/null'
-
-# --------------------------------------------------------------------------------------------------
-# Base16 Shell
-# --------------------------------------------------------------------------------------------------
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-        [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-                eval "$("$BASE16_SHELL/profile_helper.sh")"
+alias plug_update_vim='vim +"PlugClean!" +"PlugInstall!" +"PlugUpgrade!" +"PlugUpdate!" +qall &> /dev/null'
