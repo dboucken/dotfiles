@@ -2,6 +2,8 @@
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 " set t_ut=                         " disable Background Color Erase (BCE)
+colorscheme jellybeans            " set colorscheme
+let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -38,14 +40,13 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+syntax on                         " enable syntax highlighting
 
 " auto load cscope database
 if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
 
-" use C instead of C++ syntax for header files
-let g:c_syntax_for_h=1
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -144,22 +145,3 @@ nnoremap <leader><leader> @q
 
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'          " a Vim plugin which shows a git diff in the gutter
-Plug 'nanotech/jellybeans.vim'         " color scheme
-Plug 'sheerun/vim-polyglot'            " language pack (eg. including better syntax highlighting)
-Plug 'tpope/vim-commentary'            " comment stuff out
-Plug 'tpope/vim-dispatch'              " async make
-Plug 'tpope/vim-fugitive'              " a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'            " pairs of handy bracket mappings
-Plug 'vim-scripts/ReplaceWithRegister' " handy mappings
-Plug 'w0rp/ale'                        " asynchronous linter and lsp client
-
-call plug#end()
-
-colorscheme jellybeans
