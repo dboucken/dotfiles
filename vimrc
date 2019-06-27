@@ -1,8 +1,8 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-" set t_ut=                         " disable Background Color Erase (BCE)
 colorscheme jellybeans            " set colorscheme
+filetype plugin indent on         " enable filetype detection
 let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
