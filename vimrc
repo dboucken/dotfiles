@@ -135,10 +135,6 @@ nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
 " find callers of the function under the cursor
 nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
 
-" paste last yanked text in normal and visual mode
-nnoremap <leader>pp "0p
-vnoremap <leader>pp "0p
-
 " run the macro in register q
 nnoremap <leader><leader> @q
 
