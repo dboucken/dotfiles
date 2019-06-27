@@ -40,12 +40,8 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+silent! cscope add cscope.out     " auto load cscope database
 syntax on                         " enable syntax highlighting
-
-" auto load cscope database
-if filereadable("cscope.out")
-    silent! cscope add cscope.out
-endif
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
