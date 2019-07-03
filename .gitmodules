@@ -7,9 +7,6 @@
 [submodule "vim/pack/plugins/start/vim-commentary"]
 	path = vim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/pack/plugins/start/jellybeans.vim"]
-	path = vim/pack/plugins/start/jellybeans.vim
-	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "vim/pack/plugins/start/vim-polyglot"]
 	path = vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
@@ -25,3 +22,6 @@
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "vim/pack/plugins/start/colorschemes"]
+	path = vim/pack/plugins/start/colorschemes
+	url = https://github.com/rafi/awesome-vim-colorschemes.git
