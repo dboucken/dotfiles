@@ -19,7 +19,6 @@ vim -c "PlugInstall | qa" &> /dev/null
 ## Updating
 
 ```
-cd ~/dotfiles
-git pull
+git -C ~/dotfiles pull
 vim -c "PlugClean! | PlugUpgrade | PlugUpdate | qa" &> /dev/null
 ```
