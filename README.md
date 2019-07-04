@@ -13,12 +13,12 @@ echo 'source ~/dotfiles/bashrc' >> ~/.bashrc
 mkdir ~/.vim
 mkdir ~/.vim/undo
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c "PlugInstall | qa" &> /dev/null
+vim -c "PlugInstall! | qa" &> /dev/null
 ```
 
 ## Updating
 
 ```
 git -C ~/dotfiles pull
-vim -c "PlugClean! | PlugUpgrade | PlugUpdate | qa" &> /dev/null
+vim -c "PlugClean! | PlugUpgrade | PlugUpdate! | qa" &> /dev/null
 ```
