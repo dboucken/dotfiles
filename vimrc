@@ -1,7 +1,6 @@
 " -------------------------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
-colorscheme jellybeans            " set colorscheme
 filetype plugin indent on         " enable filetype detection
 let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 set autoindent                    " auto indent when inserting a new line
@@ -34,6 +33,7 @@ set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
+set ttymouse=xterm2               " enable mouse dragging
 set undodir=~/.vim/undo           " undo history directory
 set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
@@ -140,3 +140,24 @@ nnoremap <leader><leader> @q
 
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'w0rp/ale'
+
+call plug#end()
+
+" settings
+set background=dark
+colorscheme jellybeans            " set colorscheme
