@@ -84,6 +84,9 @@ augroup END
 " insert a C style to do comment
 iabbrev TODO /* TODO dboucken: */<left><left><left>
 
+" insert a C style DO_NOT_COMMIT comment
+iabbrev DO /* DO_NOT_COMMIT: */<left><left><left>
+
 " open help in a vertical split
 cabbrev h vertical help
 
@@ -158,6 +161,6 @@ Plug 'w0rp/ale'
 
 call plug#end()
 
-" settings
+" color scheme settings
 set background=dark
-colorscheme jellybeans            " set colorscheme
+colorscheme jellybeans
