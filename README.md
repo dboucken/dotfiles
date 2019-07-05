@@ -5,14 +5,15 @@ Personal dotfiles repository including Vim, Tmux and Bash configuration files. O
 ## Installing
 
 ```
-git clone --recurse-submodules https://github.com/dboucken/dotfiles.git ~/dotfiles
+git clone https://github.com/dboucken/dotfiles.git ~/dotfiles
 ln -s ~/dotfiles/inputrc .inputrc
 ln -s ~/dotfiles/vimrc .vimrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
 echo 'source ~/dotfiles/bashrc' >> ~/.bashrc
 mkdir ~/.vim
 mkdir ~/.vim/undo
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c "PlugInstall! | qa" &> /dev/null
 ```
 
