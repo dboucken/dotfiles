@@ -115,7 +115,7 @@ nnoremap <leader>w <c-w>
 nnoremap <leader>ev :vertical split $MYVIMRC<cr>
 
 " clear search highlighting
-nnoremap <silent> <leader>l :nohlsearch<cr>
+nnoremap <silent> <leader>ll :nohlsearch<cr>
 
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
@@ -126,7 +126,7 @@ nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 nnoremap <silent> <leader>lc :lclose<cr>
 
-" grep the word under the cursor recursively, don't return to be able to pass options and directories
+" grep the word under the cursor recursively, don't return to be able to pass options and dirs
 nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
@@ -144,6 +144,9 @@ nnoremap <leader><leader> @q
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
+" replace word with last yanked text
+nnoremap <leader>p viw"0p
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
@@ -153,10 +156,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'w0rp/ale'
 
 call plug#end()
