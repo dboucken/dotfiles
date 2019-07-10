@@ -34,7 +34,7 @@ set tabstop=4                     " number of visual spaces per tab
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set ttymouse=xterm2               " enable mouse dragging
-set undodir=~/.vim/undo           " undo history directory
+set undodir=~/.vim/undo//         " undo history directory
 set undofile                      " persistent undo history
 set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
@@ -101,6 +101,13 @@ nnoremap ; :
 
 " auto expand curly brackets in insert mode
 inoremap {<cr> {<cr>}<Esc>O
+
+" don't jump to the next occurrence when searching for a word using star
+nnoremap * *<c-o>
+
+" keep the found words in the middle of screen when jumping to the next/previous
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " -------------------------------------------------------------------------------------------------
 " LEADER KEY MAPPINGS
