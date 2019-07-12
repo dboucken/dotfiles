@@ -6,7 +6,7 @@ let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
-set background=dark               " use a dark background
+set background=dark               " always assume a dark terminal background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard+=unnamedplus        " always use the clipboard instead of unnamed register
 set complete-=i                   " don't scan include files during insert mode auto completion
@@ -160,7 +160,6 @@ nnoremap <leader>p viw"0p
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -168,7 +167,3 @@ Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 
 call plug#end()
-
-" color scheme settings
-set background=dark
-colorscheme jellybeans
