@@ -7,14 +7,14 @@ Personal dotfiles repository including Vim, Tmux and Bash configuration files. O
 ```
 git clone https://github.com/dboucken/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-git submodule init
-git submodule update --remote --merge
 ln -s ~/dotfiles/inputrc .inputrc
 ln -s ~/dotfiles/vimrc .vimrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
 ln -s ~/dotfiles/vim .vim
 echo 'source ~/dotfiles/bashrc' >> ~/.bashrc
 mkdir -p ~/.vim/undo
+git submodule init
+git submodule update --remote --merge
 ```
 
 ## Updating
