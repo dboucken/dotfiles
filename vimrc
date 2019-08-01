@@ -149,17 +149,3 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " replace word with last yanked text
 nnoremap <leader>p viw"0p
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'
-Plug 'dense-analysis/ale'
-Plug 'romainl/vim-cool'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-
-call plug#end()
