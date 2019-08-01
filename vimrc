@@ -2,7 +2,6 @@
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " enable filetype detection
-let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -35,7 +34,6 @@ set ttimeoutlen=200               " timeout length on key codes
 set ttymouse=xterm2               " enable mouse dragging
 set undodir=~/.vim/undo//         " undo history directory
 set undofile                      " persistent undo history
-set updatetime=100                " milliseconds VIM will wait to trigger the CursorHold event
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
@@ -52,12 +50,6 @@ endif
 augroup custom_autocommands
     " clear all auto commands in this group
     autocmd!
-
-    " auto save when a file is changed
-    autocmd TextChanged, InsertLeave, FocusLost * silent! wall
-
-    " check if the file has changed outside of Vim when the cursor has moved
-    autocmd CursorHold * silent! checktime
 
     " enable spell checking by default for git commit files
     autocmd Filetype gitcommit setlocal spell
@@ -117,11 +109,9 @@ nnoremap <leader>ev :vertical split $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" open/close the quickfix/location list window
+" open/close the quickfix list window
 nnoremap <silent> <leader>qo :copen<cr>
-nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
-nnoremap <silent> <leader>lc :lclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
 nnoremap <leader>gw :grep! -rw <c-r><c-w> 
