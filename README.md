@@ -6,6 +6,8 @@ Personal dotfiles repository including Vim, Tmux and Bash configuration files. O
 
 ```
 git clone https://github.com/dboucken/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+git submodule init
 ln -s ~/dotfiles/inputrc .inputrc
 ln -s ~/dotfiles/vimrc .vimrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
@@ -26,10 +28,8 @@ git submodule update --remote --merge
 
 ```
 cd ~/dotfiles
-git submodule init
 git submodule add <repo> vim/pack/plugins/start/<name>
-git add .gitmodules vim/pack/plugins/start/<name>
-git commit
+git commit -am "Add VIM plugin"
 ```
 
 ## Remove a VIM plugin
@@ -39,5 +39,5 @@ cd ~/dotfiles
 git submodule deinit vim/pack/plugins/start/<name>
 git rm vim/pack/plugins/start/<name>
 rm -Rf .git/modules/vim/pack/plugins/start/<name>
-git commit
+git commit -am "Remove VIM plugin"
 ```
