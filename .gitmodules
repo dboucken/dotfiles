@@ -4,3 +4,6 @@
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/pack/plugins/start/vim-cool"]
+	path = vim/pack/plugins/start/vim-cool
+	url = https://github.com/romainl/vim-cool.git
