@@ -1,3 +1,4 @@
-/vim/undo/
-/vim/plugin/
 /vim/after/
+/vim/compiler/
+/vim/plugin/
+/vim/undo/
