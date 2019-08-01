@@ -149,3 +149,6 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " replace word with last yanked text
 nnoremap <leader>p viw"0p
+
+" git blame 25 lines before and after the current line
+nnoremap <leader>gb :!git blame -L<c-r>=line('.')<cr>,-25 -L<c-r>=line('.')<cr>,+25 %<cr>
