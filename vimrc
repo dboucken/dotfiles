@@ -69,12 +69,6 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
-
-    " automatically cleanup fugitive buffers
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-
-    " automatically source vimrc on save
-    autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 augroup END
 
 " -------------------------------------------------------------------------------------------------
