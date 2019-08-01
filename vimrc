@@ -120,9 +120,6 @@ nnoremap <leader>w <c-w>
 " quickly open vimrc
 nnoremap <leader>ev :vertical split $MYVIMRC<cr>
 
-" clear search highlighting
-nnoremap <silent> <leader>ll :nohlsearch<cr>
-
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
@@ -159,9 +156,10 @@ nnoremap <leader>p viw"0p
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
+Plug 'romainl/vim-cool'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'w0rp/ale'
 
 call plug#end()
