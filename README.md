@@ -9,17 +9,35 @@ git clone https://github.com/dboucken/dotfiles.git ~/dotfiles
 ln -s ~/dotfiles/inputrc .inputrc
 ln -s ~/dotfiles/vimrc .vimrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
+ln -s ~/dotfiles/vim .vim
 echo 'source ~/dotfiles/bashrc' >> ~/.bashrc
-mkdir ~/.vim
-mkdir ~/.vim/undo
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c "PlugInstall! | qa" &> /dev/null
+mkdir -p ~/.vim/undo
 ```
 
 ## Updating
 
 ```
-git -C ~/dotfiles pull
-vim -c "PlugClean! | PlugUpgrade | PlugUpdate! | qa" &> /dev/null
+cd ~/dotfiles
+git pull
+git submodule update --remote --merge
+```
+
+## Add a VIM plugin
+
+```
+cd ~/dotfiles
+git submodule init
+git submodule add <repo> vim/pack/plugins/start/<name>
+git add .gitmodules vim/pack/plugins/start/<name>
+git commit
+```
+
+## Remove a VIM plugin
+
+```
+cd ~/dotfiles
+git submodule deinit vim/pack/plugins/start/<name>
+git rm vim/pack/plugins/start/<name>
+rm -Rf .git/modules/vim/pack/plugins/start/<name>
+git commit
 ```
