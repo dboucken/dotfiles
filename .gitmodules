@@ -1,6 +1,3 @@
-[submodule "vim/pack/plugins/start/vim-cool"]
-	path = vim/pack/plugins/start/vim-cool
-	url = https://github.com/romainl/vim-cool.git
 [submodule "vim/pack/plugins/start/vim-commentary"]
 	path = vim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
