@@ -131,5 +131,6 @@ cnoremap w!! w !sudo tee > /dev/null %
 " replace word with last yanked text
 nnoremap <leader>p viw"0p
 
-" git blame some lines before and after the current line
-nnoremap <leader>gb :terminal git blame -L<c-r>=line('.')<cr>,-12 -L<c-r>=line('.')<cr>,+12 %<cr>
+" useful git mappings
+nnoremap <leader>bl :terminal git blame -L<c-r>=line('.')<cr>,-12 -L<c-r>=line('.')<cr>,+12 %<cr>
+nnoremap <leader>sh :q <Bar> terminal git show <c-r><c-w><cr><cr>
