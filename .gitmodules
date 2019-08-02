@@ -4,3 +4,6 @@
 [submodule "vim/pack/plugins/start/vim-unimpaired"]
 	path = vim/pack/plugins/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "vim/pack/plugins/start/vim-cool"]
+	path = vim/pack/plugins/start/vim-cool
+	url = https://github.com/romainl/vim-cool.git
