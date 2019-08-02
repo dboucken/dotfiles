@@ -87,9 +87,6 @@ nnoremap ; :
 " auto expand curly brackets in insert mode
 inoremap {<cr> {<cr>}<Esc>O
 
-" don't jump to the next occurrence when searching for a word using star
-nnoremap * *<c-o>
-
 " keep the found words in the middle of screen when jumping to the next/previous
 nnoremap n nzzzv
 nnoremap N Nzzzv
