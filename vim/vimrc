@@ -47,7 +47,7 @@ endif
 
 " colorscheme
 set background=light
-colorscheme solarized8
+colorscheme lucius
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
