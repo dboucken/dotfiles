@@ -45,10 +45,6 @@ if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
 
-" colorscheme
-set background=light
-colorscheme lucius
-
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
