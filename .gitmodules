@@ -22,6 +22,3 @@
 [submodule "vim/pack/plugins/start/vim-dispatch"]
 	path = vim/pack/plugins/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule "vim/pack/plugins/start/base16-vim"]
-	path = vim/pack/plugins/start/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
