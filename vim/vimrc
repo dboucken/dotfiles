@@ -46,7 +46,8 @@ if filereadable("cscope.out")
 endif
 
 " colorscheme
-source ~/.vimrc_background
+set background=light
+colorscheme lucius
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
