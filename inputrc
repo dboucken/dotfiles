@@ -20,6 +20,3 @@ set bell-style none
 
 # expand tilde
 set expand-tilde
-
-# enable vi mode (enter vi normal mode with <Esc>)
-set editing-mode vi

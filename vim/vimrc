@@ -2,7 +2,7 @@
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " enable filetype detection
-let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
+syntax on                         " enable syntax highlighting
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
@@ -38,12 +38,15 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
-syntax on                         " enable syntax highlighting
+let g:c_syntax_for_h=1            " use C instead of C++ syntax for header files
 
 " auto load cscope database
 if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
+
+" open man pages in vim with :Man
+runtime ftplugin/man.vim
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -60,6 +63,9 @@ augroup custom_autocommands
 
     " enable spell checking by default for git commit files
     autocmd Filetype gitcommit setlocal spell
+
+    " don't show hidden characters in man pages
+    autocmd Filetype man setlocal nolist
 
     " open quickfix and git commit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
@@ -139,6 +145,3 @@ nnoremap <leader><leader> @q
 
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
-
-" replace word with last yanked text
-nnoremap <leader>p viw"0p
