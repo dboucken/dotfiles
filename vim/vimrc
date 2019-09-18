@@ -44,6 +44,9 @@ if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
 
+" better diffs?
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
