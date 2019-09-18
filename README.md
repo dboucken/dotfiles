@@ -9,7 +9,6 @@ git clone https://github.com/dboucken/dotfiles.git ~/dotfiles
 ln -s ~/dotfiles/inputrc .inputrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
 ln -s ~/dotfiles/vim .vim
-echo 'source ~/dotfiles/bashrc' >> ~/.bashrc
 mkdir -p ~/.vim/undo
 cd ~/dotfiles
 git submodule init
