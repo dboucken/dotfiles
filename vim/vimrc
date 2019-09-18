@@ -16,7 +16,6 @@ set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
-set list                          " show hidden characters
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
 set noswapfile                    " disable swap files
