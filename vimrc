@@ -87,9 +87,6 @@ iabbrev TODO /* TODO dboucken: */<left><left><left>
 " insert a C style DO_NOT_COMMIT comment
 iabbrev DO /* DO_NOT_COMMIT: */<left><left><left>
 
-" open help in a vertical split
-cabbrev h vertical help
-
 " -------------------------------------------------------------------------------------------------
 " CUSTOM KEY MAPPINGS
 " -------------------------------------------------------------------------------------------------
