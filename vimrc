@@ -153,3 +153,17 @@ nnoremap <leader>ee :e **/*
 
 " clear search highlight
 nnoremap <leader>hl :nohlsearch<cr>
+
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'tpope/vim-commentary'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-unimpaired'
+
+" Initialize plugin system
+call plug#end()
