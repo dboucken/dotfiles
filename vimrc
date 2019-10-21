@@ -150,6 +150,10 @@ nnoremap <leader>ee :e **/*
 " clear search highlight
 nnoremap <leader>hl :nohlsearch<cr>
 
+" preview a tag and close the preview window
+nnoremap <leader>pt :ptag <c-r><c-w><cr>
+nnoremap <leader>pc :pclose<cr>
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
