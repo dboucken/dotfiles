@@ -142,7 +142,7 @@ nnoremap <leader><leader> @q
 cnoremap w!! w !sudo tee > /dev/null %
 
 " replace word with the last yanked text
-nnoremap <leader>p viw"0p
+nnoremap <leader>pp viw"0p
 
 " open files recursively in the working directory
 nnoremap <leader>ee :e **/*
