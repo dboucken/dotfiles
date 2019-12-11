@@ -2,10 +2,10 @@
 " GENERAL SETTINGS
 " -------------------------------------------------------------------------------------------------
 filetype plugin indent on         " enable filetype detection
-syntax on                         " enable syntax highlighting
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
+set background=dark               " hint Vim that the terminal uses a dark background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
@@ -37,6 +37,7 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+syntax on                         " enable syntax highlighting
 
 " auto load cscope database
 if filereadable("cscope.out")
