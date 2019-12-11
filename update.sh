@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Install dotfiles. This script should be run from the dotfiles directory.
+# Update dotfiles. This script should be run from the dotfiles directory.
 
 git pull
 
