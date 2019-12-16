@@ -16,3 +16,6 @@ mkdir -p $HOME/.vim/undo
 # Install vim-plug
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c qall
+
+# Install base16 shell
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
