@@ -5,7 +5,6 @@ filetype plugin indent on         " enable filetype detection
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
-set background=dark               " hint Vim that the terminal uses a dark background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
@@ -163,6 +162,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
