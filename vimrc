@@ -146,7 +146,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 nnoremap <leader>pp viw"0p
 
 " open files recursively in the working directory
-nnoremap <leader>ee :e **/*
+nnoremap <leader>ee :FZF<cr>
 
 " clear search highlight
 nnoremap <leader>hl :nohlsearch<cr>
