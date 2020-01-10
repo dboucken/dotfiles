@@ -143,9 +143,6 @@ nnoremap <leader><leader> @q
 " allow saving of files as sudo when I forgot to start vim using sudo.
 cnoremap w!! w !sudo tee > /dev/null %
 
-" replace word with the last yanked text
-nnoremap <leader>pp viw"0p
-
 " open files recursively in the working directory
 nnoremap <leader>ee :FZF<cr>
 
