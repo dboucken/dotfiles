@@ -13,6 +13,7 @@ set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
+set grepprg=rg\ --vimgrep         " use ripgrep
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
@@ -125,10 +126,10 @@ nnoremap <silent> <leader>qc :cclose<cr>
 nnoremap <silent> <leader>lc :lclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-nnoremap <leader>gw :grep! -rw <c-r><c-w> 
+nnoremap <leader>gw :grep! -w <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
@@ -163,6 +164,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
+Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
