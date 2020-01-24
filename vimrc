@@ -13,7 +13,6 @@ set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
 set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
-set grepprg=rg\ --vimgrep         " use ripgrep
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
@@ -55,9 +54,6 @@ augroup custom_autocommands
     " clear all auto commands in this group
     autocmd!
 
-    " auto save when a file is changed
-    autocmd TextChanged, InsertLeave, FocusLost * silent! wall
-
     " check if the file has changed outside of Vim when the cursor has moved
     autocmd CursorHold * silent! checktime
 
@@ -74,9 +70,6 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
-
-    " automatically cleanup fugitive buffers
-    autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -121,15 +114,13 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 
 " open/close the quickfix/location list window
 nnoremap <silent> <leader>qo :copen<cr>
-nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
-nnoremap <silent> <leader>lc :lclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-nnoremap <leader>gw :grep! -w <c-r><c-w> 
+nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
@@ -144,7 +135,7 @@ nnoremap <leader><leader> @q
 cnoremap w!! w !sudo tee > /dev/null %
 
 " open files recursively in the working directory
-nnoremap <leader>ee :FZF<cr>
+nnoremap <leader>ee :e **/
 
 " clear search highlight
 nnoremap <leader>hl :nohlsearch<cr>
@@ -159,23 +150,8 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
 Plug 'inkarkat/vim-ReplaceWithRegister'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
-
-" true color support
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
-
-" set color scheme
-let base16colorspace=256
-source ~/.vimrc_background
