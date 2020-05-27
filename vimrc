@@ -150,6 +150,7 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
