@@ -60,6 +60,10 @@ augroup custom_autocommands
     " enable spell checking by default for git commit files
     autocmd Filetype gitcommit setlocal spell
 
+    " enable spell checking and show hidden chars for markdown files by default
+    autocmd Filetype markdown setlocal spell
+    autocmd Filetype markdown setlocal list
+
     " don't show hidden characters in man pages
     autocmd Filetype man setlocal nolist
 
