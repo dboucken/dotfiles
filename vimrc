@@ -16,6 +16,7 @@ set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
 set ignorecase                    " ignore case when searching lowercase
 set incsearch                     " search as characters are entered
+set list                          " show trailing whitespace
 set listchars=tab:>\ ,trail:-     " show tabs and trailing white space when list is enabled
 set mouse=a                       " enable mouse support
 set noswapfile                    " disable swap files
@@ -26,6 +27,7 @@ set shiftround                    " round to multiple of shift width when adjust
 set shiftwidth=4                  " number of spaces for each step of auto indent
 set smartcase                     " don't ignore case when inserting uppercase characters in search
 set softtabstop=4                 " number of spaces per tab when editing
+set spell                         " check spelling
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
 set ttimeout                      " timeout on key codes
