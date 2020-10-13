@@ -118,7 +118,7 @@ nnoremap <leader>ev :vertical split $MYVIMRC<cr>
 " delete trailing white space on a line
 nnoremap <leader>dd :s/\s\+$//e<cr>
 
-" open/close the quickfix/location list window
+" open/close the quickfix list window
 nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
