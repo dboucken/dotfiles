@@ -141,10 +141,13 @@ nnoremap <leader><leader> @q
 cnoremap w!! w !sudo tee > /dev/null %
 
 " open files recursively in the working directory
-nnoremap <leader>ee :e **/
+nnoremap <leader>ee :e **/*
 
 " clear search highlight
 nnoremap <leader>hl :nohlsearch<cr>
+
+" replace the word under the cursor with the last yanked (not deleted) text
+nnoremap <leader>pp viw"0p
 
 " preview a tag and close the preview window
 nnoremap <leader>pt :ptag <c-r><c-w><cr>
@@ -156,7 +159,6 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
