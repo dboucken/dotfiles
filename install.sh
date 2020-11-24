@@ -2,13 +2,15 @@
 #
 # Install dotfiles. This script should be run from the dotfiles directory.
 
+# Make necessary directories
+mkdir -p $HOME/.vim/undo
+mkdir -p $HOME/.vim/pack/plugins
+
 # Link dotfiles
 ln -sv $PWD/inputrc $HOME/.inputrc
 ln -sv $PWD/tmux.conf $HOME/.tmux.conf
-ln -sv $PWD/vim $HOME/.vim
+ln -sv $PWD/vim-plugins $HOME/.vim/pack/plugins/start
 
 # Source bashrc
 echo "source ${PWD}/bashrc" >> $HOME/.bashrc
 
-# Make necessary directories
-mkdir -p $HOME/.vim/undo
