@@ -4,3 +4,4 @@
 
 git pull
 git submodule update --remote --merge
+vim -c "helptags ALL" -c "qa"
