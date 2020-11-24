@@ -15,3 +15,6 @@ ln -sv $PWD/vim-plugins $HOME/.vim/pack/plugins/start
 # Source bashrc
 echo "source ${PWD}/bashrc" >> $HOME/.bashrc
 
+# Install vim plugins
+git submodule update --init
+vim -c "helptags ALL" -c "qa"
