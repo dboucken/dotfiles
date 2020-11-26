@@ -48,6 +48,11 @@ endif
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
+" use ripgrep if available
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+endif
+
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
@@ -123,10 +128,18 @@ nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-nnoremap <leader>gw :grep! -rw <c-r><c-w> 
+if executable('rg')
+    nnoremap <leader>gw :grep! -w <c-r><c-w> 
+elseif
+    nnoremap <leader>gw :grep! -rw <c-r><c-w> 
+endif
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
+if executable('rg')
+    nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
+elseif
+    nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
+endif
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
@@ -147,7 +160,7 @@ nnoremap <leader>ee :e **/*
 nnoremap <leader>hl :nohlsearch<cr>
 
 " replace the word under the cursor with the last yanked (not deleted) text
-nnoremap <leader>pp viw"0p
+nnoremap <leader>pp ciw<C-r>0<ESC>
 
 " preview a tag and close the preview window
 nnoremap <leader>pt :ptag <c-r><c-w><cr>
