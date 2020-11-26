@@ -130,14 +130,14 @@ nnoremap <silent> <leader>qc :cclose<cr>
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
 if executable('rg')
     nnoremap <leader>gw :grep! -w <c-r><c-w> 
-elseif
+else
     nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 endif
 
 " grep the word under the cursor recursively in the directory of the current file
 if executable('rg')
     nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
-elseif
+else
     nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 endif
 
