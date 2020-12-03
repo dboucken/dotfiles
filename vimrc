@@ -48,11 +48,6 @@ endif
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
-" use ripgrep if available
-if executable('rg')
-    set grepprg=rg\ --vimgrep
-endif
-
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
@@ -128,18 +123,10 @@ nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-if executable('rg')
-    nnoremap <leader>gw :grep! -w <c-r><c-w> 
-else
-    nnoremap <leader>gw :grep! -rw <c-r><c-w> 
-endif
+nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-if executable('rg')
-    nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
-else
-    nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
-endif
+nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
 " find cscope symbol under the cursor
 nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
