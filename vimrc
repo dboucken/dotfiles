@@ -9,8 +9,6 @@ set backspace=indent,eol,start    " allow backspacing over auto indent, line bre
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
-set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
-set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
@@ -40,13 +38,17 @@ set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
 syntax on                         " enable syntax highlighting
 
-" auto load cscope database
-if filereadable("cscope.out")
-    silent! cscope add cscope.out
-endif
-
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
+
+" Language Server Client Configuration
+if executable('ccls')
+    let g:lsc_server_commands = {
+        \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
+        \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true }
+    \}
+endif
+let g:lsc_auto_map = v:true
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -128,12 +130,6 @@ nnoremap <leader>gw :grep! -rw <c-r><c-w>
 " grep the word under the cursor recursively in the directory of the current file
 nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
-" find cscope symbol under the cursor
-nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
-
-" find callers of the function under the cursor
-nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
-
 " run the macro in register q
 nnoremap <leader><leader> @q
 
@@ -148,7 +144,3 @@ nnoremap <leader>hl :nohlsearch<cr>
 
 " replace the word under the cursor with the last yanked (not deleted) text
 nnoremap <leader>pp ciw<C-r>0<ESC>
-
-" preview a tag and close the preview window
-nnoremap <leader>pt :ptag <c-r><c-w><cr>
-nnoremap <leader>pc :pclose<cr>

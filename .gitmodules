@@ -10,3 +10,6 @@
 [submodule "vim-plugins/vim-gitgutter"]
 	path = vim-plugins/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim-plugins/vim-lsc"]
+	path = vim-plugins/vim-lsc
+	url = https://github.com/natebosch/vim-lsc.git
