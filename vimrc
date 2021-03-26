@@ -42,12 +42,11 @@ syntax on                         " enable syntax highlighting
 runtime ftplugin/man.vim
 
 " Language Server Client Configuration
-if executable('ccls')
-    let g:lsc_server_commands = {
-        \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
-        \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true }
+let g:lsc_server_commands = {
+    \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
+    \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true },
+    \ 'rust': { 'command': 'rls' }
     \}
-endif
 let g:lsc_auto_map = v:true
 
 " -------------------------------------------------------------------------------------------------
