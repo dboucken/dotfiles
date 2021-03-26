@@ -13,3 +13,6 @@
 [submodule "vim-plugins/vim-lsc"]
 	path = vim-plugins/vim-lsc
 	url = https://github.com/natebosch/vim-lsc.git
+[submodule "vim-plugins/rust.vim"]
+	path = vim-plugins/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git

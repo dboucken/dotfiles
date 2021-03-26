@@ -48,6 +48,7 @@ let g:lsc_server_commands = {
     \ 'rust': { 'command': 'rls' }
     \}
 let g:lsc_auto_map = v:true
+let g:lsc_reference_highlight = v:false
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
