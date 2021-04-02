@@ -45,7 +45,8 @@ runtime ftplugin/man.vim
 let g:lsc_server_commands = {
     \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
     \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true },
-    \ 'rust': { 'command': 'rls' }
+    \ 'rust': { 'command': 'rls' },
+    \ 'go': { 'command': 'gopls' }
     \}
 let g:lsc_auto_map = v:true
 let g:lsc_reference_highlights = v:false
