@@ -16,3 +16,6 @@
 [submodule "vim-plugins/rust.vim"]
 	path = vim-plugins/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim-plugins/vim-go"]
+	path = vim-plugins/vim-go
+	url = https://github.com/fatih/vim-go.git
