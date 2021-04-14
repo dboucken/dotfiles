@@ -41,16 +41,6 @@ syntax on                         " enable syntax highlighting
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
-" Language Server Client Configuration
-let g:lsc_server_commands = {
-    \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
-    \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true },
-    \ 'rust': { 'command': 'rls' },
-    \ 'go': { 'command': 'gopls' }
-    \}
-let g:lsc_auto_map = v:true
-let g:lsc_reference_highlights = v:false
-
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
@@ -153,10 +143,23 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'prabirshrestha/vim-lsp'
+Plug 'natebosch/vim-lsc'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+" Language Server Client Configuration
+let g:lsc_server_commands = {
+    \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
+    \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true },
+    \ 'rust': { 'command': 'rls' },
+    \ 'go': { 'command': 'gopls' }
+    \}
+let g:lsc_auto_map = v:true
+let g:lsc_reference_highlights = v:false
