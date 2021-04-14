@@ -179,7 +179,7 @@ endif
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
-    setlocal tagfunc=lsp#tagfunc | endif
+    setlocal tagfunc=lsp#tagfunc
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gt <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
