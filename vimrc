@@ -143,7 +143,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'natebosch/vim-lsc'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -154,12 +154,42 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-" Language Server Client Configuration
-let g:lsc_server_commands = {
-    \ 'c': { 'command': 'ccls', 'suppress_stderr': v:true },
-    \ 'cpp': { 'command': 'ccls', 'suppress_stderr': v:true },
-    \ 'rust': { 'command': 'rls' },
-    \ 'go': { 'command': 'gopls' }
-    \}
-let g:lsc_auto_map = v:true
-let g:lsc_reference_highlights = v:false
+if executable('ccls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'ccls',
+        \ 'cmd': {server_info->['ccls']},
+        \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+        \ })
+endif
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rls']},
+        \ 'allowlist': ['rust'],
+        \ })
+endif
+if executable('go')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'go',
+        \ 'cmd': {server_info->['go']},
+        \ 'allowlist': ['go'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
