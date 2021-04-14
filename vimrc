@@ -145,3 +145,18 @@ nnoremap <leader>hl :nohlsearch<cr>
 
 " replace the word under the cursor with the last yanked (not deleted) text
 nnoremap <leader>pp ciw<C-r>0<ESC>
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'prabirshrestha/vim-lsp'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+
+call plug#end()

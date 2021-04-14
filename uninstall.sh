@@ -12,4 +12,3 @@ sed -i '/source.*bashrc/d' $HOME/.bashrc
 
 # Remove created directories
 rm -rf $HOME/.vim/undo
-rm -rf $HOME/.vim/pack/plugins
