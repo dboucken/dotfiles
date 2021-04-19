@@ -66,6 +66,10 @@ augroup custom_autocommands
     autocmd Filetype markdown setlocal list
     autocmd Filetype markdown setlocal textwidth=100
 
+    " don't show tabs and trailing blanks in go files
+    autocmd Filetype go setlocal nolist
+    " autocmd Filetype go setlocal makeprg=go\ fmt\ &&\ go\ build
+
     " don't show hidden characters in man pages
     autocmd Filetype man setlocal nolist
 
@@ -159,7 +163,9 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
 Plug 'natebosch/vim-lsc'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -182,3 +188,5 @@ endif
 if executable('gopls')
     let g:lsc_server_commands['go'] = { 'command': 'gopls' }
 endif
+
+let g:go_gopls_enabled = 0
