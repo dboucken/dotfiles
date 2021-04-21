@@ -177,6 +177,7 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 let g:lsc_auto_map = v:true
 let g:lsc_server_commands = {}
+let g:lsc_reference_highlights = v:false
 
 if executable('clangd')
     let g:lsc_server_commands['c'] = { 'command': 'clangd --background-index', 'suppress_stderr': v:true }
