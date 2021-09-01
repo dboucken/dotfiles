@@ -160,6 +160,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'fnune/base16-vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -171,7 +172,42 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
+" set base16 color scheme
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 endif
+
+" setup language servers
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+" configure lsp client
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+endfunction
+
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+let g:lsp_diagnostics_float_cursor = 1
