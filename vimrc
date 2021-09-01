@@ -162,6 +162,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'fnune/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
