@@ -159,8 +159,17 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'fnune/base16-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+
+" -------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -------------------------------------------------------------------------------------------------
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
