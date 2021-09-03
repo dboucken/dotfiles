@@ -194,3 +194,6 @@ augroup lsp_install
 augroup END
 
 let g:lsp_diagnostics_float_cursor = 1
+
+" async make mapping
+nnoremap <leader>mm :Make<cr>
