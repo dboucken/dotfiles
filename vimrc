@@ -142,8 +142,8 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'fnune/base16-vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -155,12 +155,6 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-" set base16 color scheme
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
-
 " register ccls C++ lanuage server.
 if executable('ccls')
    au User lsp_setup call lsp#register_server({
@@ -199,3 +193,5 @@ let g:lsp_diagnostics_float_cursor = 1
 
 " async make mapping
 nnoremap <leader>mm :Make<cr>
+
+colorscheme jellybeans
