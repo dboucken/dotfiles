@@ -143,8 +143,8 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'lifepillar/vim-solarized8'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
