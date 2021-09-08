@@ -143,9 +143,7 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'lifepillar/vim-solarized8'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -194,10 +192,3 @@ let g:lsp_diagnostics_float_cursor = 1
 
 " async make mapping
 nnoremap <leader>mm :Make<cr>
-
-" color scheme
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-set background=light
-colorscheme solarized8
