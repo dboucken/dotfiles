@@ -16,7 +16,6 @@ vim.o.smartcase = true                -- don't ignore case when inserting upperc
 vim.o.softtabstop = 4                 -- number of spaces per tab when editing
 vim.o.swapfile = false                -- disable swap files
 vim.o.tabstop = 4                     -- number of visual spaces per tab
-vim.o.termguicolors = true            -- use true colors
 vim.o.timeout = false                 -- never timeout on mappings
 vim.o.ttimeout = true                 -- timeout on key codes
 vim.o.ttimeoutlen = 200               -- timeout length on key codes
@@ -123,13 +122,12 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'lifepillar/vim-solarized8'
     use 'neovim/nvim-lspconfig'
+    use 'rafi/awesome-vim-colorschemes'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 end)
@@ -137,14 +135,6 @@ end)
 ---------------------------------------------------------------------------------------------------
 -- PLUGIN SETTINGS
 ---------------------------------------------------------------------------------------------------
--- treesitter
-require('nvim-treesitter.configs').setup {
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-}
-
 -- gitsigns
 require('gitsigns').setup {
     signs = {
@@ -201,6 +191,3 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
-
--- color scheme
-vim.cmd 'colorscheme solarized8'
