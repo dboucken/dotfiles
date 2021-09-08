@@ -11,6 +11,7 @@ ln -sv $PWD/inputrc $HOME/.inputrc
 ln -sv $PWD/tmux.conf $HOME/.tmux.conf
 ln -sv $PWD/vimrc $HOME/.vimrc
 ln -sv $PWD/init.lua $HOME/.config/nvim/init.lua
+ln -sv $PWD/alacritty.yml $HOME/.alacritty.yml
 
 # Source bashrc
 echo "source ${PWD}/bashrc" >> $HOME/.bashrc
