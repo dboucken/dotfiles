@@ -26,9 +26,6 @@ vim.o.visualbell = true               -- use visual bell instead of beeping
 vim.o.wildmode = 'longest,full'       -- first complete to the longest match, then to the first full one
 vim.o.wrap = false                    -- don't wrap
 
--- add spelling dictionary
-vim.o.spellfile = '~/.config/nvim/en.utf-8.add'
-
 ---------------------------------------------------------------------------------------------------
 -- AUTO COMMANDS
 ---------------------------------------------------------------------------------------------------
