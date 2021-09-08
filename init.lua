@@ -123,7 +123,6 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
-    use 'rafi/awesome-vim-colorschemes'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
