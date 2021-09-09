@@ -195,4 +195,4 @@ for _, lsp in ipairs(servers) do
 end
 
 -- color scheme
-vim.cmd('colorscheme Papercolor')
+vim.cmd('colorscheme PaperColor')

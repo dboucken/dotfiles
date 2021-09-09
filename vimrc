@@ -196,4 +196,4 @@ let g:lsp_diagnostics_float_cursor = 1
 nnoremap <leader>mm :Make<cr>
 
 " colorscheme
-colorscheme Papercolor
+colorscheme PaperColor
