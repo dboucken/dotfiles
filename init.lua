@@ -122,6 +122,7 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
+    use 'fnune/base16-vim'
     use 'neovim/nvim-lspconfig'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
@@ -190,3 +191,7 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
+
+-- colorscheme
+vim.g.base16colorspace = 256
+vim.cmd('source ~/.vimrc_background')

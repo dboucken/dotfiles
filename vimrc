@@ -142,6 +142,7 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'fnune/base16-vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -191,3 +192,9 @@ let g:lsp_diagnostics_float_cursor = 1
 
 " async make mapping
 nnoremap <leader>mm :Make<cr>
+
+" set termguicolors
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
