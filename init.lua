@@ -123,15 +123,15 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
+    use 'lifepillar/vim-solarized8'
     use 'neovim/nvim-lspconfig'
+    use 'sheerun/vim-polyglot'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-    use 'NLKNguyen/papercolor-theme'
-    use 'lifepillar/vim-solarized8'
 end)
 
 ---------------------------------------------------------------------------------------------------
@@ -195,4 +195,4 @@ for _, lsp in ipairs(servers) do
 end
 
 -- color scheme
-vim.cmd('colorscheme PaperColor')
+vim.cmd('colorscheme solarized8')
