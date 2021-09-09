@@ -105,7 +105,7 @@ vim.api.nvim_set_keymap('n', '<Leader>gd', ':grep! -rw <c-r><c-w> %:p:h<cr>', { 
 vim.api.nvim_set_keymap('n', '<Leader>gw', ':grep! -rw <c-r><c-w> ', { noremap = true })
 
 -- async make
-vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make', { noremap = true })
 
 -- replace the word under the cursor with the last yanked (not deleted) text
 vim.api.nvim_set_keymap('n', '<Leader>pp', 'ciw<C-r>0<Esc>', { noremap = true })
