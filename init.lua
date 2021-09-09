@@ -2,7 +2,6 @@
 -- GENERAL SETTINGS
 ---------------------------------------------------------------------------------------------------
 vim.o.autowriteall = true             -- auto save files on certain events
-vim.o.background = 'light'            -- use a light terminal background
 vim.o.completeopt = 'longest,menuone' -- better insert mode auto completion
 vim.o.expandtab = true                -- tabs are spaces
 vim.o.ignorecase = true               -- ignore case when searching lowercase
