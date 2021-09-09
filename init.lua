@@ -16,7 +16,6 @@ vim.o.smartcase = true                -- don't ignore case when inserting upperc
 vim.o.softtabstop = 4                 -- number of spaces per tab when editing
 vim.o.swapfile = false                -- disable swap files
 vim.o.tabstop = 4                     -- number of visual spaces per tab
-vim.o.termguicolors = true            -- terminal has true color support
 vim.o.timeout = false                 -- never timeout on mappings
 vim.o.ttimeout = true                 -- timeout on key codes
 vim.o.ttimeoutlen = 200               -- timeout length on key codes
@@ -123,9 +122,7 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'lifepillar/vim-solarized8'
     use 'neovim/nvim-lspconfig'
-    use 'sheerun/vim-polyglot'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
@@ -193,6 +190,3 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
-
--- color scheme
-vim.cmd('colorscheme solarized8')
