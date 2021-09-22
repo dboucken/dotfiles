@@ -5,7 +5,7 @@ filetype plugin indent on         " enable filetype detection
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
-set background=light		  " assume a light terminal background
+set background=light              " assume a light terminal background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
