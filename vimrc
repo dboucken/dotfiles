@@ -5,6 +5,7 @@ filetype plugin indent on         " enable filetype detection
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
+set background=light		  " assume a light terminal background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
@@ -142,10 +143,8 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'fnune/base16-vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
@@ -189,12 +188,3 @@ augroup lsp_install
 augroup END
 
 let g:lsp_diagnostics_float_cursor = 1
-
-" async make mapping
-nnoremap <leader>mm :Make<cr>
-
-" set termguicolors
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif

@@ -2,6 +2,7 @@
 -- GENERAL SETTINGS
 ---------------------------------------------------------------------------------------------------
 vim.o.autowriteall = true             -- auto save files on certain events
+vim.o.background = 'light'	      -- assume light background
 vim.o.completeopt = 'longest,menuone' -- better insert mode auto completion
 vim.o.expandtab = true                -- tabs are spaces
 vim.o.ignorecase = true               -- ignore case when searching lowercase
@@ -104,9 +105,6 @@ vim.api.nvim_set_keymap('n', '<Leader>gd', ':grep! -rw <c-r><c-w> %:p:h<cr>', { 
 -- grep the word under the cursor recursively, don't return to be able to pass options and dirs
 vim.api.nvim_set_keymap('n', '<Leader>gw', ':grep! -rw <c-r><c-w> ', { noremap = true })
 
--- async make
-vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make', { noremap = true })
-
 -- replace the word under the cursor with the last yanked (not deleted) text
 vim.api.nvim_set_keymap('n', '<Leader>pp', 'ciw<C-r>0<Esc>', { noremap = true })
 
@@ -121,14 +119,12 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'fnune/base16-vim'
     use 'neovim/nvim-lspconfig'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-    use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 end)
 
 ---------------------------------------------------------------------------------------------------
@@ -190,7 +186,3 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
-
--- colorscheme
-vim.g.base16colorspace = 256
-vim.cmd('source ~/.vimrc_background')
