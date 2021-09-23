@@ -20,6 +20,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 echo "source ${PWD}/bashrc" >> $HOME/.bashrc
 
 # Install vim plugins
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c "PlugInstall" -c "qa"
 
 # Install neovim plugins
