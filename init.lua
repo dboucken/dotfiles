@@ -15,7 +15,6 @@ vim.o.smartcase = true                -- don't ignore case when inserting upperc
 vim.o.softtabstop = 4                 -- number of spaces per tab when editing
 vim.o.swapfile = false                -- disable swap files
 vim.o.tabstop = 4                     -- number of visual spaces per tab
-vim.o.termguicolors = true            -- use true colors
 vim.o.timeout = false                 -- never timeout on mappings
 vim.o.ttimeout = true                 -- timeout on key codes
 vim.o.ttimeoutlen = 200               -- timeout length on key codes
@@ -106,7 +105,7 @@ vim.api.nvim_set_keymap('n', '<Leader>gd', ':grep! -rw <c-r><c-w> %:p:h<cr>', { 
 vim.api.nvim_set_keymap('n', '<Leader>gw', ':grep! -rw <c-r><c-w> ', { noremap = true })
 
 -- async make
-vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make ', { noremap = true })
 
 -- replace the word under the cursor with the last yanked (not deleted) text
 vim.api.nvim_set_keymap('n', '<Leader>pp', 'ciw<C-r>0<Esc>', { noremap = true })
@@ -122,8 +121,9 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'RRethy/nvim-base16'
+    use 'NLKNguyen/papercolor-theme'
     use 'neovim/nvim-lspconfig'
+    use 'sheerun/vim-polyglot'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
@@ -136,15 +136,7 @@ end)
 -- PLUGIN SETTINGS
 ---------------------------------------------------------------------------------------------------
 -- gitsigns
-require('gitsigns').setup {
-    signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    },
-}
+require('gitsigns').setup()
 
 -- lsp
 local nvim_lsp = require('lspconfig')
@@ -165,9 +157,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
@@ -175,8 +164,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 local servers = { 'ccls' }
@@ -193,4 +180,5 @@ for _, lsp in ipairs(servers) do
 end
 
 -- colorscheme
-vim.cmd('source ~/.vimrc_background')
+vim.o.background = 'light'
+vim.cmd('colorscheme PaperColor')

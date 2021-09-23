@@ -141,9 +141,10 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
-Plug 'fnune/base16-vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -191,8 +192,8 @@ augroup END
 let g:lsp_diagnostics_float_cursor = 1
 
 " async make mapping
-nnoremap <leader>mm :Make<cr>
+nnoremap <leader>mm :Make <cr>
 
-set termguicolors
-let base16colorspace=256
-source ~/.vimrc_background
+" colorscheme
+set background=light
+colorscheme PaperColor
