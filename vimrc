@@ -193,8 +193,6 @@ let g:lsp_diagnostics_float_cursor = 1
 " async make mapping
 nnoremap <leader>mm :Make<cr>
 
-" set termguicolors
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+set termguicolors
+let base16colorspace=256
+source ~/.vimrc_background

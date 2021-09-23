@@ -15,6 +15,7 @@ vim.o.smartcase = true                -- don't ignore case when inserting upperc
 vim.o.softtabstop = 4                 -- number of spaces per tab when editing
 vim.o.swapfile = false                -- disable swap files
 vim.o.tabstop = 4                     -- number of visual spaces per tab
+vim.o.termguicolors = true            -- use true colors
 vim.o.timeout = false                 -- never timeout on mappings
 vim.o.ttimeout = true                 -- timeout on key codes
 vim.o.ttimeoutlen = 200               -- timeout length on key codes
