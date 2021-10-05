@@ -89,6 +89,9 @@ vim.api.nvim_set_keymap('c', 'w!!', 'w !sudo tee > /dev/null %', { noremap = tru
 -- use space as leader
 vim.g.mapleader = ' '
 
+-- clear search highlight
+vim.api.nvim_set_keymap('n', '<leader>hl', ':nohlsearch<cr>', { noremap = true })
+
 -- run the macro in register q
 vim.api.nvim_set_keymap('n', '<Leader><leader>', '@q', { noremap = true })
 
@@ -173,7 +176,7 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
         init_options = {
             cache = {
-                directory = "~/.cache/ccls";
+                directory = "/tmp/cache/ccls";
             };
         }
     }
