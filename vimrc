@@ -144,6 +144,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -155,15 +156,40 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
-" register ccls C++ lanuage server.
+" register language servers
 if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': {'cache': {'directory': expand('/tmp/cache/ccls') }, 'index': {'threads': 1}},
-      \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'ccls',
+        \ 'cmd': {server_info->['ccls']},
+        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+        \ 'initialization_options': {'cache': {'directory': expand('$HOME/.cache/ccls')}, 'index': {'threads': 1}},
+        \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+        \ })
+endif
+
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'allowlist': ['go'],
+        \ })
+    autocmd BufWritePre *.go LspDocumentFormatSync
+endif
+
+if executable('rust-analyzer')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'Rust Language Server',
+        \ 'cmd': {server_info->['rust-analyzer']},
+        \ 'allowlist': ['rust'],
+        \ })
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'allowlist': ['python'],
+        \ })
 endif
 
 " configure lsp client
@@ -192,7 +218,7 @@ augroup END
 let g:lsp_diagnostics_float_cursor = 1
 
 " async make mapping
-nnoremap <leader>mm :Make
+nnoremap <leader>mm :Make 
 
 " colorscheme
 set background=light

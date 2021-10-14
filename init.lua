@@ -132,6 +132,8 @@ require('packer').startup(function()
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {'rust-lang/rust.vim', ft = {'rust'}}
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 end)
 
