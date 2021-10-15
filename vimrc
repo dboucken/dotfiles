@@ -116,10 +116,10 @@ nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-nnoremap <leader>gw :grep! -rw <c-r><c-w> 
+nnoremap <leader>gw :grep! -w <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
 
 " run the macro in register q
 nnoremap <leader><leader> @q
@@ -143,6 +143,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'sheerun/vim-polyglot'
@@ -223,3 +225,10 @@ nnoremap <leader>mm :Make
 " colorscheme
 set background=light
 colorscheme PaperColor
+
+" find files
+nnoremap <leader><tab> :Files<cr>
+
+" ripgrep
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
