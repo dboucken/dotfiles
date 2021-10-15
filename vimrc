@@ -226,8 +226,9 @@ nnoremap <leader>mm :Make
 set background=light
 colorscheme PaperColor
 
-" find files
-nnoremap <leader><tab> :Files<cr>
+" find files and marks
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fm :Marks<cr>
 
 " ripgrep
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
