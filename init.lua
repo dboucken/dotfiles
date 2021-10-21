@@ -102,10 +102,10 @@ vim.api.nvim_set_keymap('n', '<Leader>dd', ':s/\\s\\+$//e<cr>', { noremap = true
 vim.api.nvim_set_keymap('n', '<Leader>ev', ':vertical split $MYVIMRC<cr>', { noremap = true })
 
 -- grep the word under the cursor recursively in the directory of the current file
-vim.api.nvim_set_keymap('n', '<Leader>gd', ':grep! -rw <c-r><c-w> %:p:h<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gd', ':grep! -w <c-r><c-w> %:p:h<cr>', { noremap = true })
 
 -- grep the word under the cursor recursively, don't return to be able to pass options and dirs
-vim.api.nvim_set_keymap('n', '<Leader>gw', ':grep! -rw <c-r><c-w> ', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gw', ':grep! -w <c-r><c-w> ', { noremap = true })
 
 -- async make
 vim.api.nvim_set_keymap('n', '<Leader>mm', ':Make ', { noremap = true })
@@ -171,18 +171,40 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
-local servers = { 'ccls' }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        init_options = {
-            cache = {
-                directory = "/tmp/cache/ccls";
-            };
-        }
-    }
-end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+nvim_lsp.ccls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+        cache = {
+            directory = "/tmp/cache/ccls",
+            index = {
+                threads = 1,
+            },
+        },
+    },
+}
+
+nvim_lsp.gopls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {'gopls', '--remote=auto'},
+}
+
+nvim_lsp.rust_analyzer.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+nvim_lsp.pylsp.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+-- ripgrep
+vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
+vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 -- colorscheme
 vim.o.background = 'light'

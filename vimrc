@@ -5,10 +5,13 @@ filetype plugin indent on         " enable filetype detection
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
+set background=light              " assume a light terminal background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
 set completeopt=longest,menuone   " better insert mode auto completion
+set cscopequickfix=s-,c-,a-       " enable cscope results in the quickfix window
+set cscopetag                     " use cscope by default for tag jumps
 set expandtab                     " tabs are spaces
 set formatoptions+=j              " delete comment character when joining lines
 set hlsearch                      " highlight matches
@@ -40,6 +43,11 @@ syntax on                         " enable syntax highlighting
 
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
+
+" auto load cscope database
+if filereadable("cscope.out")
+    silent! cscope add cscope.out
+endif
 
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
@@ -115,11 +123,17 @@ nnoremap <leader>dd :s/\s\+$//e<cr>
 nnoremap <silent> <leader>qo :copen<cr>
 nnoremap <silent> <leader>qc :cclose<cr>
 
+" find cscope symbol under the cursor
+nnoremap <leader>gs :cscope find s <c-r><c-w><cr><cr>
+
+" find callers of the function under the cursor
+nnoremap <leader>gc :cscope find c <c-r><c-w><cr><cr>
+
 " grep the word under the cursor recursively, don't return to be able to pass options and dirs
-nnoremap <leader>gw :grep! -w <c-r><c-w> 
+nnoremap <leader>gw :grep! -rw <c-r><c-w> 
 
 " grep the word under the cursor recursively in the directory of the current file
-nnoremap <leader>gd :grep! -w <c-r><c-w> %:p:h<cr>
+nnoremap <leader>gd :grep! -rw <c-r><c-w> %:p:h<cr>
 
 " run the macro in register q
 nnoremap <leader><leader> @q
@@ -136,6 +150,10 @@ nnoremap <leader>hl :nohlsearch<cr>
 " replace the word under the cursor with the last yanked (not deleted) text
 nnoremap <leader>pp ciw<C-r>0<ESC>
 
+" preview a tag and close the preview window
+nnoremap <leader>pt :ptag <c-r><c-w><cr>
+nnoremap <leader>pc :pclose<cr>
+
 " -------------------------------------------------------------------------------------------------
 " PLUGINS
 " -------------------------------------------------------------------------------------------------
@@ -143,93 +161,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
-" -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" -------------------------------------------------------------------------------------------------
-" register language servers
-if executable('ccls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'ccls',
-        \ 'cmd': {server_info->['ccls']},
-        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-        \ 'initialization_options': {'cache': {'directory': expand('$HOME/.cache/ccls')}, 'index': {'threads': 1}},
-        \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-        \ })
-endif
-
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'allowlist': ['go'],
-        \ })
-    autocmd BufWritePre *.go LspDocumentFormatSync
-endif
-
-if executable('rust-analyzer')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'Rust Language Server',
-        \ 'cmd': {server_info->['rust-analyzer']},
-        \ 'allowlist': ['rust'],
-        \ })
-endif
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
-
-" configure lsp client
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
-endfunction
-
-augroup lsp_install
-    au!
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-let g:lsp_diagnostics_float_cursor = 1
-
-" async make mapping
-nnoremap <leader>mm :Make 
-
-" colorscheme
-set background=light
+" color scheme
 colorscheme PaperColor
-
-" find files and marks
-nnoremap <leader>ff :Files<cr>
-nnoremap <leader>fm :Marks<cr>
-
-" ripgrep
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-set grepformat=%f:%l:%c:%m,%f:%l:%m
