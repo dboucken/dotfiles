@@ -124,15 +124,15 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'NLKNguyen/papercolor-theme'
+    use 'folke/tokyonight.nvim'
     use 'neovim/nvim-lspconfig'
-    use 'sheerun/vim-polyglot'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'rust-lang/rust.vim', ft = {'rust'}}
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 end)
@@ -142,6 +142,15 @@ end)
 ---------------------------------------------------------------------------------------------------
 -- gitsigns
 require('gitsigns').setup()
+
+-- treesitter
+require('nvim-treesitter.configs').setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+}
 
 -- lsp
 local nvim_lsp = require('lspconfig')
@@ -208,4 +217,4 @@ vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 -- colorscheme
 vim.o.background = 'light'
-vim.cmd('colorscheme PaperColor')
+vim.cmd('colorscheme tokyonight')
