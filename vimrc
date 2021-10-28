@@ -5,7 +5,6 @@ filetype plugin indent on         " enable filetype detection
 set autoindent                    " auto indent when inserting a new line
 set autoread                      " reload a file when it is changed outside vim
 set autowriteall                  " auto save files on certain events
-set background=light              " assume a light terminal background
 set backspace=indent,eol,start    " allow backspacing over auto indent, line breaks, insert action
 set clipboard=exclude:.*          " don't try to connect to X server
 set complete-=i                   " don't scan include files during insert mode auto completion
@@ -159,8 +158,8 @@ nnoremap <leader>pc :pclose<cr>
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'fnune/base16-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -168,4 +167,5 @@ Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " color scheme
-colorscheme PaperColor
+let base16colorspace=256
+source ~/.vimrc_background

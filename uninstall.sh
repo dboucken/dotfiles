@@ -16,3 +16,6 @@ rm -rf ~/.local/share/nvim/site/pack/packer/
 
 # Remove created directories
 rm -rf $HOME/.vim/undo
+
+# Remove base16-shell
+rm -rf $HOME/.config/base16-shell

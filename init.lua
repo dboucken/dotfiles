@@ -124,7 +124,7 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'folke/tokyonight.nvim'
+    use 'RRethy/nvim-base16'
     use 'neovim/nvim-lspconfig'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
@@ -216,5 +216,5 @@ vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 -- colorscheme
-vim.o.background = 'light'
-vim.cmd('colorscheme tokyonight')
+vim.cmd('let base16colorspace=256')
+vim.cmd('source ~/.vimrc_background')
