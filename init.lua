@@ -124,7 +124,7 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'RRethy/nvim-base16'
+    use 'NLKNguyen/papercolor-theme'
     use 'neovim/nvim-lspconfig'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
@@ -216,5 +216,5 @@ vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
 vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 -- colorscheme
-vim.cmd('let base16colorspace=256')
-vim.cmd('source ~/.vimrc_background')
+vim.opt.background = 'light'
+vim.cmd('colorscheme PaperColor')

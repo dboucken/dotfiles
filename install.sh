@@ -23,7 +23,3 @@ vim -c "PlugInstall" -c "qa"
 rm -rf ~/.local/share/nvim/site/pack/packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-# Install base16-shell
-rm -rf $HOME/.config/base16-shell
-git clone https://github.com/fnune/base16-shell.git $HOME/.config/base16-shell
