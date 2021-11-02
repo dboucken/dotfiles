@@ -124,7 +124,7 @@ vim.api.nvim_set_keymap('n', '<Leader>w', '<c-w>', { noremap = true })
 -- PLUGINS
 ---------------------------------------------------------------------------------------------------
 require('packer').startup(function()
-    use 'NLKNguyen/papercolor-theme'
+    use 'folke/tokyonight.nvim'
     use 'neovim/nvim-lspconfig'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
@@ -217,4 +217,4 @@ vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 -- colorscheme
 vim.opt.background = 'light'
-vim.cmd('colorscheme PaperColor')
+vim.cmd('colorscheme tokyonight')
