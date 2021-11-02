@@ -158,14 +158,9 @@ nnoremap <leader>pc :pclose<cr>
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
-
-" color scheme
-set background=light
-colorscheme PaperColor
