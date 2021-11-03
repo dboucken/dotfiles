@@ -158,8 +158,8 @@ nnoremap <leader>pc :pclose<cr>
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
-Plug 'cocopon/iceberg.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -172,7 +172,7 @@ call plug#end()
 " -------------------------------------------------------------------------------------------------
 " color scheme
 set background=light
-colorscheme iceberg
+colorscheme PaperColor
 
 " register LSP servers
 if executable('pyls')
