@@ -163,8 +163,8 @@ nnoremap <leader>pc :pclose<cr>
 " -------------------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'fnune/base16-vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -176,8 +176,8 @@ call plug#end()
 " PLUGIN SETTINGS
 " -------------------------------------------------------------------------------------------------
 " color scheme
-set background=light
-colorscheme PaperColor
+let base16colorspace=256
+source ~/.vimrc_background
 
 " register LSP servers
 if executable('pyls')
