@@ -81,6 +81,9 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
+
+    " check if the color scheme is updated by the shell
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * source ~/.vimrc_background
 augroup END
 
 " -------------------------------------------------------------------------------------------------
