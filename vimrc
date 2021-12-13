@@ -29,7 +29,6 @@ set smartcase                     " don't ignore case when inserting uppercase c
 set softtabstop=4                 " number of spaces per tab when editing
 set spellfile=~/.vim/en.utf-8.add " add spelling dictionary
 set tabstop=4                     " number of visual spaces per tab
-set termguicolors                 " enable true color support
 set ttimeout                      " timeout on key codes
 set ttimeoutlen=200               " timeout length on key codes
 set ttymouse=xterm2               " enable mouse dragging
@@ -82,8 +81,9 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
 
-    " check if the color scheme is updated by the shell
-    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * source ~/.vimrc_background
+    " load the color scheme and check if the color scheme is updated by the shell
+    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * let base16colorspace=256
+    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * source ~/.vimrc_background
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -173,10 +173,3 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
-
-" -------------------------------------------------------------------------------------------------
-" PLUGIN SETTINGS
-" -------------------------------------------------------------------------------------------------
-" color scheme
-let base16colorspace=256
-source ~/.vimrc_background
