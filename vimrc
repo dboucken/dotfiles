@@ -48,10 +48,6 @@ if filereadable("cscope.out")
     silent! cscope add cscope.out
 endif
 
-" needed for true color support in tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 " -------------------------------------------------------------------------------------------------
 " AUTO COMMANDS
 " -------------------------------------------------------------------------------------------------
@@ -80,10 +76,6 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
-
-    " load the color scheme and check if the color scheme is updated by the shell
-    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * let base16colorspace=256
-    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * source ~/.vimrc_background
 augroup END
 
 " -------------------------------------------------------------------------------------------------

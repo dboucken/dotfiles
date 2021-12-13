@@ -7,9 +7,6 @@ rm -v $HOME/.inputrc
 rm -v $HOME/.tmux.conf
 rm -v $HOME/.vimrc
 
-# Remove base16-shell
- rm -rfv $HOME/.config/base16-shell/
-
 # Remove bashrc
 sed -i '/source.*bashrc/d' $HOME/.bashrc
 
