@@ -10,9 +10,8 @@ ln -sv $PWD/inputrc $HOME/.inputrc
 ln -sv $PWD/tmux.conf $HOME/.tmux.conf
 ln -sv $PWD/vimrc $HOME/.vimrc
 
-# Source bashrc and zshrc
+# Source bashrc
 echo "source ${PWD}/bashrc" >> $HOME/.bashrc
-echo "source ${PWD}/zshrc" >> $HOME/.zshrc
 
 # Install vim plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
