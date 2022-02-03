@@ -76,6 +76,10 @@ augroup custom_autocommands
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
     autocmd VimEnter            * cwindow
+
+    " load the color scheme and check if the color scheme is updated by the shell
+    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * let base16colorspace=256
+    autocmd VimEnter,FocusGained,BufEnter,CursorHold,CursorHoldI * source ~/.vimrc_background
 augroup END
 
 " -------------------------------------------------------------------------------------------------
@@ -159,6 +163,7 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'fnune/base16-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'

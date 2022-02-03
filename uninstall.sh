@@ -12,3 +12,6 @@ sed -i '/source.*bashrc/d' $HOME/.bashrc
 
 # Remove created directories
 rm -rf $HOME/.vim/undo
+
+# Remove base16-shell
+rm -rfv $HOME/.config/base16-shell/
