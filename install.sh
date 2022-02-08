@@ -11,10 +11,6 @@ ln -sv $PWD/inputrc $HOME/.inputrc
 ln -sv $PWD/tmux.conf $HOME/.tmux.conf
 ln -sv $PWD/vimrc $HOME/.vimrc
 
-# Source bashrc
-sed -i '/source.*bashrc/d' $HOME/.bashrc
-echo "source ${PWD}/bashrc" >> $HOME/.bashrc
-
 # Install VIM plugins
 pushd $HOME/.vim/pack/plugins/start
 git clone https://github.com/airblade/vim-gitgutter
