@@ -156,16 +156,3 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 " preview a tag and close the preview window
 nnoremap <leader>pt :ptag <c-r><c-w><cr>
 nnoremap <leader>pc :pclose<cr>
-
-" -------------------------------------------------------------------------------------------------
-" PLUGINS
-" -------------------------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'
-Plug 'fnune/base16-vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-
-call plug#end()
