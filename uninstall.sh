@@ -3,7 +3,6 @@
 # Uninstall dotfiles.
 
 # Unlink dotfiles
-rm -v $HOME/.inputrc
 rm -v $HOME/.tmux.conf
 rm -v $HOME/.vimrc
 

@@ -7,7 +7,6 @@ mkdir -p $HOME/.vim/undo
 mkdir -p $HOME/.vim/pack/plugins/start
 
 # Link dotfiles
-ln -sv $PWD/inputrc $HOME/.inputrc
 ln -sv $PWD/tmux.conf $HOME/.tmux.conf
 ln -sv $PWD/vimrc $HOME/.vimrc
 
