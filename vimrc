@@ -38,6 +38,7 @@ set updatetime=100                " milliseconds VIM will wait to trigger the Cu
 set visualbell                    " use visual bell instead of beeping
 set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
+set wildoptions=pum               " display command-line completion options in a pop up menu
 syntax on                         " enable syntax highlighting
 
 " open man pages in vim with :Man
