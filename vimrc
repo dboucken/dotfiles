@@ -42,6 +42,10 @@ set wildmode=longest,full         " first complete to the longest match, then to
 set wildoptions=pum               " display command-line completion options in a pop up menu
 syntax on                         " enable syntax highlighting
 
+" set colorscheme
+set background=light
+colorscheme PaperColor
+
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 

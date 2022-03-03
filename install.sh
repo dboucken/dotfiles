@@ -12,7 +12,9 @@ ln -sv $PWD/vimrc $HOME/.vimrc
 
 # Install VIM plugins
 pushd $HOME/.vim/pack/plugins/start
+git clone https://github.com/NLKNguyen/papercolor-theme.git
 git clone https://github.com/airblade/vim-gitgutter
+git clone https://github.com/dense-analysis/ale.git
 git clone https://github.com/tpope/vim-commentary
 git clone https://github.com/tpope/vim-fugitive
 git clone https://github.com/tpope/vim-unimpaired
