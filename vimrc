@@ -41,10 +41,6 @@ set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
 syntax on                         " enable syntax highlighting
 
-" set colorscheme
-set background=light
-colorscheme PaperColor
-
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
