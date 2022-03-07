@@ -41,10 +41,6 @@ set wildmenu                      " visual auto complete for command menu
 set wildmode=longest,full         " first complete to the longest match, then to the first full one
 syntax on                         " enable syntax highlighting
 
-" set colorscheme
-set background=light
-colorscheme PaperColor
-
 " open man pages in vim with :Man
 runtime ftplugin/man.vim
 
@@ -157,3 +153,15 @@ nnoremap <leader>pp ciw<C-r>0<ESC>
 " preview a tag and close the preview window
 nnoremap <leader>pt :ptag <c-r><c-w><cr>
 nnoremap <leader>pc :pclose<cr>
+
+" -------------------------------------------------------------------------------------------------
+" PLUGINS
+" -------------------------------------------------------------------------------------------------
+call plug#begin()
+
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+
+call plug#end()

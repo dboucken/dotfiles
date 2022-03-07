@@ -8,4 +8,5 @@ rm -v $HOME/.vimrc
 
 # Remove created directories
 rm -rf $HOME/.vim/undo
-rm -rf $HOME/.vim/pack/plugins
+rm -rf $HOME/.vim/plugged
+rm -rf $HOME/.vim/autoload

@@ -4,8 +4,4 @@
 git pull
 
 # Update VIM plugins
-for dir in $HOME/.vim/pack/plugins/start/*
-do
-    git -C $dir pull
-done
-vim -c "helptags ALL" -c "qa"
+vim -c "PlugClean!" -c "PlugUpgrade" -c "PlugUpdate" -c "qa"
