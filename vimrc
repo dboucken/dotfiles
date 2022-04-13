@@ -73,6 +73,13 @@ augroup custom_autocommands
     " open quickfix and git commit window always at the bottom and with the full width of the screen
     autocmd FileType qf,gitcommit wincmd J
 
+    " use tabs, the go tool and format files on save for go
+    autocmd Filetype go setlocal nolist
+    autocmd Filetype go setlocal noexpandtab
+    autocmd Filetype go setlocal makeprg=go\ build
+    autocmd BufWritePost *.go silent! execute "!gofmt -s -w <afile>" | redraw!
+    autocmd BufWritePost *.go silent! execute "!goimports -w <afile>" | redraw!
+
     " open quickfix/location list when it is populated
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost    l* lwindow
