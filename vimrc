@@ -166,6 +166,9 @@ nnoremap <leader>pc :pclose<cr>
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
 Plug 'prabirshrestha/vim-lsp'
